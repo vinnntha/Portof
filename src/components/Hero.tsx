@@ -1,192 +1,139 @@
-import { motion, useTransform } from "framer-motion";
-import { useEffect } from "react";
-import heroPortrait from "../assets/hero_portrait.png";
+"use client";
 
-export default function Hero() {
-  const name = "Averill Kevinatha";
-  const nameLetters = Array.from(name);
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import TextPressure from "./TextPressure";
 
-  // Enhanced stagger configurations for name letters
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.05, delayChildren: 0.2 },
-    },
-  };
+export function Hero() {
+  const [typedText, setTypedText] = useState("");
+  const fullSubtitle = "Code. Design. Film. Fly.";
 
-  const letterVariants = {
-    hidden: { opacity: 0, y: 40, rotateX: 90 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      transition: { 
-        type: "spring", 
-        stiffness: 200, 
-        damping: 20,
-        duration: 0.8
-      },
-    },
-  };
-
-  // Enhanced fade-in-up animations for subtext and actions
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (customDelay: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { 
-        delay: customDelay, 
-        duration: 0.8, 
-        ease: [0.25, 0.46, 0.45, 0.94] as const 
-      },
-    }),
-  };
-
-  // Blinking cursor animation
-  const blinkVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
-      transition: { 
-        opacity: { 
-          duration: 0.8, 
-          repeat: Infinity, 
-          repeatType: "reverse" 
-        } 
-      } 
-    },
-  };
-
-  // Parallax effect for background elements
+  // Typing effect
   useEffect(() => {
-    // Add parallax effect to background elements
-    const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth: width, innerHeight: height } = window;
-      const x = (e.clientX / width - 0.5) * 20;
-      const y = (e.clientY / height - 0.5) * 20;
-      
-      document.documentElement.style.setProperty('--mouse-x', `${x}px`);
-      document.documentElement.style.setProperty('--mouse-y', `${y}px`);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    let index = 0;
+    const interval = setInterval(() => {
+      setTypedText(fullSubtitle.substring(0, index));
+      index++;
+      if (index > fullSubtitle.length) {
+        clearInterval(interval);
+      }
+    }, 100);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section 
-      className="relative min-h-[100vh] flex items-center justify-center px-6 md:px-12 lg:px-24 pb-24 overflow-hidden radial-bg"
-      style={{
-        '--mouse-x': '0px',
-        '--mouse-y': '0px'
-      }}
-    >
-      <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-start gap-16 px-4">
-        
-        {/* Left Column: Heading and Tagline */}
-        <div className="flex-1 flex flex-col items-start text-left space-y-6">
-          
-          {/* Enhanced Eyebrow Label with blinking cursor */}
+    <section className="relative min-h-screen w-full flex items-center justify-center bg-[#050810] overflow-hidden px-6 md:px-12 py-24">
+
+      {/* Massive Watermark Stroke Text */}
+      <div className="absolute top-[15%] left-[5%] bg-word opacity-[0.05] pointer-events-none select-none">
+        STUDIO
+      </div>
+
+      {/* Floating Ambient Orb - Top Right */}
+      <div className="absolute top-[-10%] right-[-10%] md:top-[10%] md:right-[5%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-[radial-gradient(circle,rgba(125,211,252,0.12)_0%,transparent_70%)] blur-3xl animate-[footer-breathe_7s_ease-in-out_infinite_alternate] pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+        {/* Left Column: Text Block (Anchored Bottom-Left on Desktop) */}
+        <div className="lg:col-span-7 flex flex-col justify-end text-left h-full lg:pt-16 order-2 lg:order-1">
+          {/* Eyebrow tag */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-2 bg-brand-primary/10 border border-brand-primary/20 rounded-xl px-4 py-2 font-mono text-xs font-semibold text-brand-primary uppercase tracking-wider"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex items-center gap-2 mb-4"
           >
-            <span>UX/UI Designer & Creative Developer</span>
-            <motion.span
-              variants={blinkVariants}
-              initial="hidden"
-              animate="visible"
-              className="w-1 h-3 bg-brand-primary inline-block"
-            />
+            <span className="h-1.5 w-1.5 bg-ice-300 rounded-full animate-pulse" />
+            <span className="text-[10px] font-mono tracking-[0.2em] text-ice-300 uppercase">
+              CREATIVE DEVELOPER × VISUAL ARTIST
+            </span>
           </motion.div>
 
-          {/* Main Heading: Stagger letter animation */}
-          <motion.h1
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white font-display leading-[1.1] mb-6 select-none"
-          >
-            {nameLetters.map((char, index) => (
-              <motion.span
-                key={index}
-                variants={letterVariants}
-                className="inline-block"
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </motion.h1>
+          {/* Interactive Text Pressure Name (Split Top/Bottom) */}
+          <div className="relative w-full flex flex-col gap-0 mb-4 select-none cursor-default overflow-hidden">
+            <div className="h-[60px] md:h-[90px] lg:h-[220px] overflow-hidden flex items-center">
+              <TextPressure
+                text="AVERILL"
+                flex
+                alpha={false}
+                stroke={false}
+                width={true}
+                weight={true}
+                italic={true}
+                textColor="#F0F4FF"
+                strokeColor="#7DD3FC"
+                minFontSize={42}
+                className="font-syne font-extrabold tracking-tighter"
+              />
+            </div>
+            <div className="h-[60px] md:h-[90px] lg:h-[220px] overflow-hidden flex items-center">
+              <TextPressure
+                text="KEVIN"
+                flex
+                alpha={false}
+                stroke={false}
+                width={true}
+                weight={true}
+                italic={true}
+                textColor="#7DD3FC"
+                strokeColor="#BAE6FD"
+                minFontSize={42}
+                className="font-syne font-extrabold tracking-tighter"
+              />
+            </div>
+          </div>
 
-          {/* Subheading */}
-          <motion.p
-            variants={fadeInUpVariants}
-            initial="hidden"
-            animate="visible"
-            custom={1.1}
-            className="text-lg md:text-xl text-brand-text-secondary font-sans leading-relaxed max-w-lg mb-10"
-          >
-            I craft digital experiences that move people. Combining technical precision with cinematic creative vision.
-          </motion.p>
+          {/* Subtitle - Typwriter effect */}
+          <div className="h-8 mb-10 flex items-center">
+            <p className="text-lg md:text-xl font-mono text-ice-400 tracking-wider">
+              {typedText}
+              <span className="inline-block w-1.5 h-5 ml-1 bg-ice-300 animate-[blink_1s_infinite_step-start]" />
+            </p>
+          </div>
 
           {/* CTA Buttons */}
           <motion.div
-            variants={fadeInUpVariants}
-            initial="hidden"
-            animate="visible"
-            custom={1.3}
-            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="flex flex-wrap gap-4"
           >
             <a
-              href="#projects"
-              className="flex items-center justify-center rounded-xl bg-brand-primary px-7 py-4 font-semibold text-slate-950 transition-all duration-300 hover:scale-[1.03] glow-btn-shadow hover:bg-emerald-300"
+              href="#work"
+              className="relative inline-flex items-center justify-center px-8 py-3.5 border border-ice-300 bg-transparent text-ice-300 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:shadow-[0_0_30px_rgba(125,211,252,0.3)] hover:bg-ice-300 hover:text-[#050810] group clickable"
             >
-              Lihat Proyek
+              View Work
+              <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
             <a
               href="#contact"
-              className="flex items-center justify-center rounded-xl border border-brand-primary px-7 py-4 font-semibold text-brand-primary bg-transparent transition-all duration-300 hover:scale-[1.03] hover:bg-brand-primary/10"
+              className="relative inline-flex items-center justify-center px-8 py-3.5 border border-ice-500/20 bg-ice-950/20 text-ice-400 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:border-ice-400 hover:text-ice-200 hover:bg-ice-500/10 group clickable"
             >
-              Hubungi Saya
+              Get In Touch
             </a>
-          </motion.div>
-        </div>
-
-        {/* Right Column: Portrait Photo with Lime Green glow halo */}
-        <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" as const, delay: 0.5 }}
-            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96"
-          >
-            {/* Glow halo behind the image */}
-            <div className="absolute inset-0 rounded-full bg-brand-primary/10 filter blur-3xl scale-110 -z-10 animate-pulse" />
-            
-            {/* Portrait Frame Wrapper */}
-            <div className="w-full h-full rounded-3xl border border-brand-card-border p-2 bg-white/5 backdrop-blur-sm relative group overflow-hidden shadow-2xl">
-              {/* Inner glowing circle */}
-              <div className="absolute inset-0 rounded-3xl bg-radial from-brand-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              
-              {/* Portrait Image */}
-              <img
-                src={heroPortrait}
-                alt="Averill Kevinatha Portrait"
-                className="w-full h-full object-cover rounded-2xl grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.02]"
-              />
-            </div>
-
-            {/* Custom glowing design element */}
-            <div className="absolute -bottom-2 -right-2 w-24 h-24 border-r-2 border-b-2 border-brand-primary/40 rounded-br-2xl pointer-events-none group-hover:border-brand-primary transition-colors duration-500" />
-            <div className="absolute -top-2 -left-2 w-24 h-24 border-l-2 border-t-2 border-brand-primary/40 rounded-tl-2xl pointer-events-none group-hover:border-brand-primary transition-colors duration-500" />
           </motion.div>
         </div>
 
       </div>
+
+      {/* Scroll indicator line */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
+        <span className="text-[9px] font-mono tracking-widest text-ice-500 uppercase">Scroll</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-ice-400 to-transparent relative overflow-hidden">
+          <motion.div
+            animate={{ y: ["-100%", "100%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 left-0 w-full h-4 bg-ice-300"
+          />
+        </div>
+      </div>
+
+      {/* In-file styles for custom blink animation cursor */}
+      <style>{`
+        @keyframes blink {
+          50% { opacity: 0; }
+        }
+      `}</style>
     </section>
   );
 }

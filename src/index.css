@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #050810;
+    color: #F0F4FF;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  body {
+    background-color: #050810;
+    overflow-x: hidden;
+  }
+
+  /* Custom cursor class */
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050810;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(125, 211, 252, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(125, 211, 252, 0.3);
+}
+
+/* Custom Typography & Stroke Watermark */
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+.font-sans {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.bg-word {
+  -webkit-text-stroke: 1px rgba(125, 211, 252, 0.08);
+  color: transparent;
+  font-size: clamp(6rem, 15vw, 14rem);
+  font-weight: 900;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  font-family: 'Syne', sans-serif;
+  z-index: 0;
+}
+
+/* Glassmorphism surfaces */
+.glass-surface {
+  background: rgba(12, 18, 35, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(125, 211, 252, 0.15);
+}
+
+.glass-card {
+  background: rgba(12, 18, 35, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(125, 211, 252, 0.12);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(125, 211, 252, 0.4);
+  box-shadow: 0 0 30px rgba(125, 211, 252, 0.12),
+              inset 0 0 15px rgba(125, 211, 252, 0.04);
+}
+
+/* Pulse animation for Open to Work Badge */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(125, 211, 252, 0.2);
+    border-color: rgba(125, 211, 252, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(125, 211, 252, 0.5);
+    border-color: rgba(125, 211, 252, 0.7);
+  }
+}
+
+.pulse-badge {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+/* Hide horizontal scrollbar for clean horizontal strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
