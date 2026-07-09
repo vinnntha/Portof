@@ -115,7 +115,6 @@ export default function CustomCursor() {
             animate={{ opacity: 1, scale: 1 }}
             className="text-[8px] font-bold text-ice-200 font-mono tracking-widest uppercase"
           >
-            VIEW
           </motion.span>
         )}
       </motion.div>
