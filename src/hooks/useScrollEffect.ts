@@ -32,7 +32,7 @@ export const useFadeIn = (options: {
         const ctx = gsap.context(() => {
             gsap.fromTo(
                 options.trigger,
-                { y: 50, opacity: 0 },
+                { y: 200, opacity: 0 },
                 {
                     y: 0,
                     opacity: 1,
@@ -71,7 +71,7 @@ export const useStaggerFadeIn = (options: {
         const ctx = gsap.context(() => {
             gsap.fromTo(
                 validTargets,
-                { y: 50, opacity: 0 },
+                { y: 150, opacity: 0 },
                 {
                     y: 0,
                     opacity: 1,

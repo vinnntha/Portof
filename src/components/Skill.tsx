@@ -1,7 +1,9 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
+import LogoLoop from "./LogoLoop";
+import type { LogoItem } from "./LogoLoop";
 
 // CountUp Component for stats
 function CountUp({ end, duration = 1.5 }: { end: number; duration?: number }) {
@@ -33,34 +35,87 @@ function CountUp({ end, duration = 1.5 }: { end: number; duration?: number }) {
   return <span ref={ref}>{count}</span>;
 }
 
+/** Map of skill label → Devicon SVG URL (plain/original/wordmark variants) */
+const SKILL_ICONS: Record<string, string> = {
+  // Row 1
+  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+  "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+  "Figma": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
+  "Adobe Illustration": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg",
+  "Premiere Pro": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/premierepro/premierepro-plain.svg",
+  "After Effects": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-plain.svg",
+  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  
+  // Row 2
+  "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+  "Vite": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vite/vite-original.svg",
+  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+  "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+  "Photoshop": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg",
+  "Lightroom": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/lightroom/lightroom-original.svg",
+  "Nest.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg",
+  "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg",
+  "Xampp": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xampp/xampp-.svg",
+};
+
+/** Drone icon used as fallback for tools not in Devicon (e.g. DJI Mavic, Stable Diffusion) */
+const FallbackIcon = ({ label }: { label: string }) => (
+  <span className="inline-flex items-center justify-center w-6 h-6 rounded text-[10px] font-bold font-mono text-ice-300/60 border border-ice-300/20 select-none leading-none">
+    {label.slice(0, 2).toUpperCase()}
+  </span>
+);
+
+const makeLogos = (labels: string[]): LogoItem[] =>
+  labels.map(label => {
+    const iconUrl = SKILL_ICONS[label];
+    return {
+      node: (
+        <span className="flex items-center px-1">
+          {iconUrl ? (
+            <img
+              src={iconUrl}
+              alt={label}
+              width={22}
+              height={22}
+              className="w-[88px] h-[88px] object-contain ice-300/75 opacity-80 transition-opacity"
+              draggable={false}
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <FallbackIcon label={label} />
+          )}
+        </span>
+      ),
+      title: label,
+    };
+  });
+
 export function Skill() {
-  const skills = [
-    "React",
-    "Next.js",
-    "Figma",
-    "Adobe XD",
-    "Premiere Pro",
-    "After Effects",
-    "DJI Mavic",
-    "Blender",
-    "Tailwind CSS",
-    "GSAP",
-  ];
+  const skillsRow1: LogoItem[] = makeLogos([
+    "React", "Next.js", "Figma", "Adobe Illustration", "Premiere Pro",
+    "After Effects", "Tailwind CSS",
+  ]);
+
+  const skillsRow2: LogoItem[] = makeLogos([
+    "TypeScript", "Vite", "Node.js", "Python", "Photoshop", "Lightroom", "Nest.js", "Git", "Xampp",
+  ]);
 
   return (
     <section
       id="about"
-      className="relative py-28 bg-[#050810] overflow-hidden px-6 md:px-12"
+      className="relative py-28 bg-[#050810] overflow-hidden"
     >
       {/* Massive Watermark Stroke Text */}
       <div className="absolute top-[10%] right-[5%] bg-word opacity-[0.06] pointer-events-none select-none">
         ABOUT
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      {/* Main grid — constrained to max-w-7xl */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Column (55% width) - Text & Skill Pills */}
+
+          {/* Left Column (55% width) - Text */}
           <div className="lg:col-span-7 space-y-10">
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -70,42 +125,21 @@ export function Skill() {
                 </span>
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 tracking-tight leading-tight">
-                A creative at the intersection of logic & visual emotion.
+                A creative at the intersection of logic &amp; visual emotion.
               </h2>
             </div>
 
             <p className="text-ice-300 font-sans text-base md:text-lg leading-relaxed max-w-xl">
-              I'm a multi-disciplinary creator at the intersection of technology
-              and visual art. Whether I'm writing clean code, crafting UI systems,
+              I&#39;m a multi-disciplinary creator at the intersection of technology
+              and visual art. Whether I&#39;m writing clean code, crafting UI systems,
               shooting cinematic video, or capturing aerial perspectives — every
               project starts with the same question: what story are we telling?
             </p>
-
-            {/* Skills Container */}
-            <div className="space-y-4">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-ice-400">
-                Core Technologies & Tools
-              </h3>
-              <div className="flex flex-wrap gap-2.5">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05, duration: 0.5 }}
-                    className="glass-card px-4 py-2 text-xs font-mono text-ice-300 border border-ice-300/10 rounded-full hover:border-ice-300/30 hover:text-ice-100 transition-all duration-300 shadow-sm"
-                  >
-                    {skill}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right Column (45% width) - Bento Stats & Animated Blob */}
           <div className="lg:col-span-5 relative flex flex-col items-center">
-            
+
             {/* Morphing Blob background layer */}
             <div className="absolute -z-10 w-72 h-72 md:w-80 md:h-80 morphing-blob pointer-events-none opacity-80" />
 
@@ -169,7 +203,45 @@ export function Skill() {
               </div>
             </div>
           </div>
+
         </div>
+      </div>
+
+      {/* Full-bleed LogoLoop marquee rows — span full section width */}
+      <div className="relative w-full mt-12 space-y-3">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-ice-300/10 to-transparent mb-6" />
+
+        {/* Row 1 — scrolls left */}
+        <LogoLoop
+          logos={skillsRow1}
+          speed={60}
+          direction="left"
+          width="100%"
+          logoHeight={28}
+          gap={24}
+          hoverSpeed={15}
+          fadeOut
+          fadeOutColor="#050810"
+          ariaLabel="Primary skills"
+          className="py-2"
+        />
+
+        {/* Row 2 — scrolls right */}
+        <LogoLoop
+          logos={skillsRow2}
+          speed={50}
+          direction="right"
+          width="100%"
+          logoHeight={28}
+          gap={24}
+          hoverSpeed={12}
+          fadeOut
+          fadeOutColor="#050810"
+          ariaLabel="Secondary skills"
+          className="py-2"
+        />
+
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-ice-300/10 to-transparent mt-6" />
       </div>
 
       {/* Morphing Blob Styling */}

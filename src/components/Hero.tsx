@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import TextPressure from "./TextPressure";
+import SplitText from "./SplitText";
+import ProfileCard from "./ProfileCard";
 
 export function Hero() {
   const [typedText, setTypedText] = useState("");
@@ -49,38 +50,30 @@ export function Hero() {
             </span>
           </motion.div>
 
-          {/* Interactive Text Pressure Name (Split Top/Bottom) */}
-          <div className="relative w-full flex flex-col gap-0 mb-4 select-none cursor-default overflow-hidden">
-            <div className="h-[60px] md:h-[90px] lg:h-[220px] overflow-hidden flex items-center">
-              <TextPressure
-                text="AVERILL"
-                flex
-                alpha={false}
-                stroke={false}
-                width={true}
-                weight={true}
-                italic={true}
-                textColor="#F0F4FF"
-                strokeColor="#7DD3FC"
-                minFontSize={42}
-                className="font-syne font-extrabold tracking-tighter"
-              />
-            </div>
-            <div className="h-[60px] md:h-[90px] lg:h-[220px] overflow-hidden flex items-center">
-              <TextPressure
-                text="KEVIN"
-                flex
-                alpha={false}
-                stroke={false}
-                width={true}
-                weight={true}
-                italic={true}
-                textColor="#7DD3FC"
-                strokeColor="#BAE6FD"
-                minFontSize={42}
-                className="font-syne font-extrabold tracking-tighter"
-              />
-            </div>
+          {/* Split Text Name */}
+          <div className="relative w-full flex flex-col mb-4 select-none cursor-default">
+            <SplitText
+              text="AVERILL"
+              className="text-6xl md:text-8xl lg:text-[10rem] font-syne font-bold tracking-tighter text-[#F0F4FF] leading-none"
+              delay={50}
+              duration={0.8}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              textAlign="left"
+            />
+            <SplitText
+              text="KEVIN"
+              className="text-6xl md:text-8xl lg:text-[10rem] font-syne font-bold tracking-tighter text-[#7DD3FC] leading-none"
+              delay={50}
+              duration={0.8}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              textAlign="left"
+            />
           </div>
 
           {/* Subtitle - Typwriter effect */}
@@ -113,6 +106,31 @@ export function Hero() {
             </a>
           </motion.div>
         </div>
+
+        {/* Right Column: ProfileCard */}
+        <motion.div
+          className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 1, ease: 'easeOut' }}
+        >
+          <ProfileCard
+            name="Averill Kevin"
+            title="Creative Developer"
+            handle="averillkevin"
+            status="Available for hire"
+            contactText="Contact Me"
+            showUserInfo={true}
+            enableTilt={true}
+            enableMobileTilt={false}
+            behindGlowEnabled
+            behindGlowColor="rgba(125, 190, 255, 0.55)"
+            innerGradient="linear-gradient(145deg,#0d1b3e 0%,#1a2c5e 40%,#7DD3FC22 100%)"
+            onContactClick={() => {
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          />
+        </motion.div>
 
       </div>
 
