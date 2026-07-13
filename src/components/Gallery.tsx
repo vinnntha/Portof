@@ -11,6 +11,7 @@ interface ProjectItem {
   image: string;
   gridClass: string;
   tags: string[];
+  description: string;
 }
 
 const projectsData: ProjectItem[] = [
@@ -22,6 +23,7 @@ const projectsData: ProjectItem[] = [
     image: "src/assets/coding_project.png",
     gridClass: "md:col-span-2 md:row-span-2",
     tags: ["React", "D3.js", "Tailwind"],
+    description: "Alat visualisasi data interaktif yang memetakan arsitektur jaringan saraf kompleks secara real-time.",
   },
   {
     id: 2,
@@ -31,6 +33,7 @@ const projectsData: ProjectItem[] = [
     image: "src/assets/design_project.png",
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["Figma", "Branding"],
+    description: "Panduan UI/UX komprehensif yang berfokus pada ruang kosong, tipografi, dan prinsip desain minimalis.",
   },
   {
     id: 3,
@@ -40,6 +43,7 @@ const projectsData: ProjectItem[] = [
     image: "src/assets/coding_project.png",
     gridClass: "md:col-span-2 md:row-span-1",
     tags: ["Next.js", "Framer Motion", "GSAP"],
+    description: "Antarmuka dasbor modern dengan animasi yang halus dan bagan responsif untuk analitik data berskala besar.",
   },
   {
     id: 4,
@@ -49,6 +53,7 @@ const projectsData: ProjectItem[] = [
     image: "src/assets/design_project.png",
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["Illustrator", "Branding"],
+    description: "Identitas merek kohesif dan sistem tipografi kustom yang dirancang untuk agensi kreatif butik.",
   },
   {
     id: 5,
@@ -58,6 +63,7 @@ const projectsData: ProjectItem[] = [
     image: "src/assets/drone_project.png",
     gridClass: "md:col-span-1 md:row-span-2",
     tags: ["DJI Mavic", "Color Grading"],
+    description: "Sinematografi udara yang menjelajahi lanskap dramatis dan tekstur alam yang memukau dari ketinggian.",
   },
   {
     id: 6,
@@ -67,6 +73,7 @@ const projectsData: ProjectItem[] = [
     image: "src/assets/video_project.png",
     gridClass: "md:col-span-3 md:row-span-1",
     tags: ["Premiere", "After Effects", "Film"],
+    description: "Kompilasi energi tinggi yang menampilkan pengeditan dinamis, grafis gerak, dan efek visual kelas atas.",
   },
 ];
 
@@ -188,6 +195,15 @@ export function Gallery() {
                     {/* Tags row */}
                     <div className="flex gap-2 text-[10px] text-ice-400 font-mono">
                       {project.tags.join(" · ")}
+                    </div>
+                    
+                    {/* Description Reveal on Hover */}
+                    <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                      <p className="overflow-hidden text-xs text-ice-200/80 font-sans leading-relaxed">
+                        <span className="block pt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                          {project.description}
+                        </span>
+                      </p>
                     </div>
                   </div>
                 </div>
