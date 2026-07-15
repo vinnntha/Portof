@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import BlurText from "./BlurText";
 
 export function MyProjects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,9 +38,13 @@ export function MyProjects() {
                   Development
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-tight">
-                Where Logic Meets Creativity.
-              </h2>
+              <BlurText
+                text="Where Logic Meets Creativity."
+                delay={50}
+                animateBy="words"
+                direction="top"
+                className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-tight"
+              />
             </div>
             
             <p className="text-ice-300 font-sans text-base max-w-md">
@@ -168,9 +173,13 @@ export function MyProjects() {
                   UI/UX Design
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-tight">
-                Visual Stories Told in Pixels.
-              </h2>
+              <BlurText
+                text="Visual Stories Told in Pixels."
+                delay={50}
+                animateBy="words"
+                direction="top"
+                className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-tight"
+              />
             </div>
             
             <p className="text-ice-300 font-sans text-base max-w-md">
@@ -224,9 +233,13 @@ export function MyProjects() {
               </span>
               <span className="h-1 w-6 bg-ice-300 rounded-full" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-none">
-              Capturing the World.
-            </h2>
+            <BlurText
+              text="Capturing the World."
+              delay={50}
+              animateBy="words"
+              direction="top"
+              className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-none"
+            />
             <p className="text-ice-300 font-sans text-sm max-w-md mx-auto">
               Creating breathtaking visual narratives from ground level to high-altitude drone trajectories. Engineered with cinematic timing and immersive grading.
             </p>

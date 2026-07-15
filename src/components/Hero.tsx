@@ -33,10 +33,10 @@ export function Hero() {
       {/* Floating Ambient Orb - Top Right */}
       <div className="absolute top-[-10%] right-[-10%] md:top-[10%] md:right-[5%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-[radial-gradient(circle,rgba(125,211,252,0.12)_0%,transparent_70%)] blur-3xl animate-[footer-breathe_7s_ease-in-out_infinite_alternate] pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-10 lg:pt-0">
 
         {/* Left Column: Text Block (Anchored Bottom-Left on Desktop) */}
-        <div className="lg:col-span-7 flex flex-col justify-end text-left h-full lg:pt-16 order-2 lg:order-1">
+        <div className="lg:col-span-7 flex flex-col justify-center lg:justify-end text-left h-full lg:pt-16">
           {/* Eyebrow tag */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -109,7 +109,7 @@ export function Hero() {
 
         {/* Right Column: ProfileCard */}
         <motion.div
-          className="lg:col-span-5 flex items-center justify-center order-1 lg:order-2"
+          className="lg:col-span-5 flex items-center justify-center mt-4 lg:mt-0"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 1, ease: 'easeOut' }}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import BlurText from "./BlurText";
 
 interface ProjectItem {
   id: number;
@@ -114,8 +115,15 @@ export function Gallery() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 tracking-tight leading-none">
-              Creative Studio.
+              <BlurText
+                text="Creative Studio."
+                delay={50}
+                animateBy="words"
+                direction="top"
+                className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 tracking-tight leading-tight"
+              />
             </h2>
+            
           </div>
 
           {/* Morphing Filter Tabs */}

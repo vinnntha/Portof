@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
 import LogoLoop from "./LogoLoop";
 import type { LogoItem } from "./LogoLoop";
+import BlurText from "./BlurText";
 
 // CountUp Component for stats
 function CountUp({ end, duration = 1.5 }: { end: number; duration?: number }) {
@@ -124,9 +125,13 @@ export function Skill() {
                   Introduction
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 tracking-tight leading-tight">
-                A creative at the intersection of logic &amp; visual emotion.
-              </h2>
+              <BlurText
+                text="A creative at the intersection of logic & visual emotion."
+                delay={50}
+                animateBy="words"
+                direction="top"
+                className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 tracking-tight leading-tight"
+              />
             </div>
 
             <p className="text-ice-300 font-sans text-base md:text-lg leading-relaxed max-w-xl">
@@ -152,7 +157,7 @@ export function Skill() {
                 </span>
                 <div>
                   <span className="text-4xl md:text-5xl font-extrabold font-syne text-ice-200">
-                    <CountUp end={4} />
+                    <CountUp end={2} />
                   </span>
                   <span className="text-xl font-bold text-ice-300">+ yrs</span>
                 </div>
@@ -165,13 +170,13 @@ export function Skill() {
                 </span>
                 <div>
                   <span className="text-4xl md:text-5xl font-extrabold font-syne text-ice-200">
-                    <CountUp end={40} />
+                    <CountUp end={20} />
                   </span>
                   <span className="text-xl font-bold text-ice-300">+</span>
                 </div>
               </div>
 
-              {/* Stat 3 */}
+              {/* Stat 3 
               <div className="glass-card p-6 rounded-2xl flex flex-col justify-between h-36">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-ice-500">
                   Clients
@@ -182,9 +187,9 @@ export function Skill() {
                   </span>
                   <span className="text-xl font-bold text-ice-300">+</span>
                 </div>
-              </div>
+              </div> */}
 
-              {/* Stat 4 */}
+              {/* Stat 4 
               <div className="glass-card p-6 rounded-2xl flex flex-col justify-between h-36">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-ice-500">
                   Status
@@ -200,7 +205,7 @@ export function Skill() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
