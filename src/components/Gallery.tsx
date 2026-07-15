@@ -18,7 +18,7 @@ interface ProjectItem {
 const projectsData: ProjectItem[] = [
   {
     id: 1,
-    title: "Neural Network Visualizer",
+    title: "PDAM",
     category: "coding",
     categoryLabel: "Coding",
     image: "src/assets/coding_project.png",
@@ -34,11 +34,11 @@ const projectsData: ProjectItem[] = [
     image: "src/assets/design_project.png",
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["Figma", "Branding"],
-    description: "Panduan UI/UX komprehensif yang berfokus pada ruang kosong, tipografi, dan prinsip desain minimalis.",
+    description: "",
   },
   {
     id: 3,
-    title: "NextGen Dashboard System",
+    title: "SiMagangku",
     category: "coding",
     categoryLabel: "Coding",
     image: "src/assets/SiMagangku.png",
@@ -48,13 +48,13 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: 4,
-    title: "Branding & Typography Kit",
+    title: "KosMate",
     category: "design",
     categoryLabel: "Design",
     image: "src/assets/design_project.png",
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["Illustrator", "Branding"],
-    description: "Identitas merek kohesif dan sistem tipografi kustom yang dirancang untuk agensi kreatif butik.",
+    description: "Design UI/UX untuk aplikasi KosMate, aplikasi yang dibuat untuk anak membantu anak kos mengelola laundry, catering, dan pembayaran kos, yang disertai fitur pencatatan keuangan.",
   },
   {
     id: 5,
