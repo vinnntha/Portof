@@ -4,6 +4,17 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BlurText from "./BlurText";
 
+// Import images
+import codingProjectImg from "../assets/coding_project.png";
+import designProjectImg from "../assets/design_project.png";
+import SiMagangkuImg from "../assets/SiMagangku.png";
+import droneProjectImg from "../assets/drone_project.png";
+import certificate1Img from "../assets/certificate1.png";
+import certificate2Img from "../assets/certificate2.png";
+import certificate3Img from "../assets/certificate3.png";
+import certificate4Img from "../assets/certificate4.png";
+import drone1Img from "../assets/drone1.png";
+
 interface ProjectItem {
   id: number;
   title: string;
@@ -21,7 +32,7 @@ const projectsData: ProjectItem[] = [
     title: "PDAM",
     category: "coding",
     categoryLabel: "Coding",
-    image: "src/assets/coding_project.png",
+    image: codingProjectImg,
     gridClass: "md:col-span-2 md:row-span-3",
     tags: ["React", "D3.js", "Tailwind"],
     description: "Website dengan sistem CRUD dasar yang di implementasikan untuk sistem pembayaran air(PDAM), project ini merupakan tugas harian dari sekolah yang dibangun dengan bahasa pemrograman react dan tailwindcss.",
@@ -31,7 +42,7 @@ const projectsData: ProjectItem[] = [
     title: "Minimal Design Guide",
     category: "design",
     categoryLabel: "Design",
-    image: "src/assets/design_project.png",
+    image: designProjectImg,
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["Figma", "Branding"],
     description: "",
@@ -41,7 +52,7 @@ const projectsData: ProjectItem[] = [
     title: "SiMagangku",
     category: "coding",
     categoryLabel: "Coding",
-    image: "src/assets/SiMagangku.png",
+    image: SiMagangkuImg,
     gridClass: "md:col-span-2 md:row-span-2",
     tags: ["Next.js", "Framer Motion", "GSAP"],
     description: "Website dengan CRUD dasar dan sistem formulir bertahap yang diimplementasikan kedalam sistem mencari tempat magang untuk siswa SMK yang dikelola oleh hubin Sekolah. dan dibangun menggunakan bahasa pemrograman next.js dan tailwindcss.",
@@ -51,7 +62,7 @@ const projectsData: ProjectItem[] = [
     title: "KosMate",
     category: "design",
     categoryLabel: "Design",
-    image: "src/assets/design_project.png",
+    image: designProjectImg,
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["Illustrator", "Branding"],
     description: "Design UI/UX untuk aplikasi KosMate, aplikasi yang dibuat untuk anak membantu anak kos mengelola laundry, catering, dan pembayaran kos, yang disertai fitur pencatatan keuangan.",
@@ -61,7 +72,7 @@ const projectsData: ProjectItem[] = [
     title: "Cinematic Highlands Flyover",
     category: "video",
     categoryLabel: "Video",
-    image: "src/assets/drone_project.png",
+    image: droneProjectImg,
     gridClass: "md:col-span-1 md:row-span-2",
     tags: ["DJI Mavic", "Color Grading"],
     description: "Sinematografi udara yang menjelajahi lanskap dramatis dan tekstur alam yang memukau dari ketinggian.",
@@ -71,7 +82,7 @@ const projectsData: ProjectItem[] = [
     title: "Certificate",
     category: "certificate",
     categoryLabel: "Certificate",
-    image: "src/assets/certificate1.png",
+    image: certificate1Img,
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["python", "data analyst"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
@@ -81,7 +92,7 @@ const projectsData: ProjectItem[] = [
     title: "Certificate",
     category: "certificate",
     categoryLabel: "Certificate",
-    image: "src/assets/certificate2.png",
+    image: certificate2Img,
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["python", "data analyst"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
@@ -91,7 +102,7 @@ const projectsData: ProjectItem[] = [
     title: "Certificate",
     category: "certificate",
     categoryLabel: "Certificate",
-    image: "src/assets/certificate3.png",
+    image: certificate3Img,
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["python", "data analyst"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
@@ -101,7 +112,7 @@ const projectsData: ProjectItem[] = [
     title: "Certificate",
     category: "certificate",
     categoryLabel: "Certificate",
-    image: "src/assets/certificate4.png",
+    image: certificate4Img,
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["python", "data analyst"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
@@ -111,7 +122,7 @@ const projectsData: ProjectItem[] = [
     title: "Cinematic Highlands Flyover",
     category: "video",
     categoryLabel: "Video",
-    image: "src/assets/drone1.png",
+    image: drone1Img,
     gridClass: "md:col-span-3 md:row-span-2",
     tags: ["DJI Mavic", "Color Grading", "Cinematic"],
     description: "Shoot disekitar kantor D.O.T Indonesia Malang, untuk keperluan tugas membuat vidio geografi sekitar kantor dalam rangkaian tugas Moklet Investigation.",

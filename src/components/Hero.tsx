@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import SplitText from "./SplitText";
 import ProfileCard from "./ProfileCard";
+import heroPortraitImg from "../assets/hero_portrait.png";
 
 export function Hero() {
   const [typedText, setTypedText] = useState("");
@@ -125,6 +126,8 @@ export function Hero() {
             enableMobileTilt={false}
             behindGlowEnabled
             behindGlowColor="rgba(125, 190, 255, 0.55)"
+            avatarUrl={heroPortraitImg}
+            miniAvatarUrl={heroPortraitImg}
             innerGradient="linear-gradient(145deg,#0d1b3e 0%,#1a2c5e 40%,#7DD3FC22 100%)"
             onContactClick={() => {
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useFadeIn, useStaggerFadeIn, useParallax } from "../hooks/useScrollEffect";
+import codingProjectImg from "../assets/coding_project.png";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -23,7 +24,7 @@ const projects: Project[] = [
     id: 1,
     title: "Project Alpha",
     description: "A full-stack web application built with React and Node.js",
-    image: "src/assets/coding_project.png",
+    image: codingProjectImg,
     tags: ["React", "Node.js", "MongoDB"],
     link: "#",
     github: "#",
@@ -32,7 +33,7 @@ const projects: Project[] = [
     id: 2,
     title: "Project Beta",
     description: "A mobile app for task management with real-time sync",
-    image: "src/assets/coding_project.png",
+    image: codingProjectImg,
     tags: ["React Native", "Firebase", "Expo"],
     link: "#",
     github: "#",
@@ -41,7 +42,7 @@ const projects: Project[] = [
     id: 3,
     title: "Project Gamma",
     description: "A data visualization dashboard for analytics",
-    image: "src/assets/coding_project.png",
+    image: codingProjectImg,
     tags: ["D3.js", "Python", "PostgreSQL"],
     link: "#",
     github: "#",

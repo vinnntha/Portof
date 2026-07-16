@@ -3,6 +3,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import BlurText from "./BlurText";
+import codingProjectImg from "../assets/coding_project.png";
+import designProjectImg from "../assets/design_project.png";
+import droneProjectImg from "../assets/drone_project.png";
+import videoProjectImg from "../assets/video_project.png";
 
 export function MyProjects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -87,7 +91,7 @@ export function MyProjects() {
               <div className="relative z-10 w-[90%] aspect-[16/10] bg-black border-[6px] border-[#101625] rounded-2xl overflow-hidden shadow-2xl shadow-ice-300/5 hover:shadow-ice-300/10 transition-shadow duration-500">
                 <div className="w-full h-full bg-[#050a14] relative">
                   <img
-                    src="src/assets/coding_project.png"
+                    src={codingProjectImg}
                     alt="Laptop screen"
                     className="w-full h-full object-cover opacity-80"
                   />
@@ -154,7 +158,7 @@ export function MyProjects() {
                 {/* Dynamic Screen contents - looping preview */}
                 <div className="w-full h-full bg-[#050a14] relative">
                   <img
-                    src="src/assets/design_project.png"
+                    src={designProjectImg}
                     alt="Phone design mockup"
                     className="w-full h-full object-cover opacity-85"
                   />
@@ -253,7 +257,7 @@ export function MyProjects() {
             {/* Interactive screen overlay */}
             <div className="w-full h-full bg-[#03060c] rounded-xl overflow-hidden relative">
               <img
-                src="src/assets/drone_project.png"
+                src={droneProjectImg}
                 alt="Flight telemetry preview"
                 className="w-full h-full object-cover opacity-80"
               />
@@ -297,10 +301,10 @@ export function MyProjects() {
           <div className="w-full">
             <div className="flex gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory">
               {[
-                { title: "Alpine Flight", label: "0:45 Reel", asset: "src/assets/video_project.png" },
-                { title: "Coastal Drift", label: "1:20 Drone", asset: "src/assets/drone_project.png" },
-                { title: "Metropolis Glow", label: "0:30 Cine", asset: "src/assets/video_project.png" },
-                { title: "Mountain Peak", label: "0:50 Reel", asset: "src/assets/drone_project.png" },
+                { title: "Alpine Flight", label: "0:45 Reel", asset: videoProjectImg },
+                { title: "Coastal Drift", label: "1:20 Drone", asset: droneProjectImg },
+                { title: "Metropolis Glow", label: "0:30 Cine", asset: videoProjectImg },
+                { title: "Mountain Peak", label: "0:50 Reel", asset: droneProjectImg },
               ].map((reel, idx) => (
                 <div
                   key={idx}
