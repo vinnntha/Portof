@@ -7,7 +7,7 @@ import BlurText from "./BlurText";
 interface ProjectItem {
   id: number;
   title: string;
-  category: "coding" | "design" | "video" | "drone";
+  category: "coding" | "design" | "certificate" | "video";
   categoryLabel: string;
   image: string;
   gridClass: string;
@@ -59,8 +59,8 @@ const projectsData: ProjectItem[] = [
   {
     id: 5,
     title: "Cinematic Highlands Flyover",
-    category: "drone",
-    categoryLabel: "Drone",
+    category: "video",
+    categoryLabel: "Video",
     image: "src/assets/drone_project.png",
     gridClass: "md:col-span-1 md:row-span-2",
     tags: ["DJI Mavic", "Color Grading"],
@@ -68,13 +68,53 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: 6,
-    title: "Vanguard Studio Reel 2026",
-    category: "video",
-    categoryLabel: "Video",
-    image: "src/assets/video_project.png",
-    gridClass: "md:col-span-3 md:row-span-1",
-    tags: ["Premiere", "After Effects", "Film"],
-    description: "Kompilasi energi tinggi yang menampilkan pengeditan dinamis, grafis gerak, dan efek visual kelas atas.",
+    title: "Certificate",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: "src/assets/sertifikat.png",
+    gridClass: "md:col-span-2 md:row-span-2",
+    tags: ["CCNA", "Cisco"],
+    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
+  },
+  {
+    id: 6,
+    title: "Certificate",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: "src/assets/sertifikat.png",
+    gridClass: "md:col-span-2 md:row-span-2",
+    tags: ["CCNA", "Cisco"],
+    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
+  },
+  {
+    id: 6,
+    title: "Certificate",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: "src/assets/sertifikat.png",
+    gridClass: "md:col-span-2 md:row-span-2",
+    tags: ["CCNA", "Cisco"],
+    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
+  },
+  {
+    id: 6,
+    title: "Certificate",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: "src/assets/sertifikat.png",
+    gridClass: "md:col-span-2 md:row-span-2",
+    tags: ["CCNA", "Cisco"],
+    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
+  },
+  {
+    id: 6,
+    title: "Certificate",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: "src/assets/sertifikat.png",
+    gridClass: "md:col-span-2 md:row-span-2",
+    tags: ["CCNA", "Cisco"],
+    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
   },
 ];
 
@@ -85,7 +125,7 @@ export function Gallery() {
     { label: "All", id: "all" },
     { label: "Coding", id: "coding" },
     { label: "Design", id: "design" },
-    { label: "Video", id: "video" },
+    { label: "Certificate", id: "certificate" },
     { label: "Drone", id: "drone" },
   ];
 
