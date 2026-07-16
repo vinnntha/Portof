@@ -116,7 +116,7 @@ export function Gallery() {
     { label: "Coding", id: "coding" },
     { label: "Design", id: "design" },
     { label: "Certificate", id: "certificate" },
-    { label: "Vidio", id: "vidio" },
+    { label: "Video", id: "video" },
   ];
 
   const filteredProjects = projectsData.filter(
