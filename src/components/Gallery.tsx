@@ -71,9 +71,9 @@ const projectsData: ProjectItem[] = [
     title: "Certificate",
     category: "certificate",
     categoryLabel: "Certificate",
-    image: "src/assets/sertifikat.png",
+    image: "src/assets/certificate1.png",
     gridClass: "md:col-span-2 md:row-span-2",
-    tags: ["CCNA", "Cisco"],
+    tags: ["python", "data analyst"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
   },
   {
@@ -81,9 +81,9 @@ const projectsData: ProjectItem[] = [
     title: "Certificate",
     category: "certificate",
     categoryLabel: "Certificate",
-    image: "src/assets/sertifikat.png",
+    image: "src/assets/certificate2.png",
     gridClass: "md:col-span-2 md:row-span-2",
-    tags: ["CCNA", "Cisco"],
+    tags: ["python", "data analyst"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
   },
   {
@@ -91,9 +91,9 @@ const projectsData: ProjectItem[] = [
     title: "Certificate",
     category: "certificate",
     categoryLabel: "Certificate",
-    image: "src/assets/sertifikat.png",
+    image: "src/assets/certificate3.png",
     gridClass: "md:col-span-2 md:row-span-2",
-    tags: ["CCNA", "Cisco"],
+    tags: ["python", "data analyst"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
   },
   {
@@ -101,19 +101,9 @@ const projectsData: ProjectItem[] = [
     title: "Certificate",
     category: "certificate",
     categoryLabel: "Certificate",
-    image: "src/assets/sertifikat.png",
+    image: "src/assets/certificate4.png",
     gridClass: "md:col-span-2 md:row-span-2",
-    tags: ["CCNA", "Cisco"],
-    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
-  },
-  {
-    id: 6,
-    title: "Certificate",
-    category: "certificate",
-    categoryLabel: "Certificate",
-    image: "src/assets/sertifikat.png",
-    gridClass: "md:col-span-2 md:row-span-2",
-    tags: ["CCNA", "Cisco"],
+    tags: ["python", "data analyst"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian CCNA yang diselenggarakan oleh Cisco.",
   },
 ];
@@ -126,7 +116,7 @@ export function Gallery() {
     { label: "Coding", id: "coding" },
     { label: "Design", id: "design" },
     { label: "Certificate", id: "certificate" },
-    { label: "Drone", id: "drone" },
+    { label: "Vidio", id: "vidio" },
   ];
 
   const filteredProjects = projectsData.filter(
