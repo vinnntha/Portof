@@ -114,7 +114,7 @@ const projectsData: ProjectItem[] = [
     image: "src/assets/drone1.png",
     gridClass: "md:col-span-3 md:row-span-2",
     tags: ["DJI Mavic", "Color Grading", "Cinematic"],
-    description: "Sinematografi udara yang menjelajahi lanskap dramatis dan tekstur alam yang memukau dari ketinggian.",
+    description: "Shoot disekitar kantor D.O.T Indonesia Malang, untuk keperluan tugas membuat vidio geografi sekitar kantor dalam rangkaian tugas Moklet Investigation.",
   },
 ];
 
