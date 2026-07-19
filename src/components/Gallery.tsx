@@ -69,7 +69,7 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: 5,
-    title: "Cinematic Highlands Flyover",
+    title: "Cinematic SMK Telkom Malang",
     category: "video",
     categoryLabel: "Video",
     image: droneProjectImg,
