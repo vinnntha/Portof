@@ -170,7 +170,7 @@ export function Skill() {
                 </span>
                 <div>
                   <span className="text-4xl md:text-5xl font-extrabold font-syne text-ice-200">
-                    <CountUp end={20} />
+                    <CountUp end={10} />
                   </span>
                   <span className="text-xl font-bold text-ice-300">+</span>
                 </div>
