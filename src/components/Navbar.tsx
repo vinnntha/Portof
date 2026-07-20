@@ -69,7 +69,7 @@ export function Navbar() {
             <div className="h-3.5 w-3.5 bg-ice-300 rounded-sm" />
           </div>
           <span className="text-xl font-extrabold font-syne tracking-widest text-ice-200">
-            AK
+            Kevin
           </span>
         </a>
 

@@ -12,9 +12,6 @@ import { Contact } from "./components/Contacts"
 export default function App() {
   return (
     <div className="relative min-h-screen bg-[#050810]/50 text-white overflow-x-hidden">
-      {/* Desktop Custom Cursor */}
-      <CustomCursor />
-
       {/* Floating Canvas Particles + Radial Background */}
       <ParticleBackground />
 
@@ -53,6 +50,9 @@ export default function App() {
           <Contact />
         </ScrollSection>
       </main>
+
+      {/* Desktop Custom Cursor */}
+      <CustomCursor />
     </div>
   );
 }
