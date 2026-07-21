@@ -46,7 +46,7 @@ export function Hero() {
             className="flex items-center gap-2 mb-4"
           >
             <span className="h-1.5 w-1.5 bg-ice-300 rounded-full animate-pulse" />
-            <span className="text-[10px] font-mono tracking-[0.2em] text-ice-300 uppercase">
+            <span className="text-[8px] font-mono tracking-[0.2em] text-ice-300 uppercase">
               CREATIVE DEVELOPER × VISUAL ARTIST
             </span>
           </motion.div>
@@ -55,7 +55,7 @@ export function Hero() {
           <div className="relative w-full flex flex-col mb-4 select-none cursor-default">
             <SplitText
               text="AVERILL"
-              className="text-6xl md:text-8xl lg:text-[10rem] font-syne font-bold tracking-tighter text-[#F0F4FF] leading-none"
+              className="text-6xl md:text-8xl lg:text-[8rem] font-syne font-bold tracking-tighter text-[#F0F4FF] leading-none"
               delay={50}
               duration={0.8}
               ease="power3.out"
@@ -66,7 +66,7 @@ export function Hero() {
             />
             <SplitText
               text="KEVIN"
-              className="text-6xl md:text-8xl lg:text-[10rem] font-syne font-bold tracking-tighter text-[#7DD3FC] leading-none"
+              className="text-6xl md:text-8xl lg:text-[8rem] font-syne font-bold tracking-tighter text-[#7DD3FC] leading-none"
               delay={50}
               duration={0.8}
               ease="power3.out"
