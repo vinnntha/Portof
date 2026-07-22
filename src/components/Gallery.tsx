@@ -14,6 +14,9 @@ import certificate2Img from "../assets/certificate2.png";
 import certificate3Img from "../assets/certificate3.png";
 import certificate4Img from "../assets/certificate4.png";
 import drone1Img from "../assets/drone1.png";
+import drone2Img from "../assets/drone2.png";
+import drone3Img from "../assets/drone3.png";
+import design1Img from "../assets/design1.png";
 
 interface ProjectItem {
   id: number;
@@ -126,6 +129,36 @@ const projectsData: ProjectItem[] = [
     gridClass: "md:col-span-3 md:row-span-2",
     tags: ["DJI Mavic", "Color Grading", "Cinematic"],
     description: "Shoot disekitar kantor D.O.T Indonesia Malang, untuk keperluan tugas membuat vidio geografi sekitar kantor dalam rangkaian tugas Moklet Investigation.",
+  },
+  {
+    id: 11,
+    title: "GearUp",
+    category: "video",
+    categoryLabel: "Video",
+    image: drone2Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["DJI Mavic", "Color Grading", "Cinematic"],
+    description: "Gear untuk dokumentasi kegiatan MokletInvestigation di D.O.T Indonesia Malang",
+  },
+  {
+    id: 12,
+    title: "GearUp",
+    category: "video",
+    categoryLabel: "Video",
+    image: drone3Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["DJI Mavic", "Color Grading", "Cinematic"],
+    description: "Gear untuk dokumentasi trailer drama pada event Bulan Bahasa tahun 2025 yang diadakan SMK Telkom Malang",
+  },
+  {
+    id: 13,
+    title: "Design Poster",
+    category: "design",
+    categoryLabel: "Design",
+    image: design1Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["Figma", "Color Grading", "Iphone"],
+    description: "Design Poster untuk lomba drama pada event Bulan Bahasa tahun 2025 yang diadakan oleh SMK Telkom Malang",
   },
 ];
 
