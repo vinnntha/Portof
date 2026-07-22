@@ -17,6 +17,7 @@ import drone1Img from "../assets/drone1.png";
 import drone2Img from "../assets/drone2.png";
 import drone3Img from "../assets/drone3.png";
 import design1Img from "../assets/design1.png";
+import coding1Img from "../assets/coding1.png";
 
 interface ProjectItem {
   id: number;
@@ -156,9 +157,19 @@ const projectsData: ProjectItem[] = [
     category: "design",
     categoryLabel: "Design",
     image: design1Img,
-    gridClass: "md:col-span-1 md:row-span-1",
+    gridClass: "md:col-span-1 md:row-span-2",
     tags: ["Figma", "Color Grading", "Iphone"],
     description: "Design Poster untuk lomba drama pada event Bulan Bahasa tahun 2025 yang diadakan oleh SMK Telkom Malang",
+  },
+  {
+    id: 14,
+    title: "UKL BackEnd",
+    category: "coding",
+    categoryLabel: "Coding",
+    image: coding1Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["VSCode", "PostMan", "Nest.js", "PostgreSQL"],
+    description: "Implementasi BackEnd untuk website kuliah dengan sistem CRUD dasar, mengunakan nest.js dan postgresql",
   },
 ];
 
