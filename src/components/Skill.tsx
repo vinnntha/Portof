@@ -98,7 +98,7 @@ export function Skill() {
   ]);
 
   const skillsRow2: LogoItem[] = makeLogos([
-    "TypeScript", "Vite", "Node.js", "Python", "Photoshop", "Lightroom", "Nest.js", "Git", "Xampp",
+    "TypeScript", "Vite", "Node.js", "Python", "Photoshop", "MySQL", "Nest.js", "Git",
   ]);
 
   return (
