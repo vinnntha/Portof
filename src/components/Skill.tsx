@@ -53,10 +53,9 @@ const SKILL_ICONS: Record<string, string> = {
   "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
   "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
   "Photoshop": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg",
-  "Lightroom": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/lightroom/lightroom-original.svg",
   "Nest.js": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg",
   "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg",
-  "Xampp": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xampp/xampp-.svg",
+  "MySQL" : "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg"
 };
 
 /** Drone icon used as fallback for tools not in Devicon (e.g. DJI Mavic, Stable Diffusion) */
