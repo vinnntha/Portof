@@ -6,7 +6,7 @@ import BlurText from "./BlurText";
 import codingProjectImg from "../assets/coding_project.png";
 import designProjectImg from "../assets/design_project.png";
 import droneProjectImg from "../assets/drone_project.png";
-import videoProjectImg from "../assets/video_project.png";
+import videoProjectImg from "../assets/drone3.png";
 import droneMockupImg from "../assets/drone_mockup.png";
 
 export function MyProjects() {
