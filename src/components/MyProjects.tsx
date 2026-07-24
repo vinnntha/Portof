@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import BlurText from "./BlurText";
 import codingProjectImg from "../assets/coding_project.png";
 import designProjectImg from "../assets/design_project.png";
 import droneProjectImg from "../assets/drone_project.png";
 import videoProjectImg from "../assets/video_project.png";
+import droneMockupImg from "../assets/drone_mockup.png";
 
 export function MyProjects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,6 +23,29 @@ export function MyProjects() {
   const phoneY = useTransform(scrollYProgress, [0, 1], [90, -90]);
   const phoneRotate = useTransform(scrollYProgress, [0, 1], [-2, 3]);
   const droneScale = useTransform(scrollYProgress, [0.3, 0.7], [1.06, 1]);
+
+  // 3D Tilt hook logic for drone section
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const tiltXSpring = useSpring(mouseY, { stiffness: 120, damping: 20 });
+  const tiltYSpring = useSpring(mouseX, { stiffness: 120, damping: 20 });
+  const rotateX = useTransform(tiltXSpring, [-200, 200], [10, -10]);
+  const rotateY = useTransform(tiltYSpring, [-200, 200], [-10, 10]);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const xVal = event.clientX - rect.left - width / 2;
+    const yVal = event.clientY - rect.top - height / 2;
+    mouseX.set(xVal);
+    mouseY.set(yVal);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   return (
     <div ref={containerRef} id="projects" className="bg-[#050810] text-[#F0F4FF] overflow-hidden">
@@ -249,53 +273,35 @@ export function MyProjects() {
             </p>
           </div>
 
-          {/* Centered Device Hand Mockup (Drone controller/hands) with zoom-out */}
-          <motion.div
-            style={{ scale: droneScale }}
-            className="relative w-full max-w-[560px] aspect-video glass-card border border-ice-300/10 rounded-2xl overflow-hidden shadow-2xl p-2 flex items-center justify-center bg-[#070b14]/90"
+          {/* Centered Device Hand Mockup (Drone in hand) with 3D tilt effect */}
+          <div 
+            className="relative w-full max-w-[560px] aspect-video"
+           
           >
-            {/* Interactive screen overlay */}
-            <div className="w-full h-full bg-[#03060c] rounded-xl overflow-hidden relative">
-              <img
-                src={droneProjectImg}
-                alt="Flight telemetry preview"
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div className="absolute top-4 left-4 font-mono text-[9px] text-[#7DD3FC]/80 tracking-widest uppercase flex items-center gap-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
-                REC 1080P
-              </div>
-              <div className="absolute bottom-4 right-4 font-mono text-[8px] text-ice-400 tracking-widest uppercase">
-                ALT: 120M · SAT: 18
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-ice-500/10 via-transparent to-transparent pointer-events-none" />
-            </div>
-
-            {/* Glowing Dual Hands Holding Controller (Line-art overlay on sides) */}
-            <svg
-              className="absolute inset-x-[-12%] bottom-[-30%] w-[124%] h-[150%] z-20 pointer-events-none opacity-45 filter drop-shadow-[0_0_12px_rgba(125,211,252,0.4)]"
-              viewBox="0 0 240 135"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            <motion.div
+              style={{ 
+                scale: droneScale,
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d"
+              }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              className="w-full h-full flex items-center justify-center relative cursor-grab active:cursor-grabbing"
             >
-              {/* Left hand holding controller */}
-              <path
-                d="M10 135 C 15 100, 25 80, 45 75 C 50 73.5, 54 77, 52 82 C 49.5 88, 43 92, 38 96 L 25 104 C 22.5 106, 23.5 110, 27 110 L 52 110 C 56 110, 58 106, 56 102 L 50 82 C 49 76, 51.5 73, 55 76 L 62 82 C 65 85, 66 92, 64 98 Z"
-                stroke="#7DD3FC"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeDasharray="3 3"
-              />
-              {/* Right hand holding controller */}
-              <path
-                d="M230 135 C 225 100, 215 80, 195 75 C 190 73.5, 186 77, 188 82 C 190.5 88, 197 92, 202 96 L 215 104 C 217.5 106, 216.5 110, 213 110 L 188 110 C 184 110, 182 106, 184 102 L 190 82 C 191 76, 188.5 73, 185 76 L 178 82 C 175 85, 174 92, 176 98 Z"
-                stroke="#7DD3FC"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeDasharray="3 3"
-              />
-            </svg>
-          </motion.div>
+
+              <div 
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                style={{ transform: "translateZ(60px) scale(1.1)" }}
+              >
+                <img 
+                  src={droneMockupImg} 
+                  alt="Drone in Hand Mockup" 
+                  className="w-[85%] h-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.75)] drop-shadow-[0_0_15px_rgba(125,211,252,0.25)]"
+                />
+              </div>
+            </motion.div>
+          </div>
 
           {/* Horizontal video reels strip */}
           <div className="w-full">
