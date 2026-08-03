@@ -18,6 +18,7 @@ import drone2Img from "../assets/drone2.png";
 import drone3Img from "../assets/drone3.png";
 import design1Img from "../assets/design1.png";
 import coding1Img from "../assets/coding1.png";
+import certificate5Img from "../assets/certificate5.png";
 
 interface ProjectItem {
   id: number;
@@ -170,6 +171,16 @@ const projectsData: ProjectItem[] = [
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["VSCode", "PostMan", "Nest.js", "PostgreSQL"],
     description: "Implementasi BackEnd untuk website kuliah dengan sistem CRUD dasar, mengunakan nest.js dan postgresql",
+  },
+  {
+    id: 15,
+    title: "Node Basic",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: certificate5Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["Node.js", "basic"],
+    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian Node Basic yang diselenggarakan oleh Dicoding",
   },
 ];
 
