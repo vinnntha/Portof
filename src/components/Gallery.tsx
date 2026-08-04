@@ -19,6 +19,7 @@ import drone3Img from "../assets/drone3.png";
 import design1Img from "../assets/design1.png";
 import coding1Img from "../assets/coding1.png";
 import certificate5Img from "../assets/certificate5.png";
+import certificate6Img from "../assets/certificate6.png";
 
 interface ProjectItem {
   id: number;
@@ -181,6 +182,16 @@ const projectsData: ProjectItem[] = [
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["Node.js", "HackerRank"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian Node Basic yang diselenggarakan oleh Dicoding",
+  },
+  {
+    id: 16,
+    title: "Certificate",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: certificate6Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["HTML", "CSS", "Dicoding"],
+    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian Dasar Pemrograman Web yang diselenggarakan oleh Dicoding",
   },
 ];
 
