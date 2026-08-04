@@ -20,6 +20,7 @@ import design1Img from "../assets/design1.png";
 import coding1Img from "../assets/coding1.png";
 import certificate5Img from "../assets/certificate5.png";
 import certificate6Img from "../assets/certificate6.png";
+import certificate7Img from "../assets/certificate7.png";
 
 interface ProjectItem {
   id: number;
@@ -193,6 +194,16 @@ const projectsData: ProjectItem[] = [
     tags: ["HTML", "CSS", "Dicoding"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian Dasar Pemrograman Web yang diselenggarakan oleh Dicoding",
   },
+  {
+    id: 17,
+    title: "Certificate",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: certificate7Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["JavaScript", "HackerRank"],
+    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian JavaScript yang diselenggarakan oleh Dicoding",
+  }
 ];
 
 export function Gallery() {
