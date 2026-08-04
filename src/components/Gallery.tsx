@@ -179,7 +179,7 @@ const projectsData: ProjectItem[] = [
     categoryLabel: "Certificate",
     image: certificate5Img,
     gridClass: "md:col-span-1 md:row-span-1",
-    tags: ["Node.js", "basic"],
+    tags: ["Node.js", "HackerRank"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian Node Basic yang diselenggarakan oleh Dicoding",
   },
 ];
