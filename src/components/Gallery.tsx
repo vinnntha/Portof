@@ -186,7 +186,7 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: 16,
-    title: "Certificate",
+    title: "Basic Web Programming",
     category: "certificate",
     categoryLabel: "Certificate",
     image: certificate6Img,
@@ -196,7 +196,7 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: 17,
-    title: "Certificate",
+    title: "JavaScript Intermediate",
     category: "certificate",
     categoryLabel: "Certificate",
     image: certificate7Img,
