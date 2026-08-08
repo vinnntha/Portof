@@ -3,11 +3,11 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import BlurText from "./BlurText";
-import codingProjectImg from "../assets/coding_project.png";
 import designProjectImg from "../assets/design_project.png";
 import droneProjectImg from "../assets/drone_project.png";
 import videoProjectImg from "../assets/drone3.png";
 import droneMockupImg from "../assets/drone_mockup.png";
+import laptopMockupImg from "../assets/laptop_mockup.png";
 
 export function MyProjects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,6 +23,29 @@ export function MyProjects() {
   const phoneY = useTransform(scrollYProgress, [0, 1], [90, -90]);
   const phoneRotate = useTransform(scrollYProgress, [0, 1], [-2, 3]);
   const droneScale = useTransform(scrollYProgress, [0.3, 0.7], [1.06, 1]);
+
+  // 3D Tilt hook logic for laptop section
+  const laptopMouseX = useMotionValue(0);
+  const laptopMouseY = useMotionValue(0);
+  const laptopTiltXSpring = useSpring(laptopMouseY, { stiffness: 120, damping: 20 });
+  const laptopTiltYSpring = useSpring(laptopMouseX, { stiffness: 120, damping: 20 });
+  const laptopRotateX = useTransform(laptopTiltXSpring, [-200, 200], [10, -10]);
+  const laptopRotateY = useTransform(laptopTiltYSpring, [-200, 200], [-10, 10]);
+
+  const handleLaptopMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const xVal = event.clientX - rect.left - width / 2;
+    const yVal = event.clientY - rect.top - height / 2;
+    laptopMouseX.set(xVal);
+    laptopMouseY.set(yVal);
+  };
+
+  const handleLaptopMouseLeave = () => {
+    laptopMouseX.set(0);
+    laptopMouseY.set(0);
+  };
 
   // 3D Tilt hook logic for drone section
   const mouseX = useMotionValue(0);
@@ -105,27 +128,33 @@ export function MyProjects() {
             </a>
           </div>
 
-          {/* Device Hand Mockup (Right Edge, Bleeding off) */}
-          <div className="lg:col-span-6 relative flex justify-end items-center h-[400px]">
+          {/* Laptop Mockup with 3D Tilt Effect */}
+          <div className="lg:col-span-6 relative flex justify-end items-center min-h-[400px]">
             <motion.div
-              style={{ y: laptopY }}
-              className="relative w-full max-w-[500px] flex items-center justify-end"
+              style={{ 
+                y: laptopY,
+                rotateX: laptopRotateX,
+                rotateY: laptopRotateY,
+                transformStyle: "preserve-3d"
+              }}
+              onMouseMove={handleLaptopMouseMove}
+              onMouseLeave={handleLaptopMouseLeave}
+              className="relative w-full max-w-[550px] flex items-center justify-end cursor-grab active:cursor-grabbing group"
             >
-              {/* Sleek CSS Bezel Laptop Frame */}
-              <div className="relative z-10 w-[90%] aspect-[16/10] bg-black border-[6px] border-[#101625] rounded-2xl overflow-hidden shadow-2xl shadow-ice-300/5 hover:shadow-ice-300/10 transition-shadow duration-500">
-                <div className="w-full h-full bg-[#050a14] relative">
-                  <img
-                    src={codingProjectImg}
-                    alt="Laptop screen"
-                    className="w-full h-full object-cover opacity-80"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-ice-500/15 via-transparent to-transparent pointer-events-none" />
-                </div>
+              <div
+                className="relative z-10 w-full flex items-center justify-center pointer-events-auto transition-transform duration-300 group-hover:scale-105"
+                style={{ transform: "translateZ(60px)" }}
+              >
+                <img
+                  src={laptopMockupImg}
+                  alt="Laptop Mockup"
+                  className="w-[95%] md:w-[100%] h-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.75)] drop-shadow-[0_0_20px_rgba(125,211,252,0.25)] transition-all duration-500 group-hover:drop-shadow-[0_0_35px_rgba(125,211,252,0.45)]"
+                />
               </div>
 
               {/* Minimalist Glowing SVG Hand Outline "Supporting" Laptop */}
               <svg
-                className="absolute right-[-10%] bottom-[-20%] w-[80%] h-[120%] z-20 pointer-events-none opacity-40 filter drop-shadow-[0_0_12px_rgba(125,211,252,0.3)]"
+                className="absolute right-[-10%] bottom-[-20%] w-[80%] h-[120%] z-0 pointer-events-none opacity-30 filter drop-shadow-[0_0_12px_rgba(125,211,252,0.3)]"
                 viewBox="0 0 200 200"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
