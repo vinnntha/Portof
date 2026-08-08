@@ -152,24 +152,6 @@ export function MyProjects() {
                 />
               </div>
 
-              {/* Minimalist Glowing SVG Hand Outline "Supporting" Laptop */}
-              <svg
-                className="absolute right-[-10%] bottom-[-20%] w-[80%] h-[120%] z-0 pointer-events-none opacity-30 filter drop-shadow-[0_0_12px_rgba(125,211,252,0.3)]"
-                viewBox="0 0 200 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Hand outline sketch */}
-                <path
-                  d="M170 180 C 160 140, 140 100, 110 80 C 100 73, 90 73, 85 80 C 80 88, 85 100, 92 105 L 110 115 C 115 118, 112 125, 107 125 L 75 125 C 65 125, 60 118, 62 110 L 68 85 C 70 75, 65 70, 58 75 L 45 85 C 38 92, 35 102, 40 115 L 60 160 C 65 170, 75 180, 85 180 Z"
-                  stroke="#7DD3FC"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeDasharray="4 4"
-                />
-                <circle cx="85" cy="80" r="3" fill="#7DD3FC" />
-                <circle cx="62" cy="110" r="3" fill="#7DD3FC" />
-              </svg>
             </motion.div>
           </div>
         </div>
