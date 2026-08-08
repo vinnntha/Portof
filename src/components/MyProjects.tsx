@@ -148,7 +148,7 @@ export function MyProjects() {
                 <img
                   src={laptopMockupImg}
                   alt="Laptop Mockup"
-                  className="w-[95%] md:w-[100%] h-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.75)] drop-shadow-[0_0_20px_rgba(125,211,252,0.25)] transition-all duration-500 group-hover:drop-shadow-[0_0_35px_rgba(125,211,252,0.45)]"
+                  className="w-[95%] md:w-[100%] h-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.75)] drop-shadow-[0_0_20px_rgba(125,211,252,0.25)] transition-all duration-500"
                 />
               </div>
 
