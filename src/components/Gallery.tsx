@@ -21,6 +21,7 @@ import coding1Img from "../assets/coding1.png";
 import certificate5Img from "../assets/certificate5.png";
 import certificate6Img from "../assets/certificate6.png";
 import certificate7Img from "../assets/certificate7.png";
+import certificate8Img from "../assets/certificates8.png";
 
 interface ProjectItem {
   id: number;
@@ -203,6 +204,16 @@ const projectsData: ProjectItem[] = [
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["JavaScript", "HackerRank"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian JavaScript yang diselenggarakan oleh Dicoding",
+  },
+  {
+    id: 18,
+    title: "Software Engineer",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: certificate8Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["JavaScript", "HackerRank"],
+    description: "Sertifikat yang didapat dari ujian Software Engineer menggunakan JavaScript yang diselenggarakan oleh Hackerrank",
   }
 ];
 
