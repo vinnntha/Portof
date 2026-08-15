@@ -116,7 +116,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-28 bg-[#050810]/95 overflow-hidden px-6 md:px-12"
+      className="relative py-12 md:py-28 bg-[#050810]/95 overflow-hidden px-4 sm:px-6 md:px-12"
     >
       {/* Background Watermark */}
       <div className="absolute bottom-[10%] left-[5%] bg-word opacity-[0.05] pointer-events-none select-none">
@@ -124,23 +124,23 @@ export function Contact() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           
           {/* Left Column: Form */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 md:mb-4">
                 <span className="h-1 w-6 bg-ice-300 rounded-full" />
                 <span className="text-[10px] font-mono tracking-[0.25em] text-ice-400 uppercase">
                   Contact Form
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-syne text-ice-100 tracking-tight leading-tight">
                 Let's build something remarkable together.
               </h2>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
               <FloatingInput
                 label="FULL NAME"
                 id="name"
@@ -173,7 +173,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="relative inline-flex items-center justify-center px-10 py-4 border border-ice-300 bg-transparent text-ice-300 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:shadow-[0_0_30px_rgba(125,211,252,0.3)] hover:bg-ice-300 hover:text-[#050810] disabled:opacity-50 clickable"
+                  className="relative inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 border border-ice-300 bg-transparent text-ice-300 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:shadow-[0_0_30px_rgba(125,211,252,0.3)] hover:bg-ice-300 hover:text-[#050810] disabled:opacity-50 clickable"
                 >
                   {isSubmitting ? "SENDING..." : "SEND MESSAGE →"}
                 </button>
@@ -192,15 +192,15 @@ export function Contact() {
           </div>
 
           {/* Right Column: Info & Socials */}
-          <div className="lg:col-span-5 space-y-10 lg:pl-12 lg:border-l border-ice-300/10 h-full flex flex-col justify-between">
-            <div className="space-y-6">
+          <div className="lg:col-span-5 space-y-8 lg:space-y-10 lg:pl-12 lg:border-l border-ice-300/10 h-full flex flex-col justify-between pt-6 lg:pt-0 border-t lg:border-t-0 border-ice-300/10">
+            <div className="space-y-5 md:space-y-6">
               <div>
                 <span className="text-[10px] font-mono tracking-widest text-ice-500 uppercase block mb-1">
                   Email
                 </span>
                 <a
                   href="mailto:averill.kevinatha28@gmail.com"
-                  className="text-lg font-mono text-ice-300 hover:text-ice-100 transition-colors clickable"
+                  className="text-base sm:text-lg font-mono text-ice-300 hover:text-ice-100 transition-colors clickable break-all sm:break-normal"
                 >
                   averill.kevinatha28@gmail.com
                 </a>

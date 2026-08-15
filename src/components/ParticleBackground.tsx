@@ -57,18 +57,26 @@ export default function ParticleBackground() {
       draw() {
         if (!ctx) return;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 10);
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
-        ctx.shadowBlur = 4;
-        ctx.shadowColor = `rgb(${this.color})`;
+        const isMobile = currentCanvas.width < 768;
+        if (!isMobile) {
+          ctx.shadowBlur = 4;
+          ctx.shadowColor = `rgb(${this.color})`;
+        }
         ctx.fill();
-        ctx.shadowBlur = 0; // Reset shadow blur
+        if (!isMobile) {
+          ctx.shadowBlur = 0; // Reset shadow blur
+        }
       }
     }
 
     const initParticles = () => {
       particles = [];
-      const count = Math.min(Math.floor((currentCanvas.width * currentCanvas.height) / 18000), 200); // Capped at 80 particles
+      const isMobile = currentCanvas.width < 768;
+      const count = isMobile
+        ? 15
+        : Math.min(Math.floor((currentCanvas.width * currentCanvas.height) / 18000), 200);
       for (let i = 0; i < count; i++) {
         particles.push(new Particle());
       }

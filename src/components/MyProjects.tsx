@@ -33,6 +33,7 @@ export function MyProjects() {
   const laptopRotateY = useTransform(laptopTiltYSpring, [-200, 200], [-10, 10]);
 
   const handleLaptopMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     const rect = event.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -56,6 +57,7 @@ export function MyProjects() {
   const rotateY = useTransform(tiltYSpring, [-200, 200], [-10, 10]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     const rect = event.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -74,16 +76,16 @@ export function MyProjects() {
     <div ref={containerRef} id="projects" className="bg-[#050810] text-[#F0F4FF] overflow-hidden">
       
       {/* ─── SUB-SECTION 4A: CODING PROJECTS ─── */}
-      <section className="relative min-h-[90vh] py-20 flex items-center border-b border-ice-300/5 px-6 md:px-12">
+      <section className="relative py-12 md:py-20 flex items-center border-b border-ice-300/5 px-4 sm:px-6 md:px-12">
         <div className="absolute top-[10%] left-[5%] bg-word opacity-[0.05] pointer-events-none select-none">
           CODE
         </div>
 
-        <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Text and Mini Cards (Left) */}
-          <div className="lg:col-span-6 space-y-8">
+          <div className="lg:col-span-6 space-y-6 md:space-y-8">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 md:mb-4">
                 <span className="h-1 w-6 bg-ice-300 rounded-full" />
                 <span className="text-[10px] font-mono tracking-[0.25em] text-ice-400 uppercase">
                   Development
@@ -94,22 +96,22 @@ export function MyProjects() {
                 delay={50}
                 animateBy="words"
                 direction="top"
-                className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-tight"
               />
             </div>
             
-            <p className="text-ice-300 font-sans text-base max-w-md">
+            <p className="text-ice-300 font-sans text-sm md:text-base max-w-md">
               Building lightweight, high-performance web applications. I design responsive frontend architectures with fluid interfaces and structured, modular codebases.
             </p>
 
             {/* Mini Project Cards */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
               {[
                 { id: "P.01", title: "Neural Viz", desc: "Canvas Graphing" },
                 { id: "P.02", title: "NextGen DB", desc: "Analytics" },
                 { id: "P.03", title: "Astra Engine", desc: "State Tool" },
               ].map((card) => (
-                <div key={card.id} className="glass-card p-4 rounded-xl border border-ice-300/10 flex flex-col justify-between h-28">
+                <div key={card.id} className="glass-card p-3 sm:p-4 rounded-xl border border-ice-300/10 flex flex-col justify-between h-24 sm:h-28">
                   <span className="text-[10px] font-mono text-ice-400 font-bold">{card.id}</span>
                   <div>
                     <h4 className="text-xs font-bold text-ice-200 truncate">{card.title}</h4>
@@ -129,7 +131,7 @@ export function MyProjects() {
           </div>
 
           {/* Laptop Mockup with 3D Tilt Effect */}
-          <div className="lg:col-span-6 relative flex justify-end items-center min-h-[400px]">
+          <div className="lg:col-span-6 relative flex justify-center lg:justify-end items-center min-h-[220px] md:min-h-[400px]">
             <motion.div
               style={{ 
                 y: laptopY,
@@ -139,7 +141,7 @@ export function MyProjects() {
               }}
               onMouseMove={handleLaptopMouseMove}
               onMouseLeave={handleLaptopMouseLeave}
-              className="relative w-full max-w-[550px] flex items-center justify-end cursor-grab active:cursor-grabbing group"
+              className="relative w-full max-w-[320px] sm:max-w-[420px] md:max-w-[550px] flex items-center justify-center lg:justify-end cursor-grab active:cursor-grabbing group"
             >
               <div
                 className="relative z-10 w-full flex items-center justify-center pointer-events-auto transition-transform duration-300 group-hover:scale-105"
@@ -158,17 +160,17 @@ export function MyProjects() {
       </section>
 
       {/* ─── SUB-SECTION 4B: DESIGN PROJECTS ─── */}
-      <section className="relative min-h-[90vh] py-20 flex items-center border-b border-ice-300/5 px-6 md:px-12">
+      <section className="relative py-12 md:py-20 flex items-center border-b border-ice-300/5 px-4 sm:px-6 md:px-12">
         <div className="absolute top-[10%] right-[5%] bg-word opacity-[0.05] pointer-events-none select-none">
           DESIGN
         </div>
 
-        <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Device Hand Mockup (Left Edge, Mirrored) */}
-          <div className="lg:col-span-6 relative flex justify-start items-center h-[400px] order-2 lg:order-1">
+          <div className="lg:col-span-6 relative flex justify-center lg:justify-start items-center h-[280px] md:h-[400px] order-2 lg:order-1">
             <motion.div
               style={{ y: phoneY, rotate: phoneRotate }}
-              className="relative w-full max-w-[340px] flex items-center justify-start"
+              className="relative w-full max-w-[220px] sm:max-w-[280px] md:max-w-[340px] flex items-center justify-center lg:justify-start"
             >
               {/* Minimalist Glowing SVG Hand Outline Gripping Phone */}
               <svg
@@ -189,7 +191,7 @@ export function MyProjects() {
               </svg>
 
               {/* iPhone Bezel Frame */}
-              <div className="relative z-10 w-[75%] aspect-[9/19] bg-black border-[6px] border-[#101625] rounded-[36px] overflow-hidden shadow-2xl shadow-ice-300/5">
+              <div className="relative z-10 w-[75%] aspect-[9/19] bg-black border-[4px] md:border-[6px] border-[#101625] rounded-[24px] md:rounded-[36px] overflow-hidden shadow-2xl shadow-ice-300/5">
                 {/* Dynamic Screen contents - looping preview */}
                 <div className="w-full h-full bg-[#050a14] relative">
                   <img
@@ -204,9 +206,9 @@ export function MyProjects() {
           </div>
 
           {/* Text and Horizontal Scroll Strip (Right) */}
-          <div className="lg:col-span-6 space-y-8 order-1 lg:order-2">
+          <div className="lg:col-span-6 space-y-6 md:space-y-8 order-1 lg:order-2">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 md:mb-4">
                 <span className="h-1 w-6 bg-ice-300 rounded-full" />
                 <span className="text-[10px] font-mono tracking-[0.25em] text-ice-400 uppercase">
                   UI/UX Design
@@ -217,17 +219,17 @@ export function MyProjects() {
                 delay={50}
                 animateBy="words"
                 direction="top"
-                className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-tight"
               />
             </div>
             
-            <p className="text-ice-300 font-sans text-base max-w-md">
+            <p className="text-ice-300 font-sans text-sm md:text-base max-w-md">
               Crafting premium user interfaces and digital experiences. Every layout, color choice, and font hierarchy is deliberately placed to guide the eye and elevate the brand.
             </p>
 
             {/* Horizontal thumbnail strip (Draggable/swipeable) */}
             <div className="relative">
-              <div className="flex gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory">
+              <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory">
                 {[
                   { title: "Neo System", tags: "Figma Kit", bg: "from-blue-950/40" },
                   { title: "Vibe App", tags: "iOS Design", bg: "from-sky-950/40" },
@@ -235,10 +237,10 @@ export function MyProjects() {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className={`h-scroll-card snap-start flex-shrink-0 w-44 glass-card p-4 rounded-xl border border-ice-300/10 flex flex-col justify-between aspect-[4/3] bg-gradient-to-br ${item.bg} to-transparent`}
+                    className={`h-scroll-card snap-start flex-shrink-0 w-36 sm:w-44 glass-card p-3 sm:p-4 rounded-xl border border-ice-300/10 flex flex-col justify-between aspect-[4/3] bg-gradient-to-br ${item.bg} to-transparent`}
                   >
                     <span className="text-[9px] font-mono uppercase tracking-widest text-ice-500">{item.tags}</span>
-                    <h4 className="text-sm font-bold font-syne text-ice-200">{item.title}</h4>
+                    <h4 className="text-xs sm:text-sm font-bold font-syne text-ice-200">{item.title}</h4>
                   </div>
                 ))}
               </div>
@@ -256,15 +258,15 @@ export function MyProjects() {
       </section>
 
       {/* ─── SUB-SECTION 4C: VIDEOGRAPHY & DRONE ─── */}
-      <section className="relative min-h-[95vh] py-24 flex flex-col justify-center border-b border-ice-300/5 px-6 md:px-12">
+      <section className="relative py-12 md:py-24 flex flex-col justify-center border-b border-ice-300/5 px-4 sm:px-6 md:px-12">
         <div className="absolute top-[8%] left-[5%] bg-word opacity-[0.05] pointer-events-none select-none">
           FILM & FLY
         </div>
 
-        <div className="relative z-10 max-w-5xl w-full mx-auto flex flex-col items-center text-center space-y-12">
+        <div className="relative z-10 max-w-5xl w-full mx-auto flex flex-col items-center text-center space-y-8 md:space-y-12">
           
           {/* Header */}
-          <div className="space-y-4 max-w-xl">
+          <div className="space-y-3 md:space-y-4 max-w-xl">
             <div className="flex items-center justify-center gap-2 mb-2">
               <span className="h-1 w-6 bg-ice-300 rounded-full" />
               <span className="text-[10px] font-mono tracking-[0.25em] text-ice-400 uppercase">
@@ -277,17 +279,16 @@ export function MyProjects() {
               delay={50}
               animateBy="words"
               direction="top"
-              className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-none"
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-syne text-ice-100 leading-none"
             />
-            <p className="text-ice-300 font-sans text-sm max-w-md mx-auto">
+            <p className="text-ice-300 font-sans text-xs sm:text-sm max-w-md mx-auto">
               Creating breathtaking visual narratives from ground level to high-altitude drone trajectories. Engineered with cinematic timing and immersive grading.
             </p>
           </div>
 
           {/* Centered Device Hand Mockup (Drone in hand) with 3D tilt effect */}
           <div 
-            className="relative w-full max-w-[560px] aspect-video"
-           
+            className="relative w-full max-w-[320px] sm:max-w-[440px] md:max-w-[560px] aspect-[16/10] md:aspect-video"
           >
             <motion.div
               style={{ 
@@ -308,7 +309,7 @@ export function MyProjects() {
                 <img 
                   src={droneMockupImg} 
                   alt="Drone in Hand Mockup" 
-                  className="w-[85%] h-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.75)] drop-shadow-[0_0_15px_rgba(125,211,252,0.25)]"
+                  className="w-[90%] md:w-[85%] h-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.75)] drop-shadow-[0_0_15px_rgba(125,211,252,0.25)]"
                 />
               </div>
             </motion.div>
@@ -316,7 +317,7 @@ export function MyProjects() {
 
           {/* Horizontal video reels strip */}
           <div className="w-full">
-            <div className="flex gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory">
+            <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory">
               {[
                 { title: "Alpine Flight", label: "0:45 Reel", asset: videoProjectImg },
                 { title: "Coastal Drift", label: "1:20 Drone", asset: droneProjectImg },
@@ -325,21 +326,21 @@ export function MyProjects() {
               ].map((reel, idx) => (
                 <div
                   key={idx}
-                  className="h-scroll-card snap-start flex-shrink-0 w-64 glass-card rounded-xl border border-ice-300/10 overflow-hidden aspect-[16/9] group/reel cursor-none clickable relative"
+                  className="h-scroll-card snap-start flex-shrink-0 w-48 sm:w-64 glass-card rounded-xl border border-ice-300/10 overflow-hidden aspect-[16/9] group/reel cursor-none clickable relative"
                 >
                   <img
                     src={reel.asset}
                     alt={reel.title}
                     className="w-full h-full object-cover opacity-60 group-hover/reel:scale-105 group-hover/reel:opacity-80 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-[#050810]/40 flex flex-col justify-between p-4">
+                  <div className="absolute inset-0 bg-[#050810]/40 flex flex-col justify-between p-3 sm:p-4">
                     <span className="text-[8px] font-mono uppercase bg-ice-950/60 border border-ice-300/20 text-ice-300 px-2 py-0.5 rounded self-start">
                       {reel.label}
                     </span>
                     <div className="flex items-center justify-between">
                       <h4 className="text-xs font-bold text-ice-100">{reel.title}</h4>
                       {/* Play Icon */}
-                      <div className="h-6 w-6 rounded-full border border-ice-300/30 bg-ice-950/40 flex items-center justify-center transform group-hover/reel:scale-110 transition-transform duration-300">
+                      <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-full border border-ice-300/30 bg-ice-950/40 flex items-center justify-center transform group-hover/reel:scale-110 transition-transform duration-300">
                         <svg className="h-2.5 w-2.5 text-ice-300 ml-0.5 fill-ice-300" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z" />
                         </svg>

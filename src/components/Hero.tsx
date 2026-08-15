@@ -24,7 +24,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center bg-[#050810] overflow-hidden px-6 md:px-12 py-24">
+    <section className="relative min-h-screen w-full flex items-center justify-center bg-[#050810] overflow-hidden px-4 sm:px-6 md:px-12 py-16 md:py-24">
 
       {/* Massive Watermark Stroke Text */}
       <div className="absolute top-[15%] left-[5%] bg-word opacity-[0.05] pointer-events-none select-none">
@@ -34,7 +34,7 @@ export function Hero() {
       {/* Floating Ambient Orb - Top Right */}
       <div className="absolute top-[-10%] right-[-10%] md:top-[10%] md:right-[5%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-[radial-gradient(circle,rgba(125,211,252,0.12)_0%,transparent_70%)] blur-3xl animate-[footer-breathe_7s_ease-in-out_infinite_alternate] pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-10 lg:pt-0">
+      <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-8 lg:pt-0">
 
         {/* Left Column: Text Block (Anchored Bottom-Left on Desktop) */}
         <div className="lg:col-span-7 flex flex-col justify-center lg:justify-end text-left h-full lg:pt-16">
@@ -55,7 +55,7 @@ export function Hero() {
           <div className="relative w-full flex flex-col mb-4 select-none cursor-default">
             <SplitText
               text="AVERILL"
-              className="text-6xl md:text-8xl lg:text-[8rem] font-syne font-bold tracking-tighter text-[#F0F4FF] leading-none"
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-syne font-bold tracking-tighter text-[#F0F4FF] leading-none"
               delay={50}
               duration={0.8}
               ease="power3.out"
@@ -66,7 +66,7 @@ export function Hero() {
             />
             <SplitText
               text="KEVIN"
-              className="text-6xl md:text-8xl lg:text-[8rem] font-syne font-bold tracking-tighter text-[#7DD3FC] leading-none"
+              className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-syne font-bold tracking-tighter text-[#7DD3FC] leading-none"
               delay={50}
               duration={0.8}
               ease="power3.out"
@@ -78,8 +78,8 @@ export function Hero() {
           </div>
 
           {/* Subtitle - Typwriter effect */}
-          <div className="h-8 mb-10 flex items-center">
-            <p className="text-lg md:text-xl font-mono text-ice-400 tracking-wider">
+          <div className="h-8 mb-8 sm:mb-10 flex items-center">
+            <p className="text-base sm:text-lg md:text-xl font-mono text-ice-400 tracking-wider">
               {typedText}
               <span className="inline-block w-1.5 h-5 ml-1 bg-ice-300 animate-[blink_1s_infinite_step-start]" />
             </p>
@@ -94,23 +94,23 @@ export function Hero() {
           >
             <a
               href="#work"
-              className="relative inline-flex items-center justify-center px-8 py-3.5 border border-ice-300 bg-transparent text-ice-300 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:shadow-[0_0_30px_rgba(125,211,252,0.3)] hover:bg-ice-300 hover:text-[#050810] group clickable"
+              className="relative inline-flex items-center justify-center px-6 sm:px-8 py-3.5 border border-ice-300 bg-transparent text-ice-300 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:shadow-[0_0_30px_rgba(125,211,252,0.3)] hover:bg-ice-300 hover:text-[#050810] group clickable"
             >
               View Work
               <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
             </a>
             <a
               href="#contact"
-              className="relative inline-flex items-center justify-center px-8 py-3.5 border border-ice-500/20 bg-ice-950/20 text-ice-400 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:border-ice-400 hover:text-ice-200 hover:bg-ice-500/10 group clickable"
+              className="relative inline-flex items-center justify-center px-6 sm:px-8 py-3.5 border border-ice-500/20 bg-ice-950/20 text-ice-400 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:border-ice-400 hover:text-ice-200 hover:bg-ice-500/10 group clickable"
             >
               Get In Touch
             </a>
           </motion.div>
         </div>
 
-        {/* Right Column: ProfileCard */}
+        {/* Right Column: Desktop ProfileCard */}
         <motion.div
-          className="lg:col-span-5 flex items-center justify-center mt-4 lg:mt-0"
+          className="hidden lg:flex lg:col-span-5 items-center justify-center mt-4 lg:mt-0"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 1, ease: 'easeOut' }}
@@ -133,6 +133,38 @@ export function Hero() {
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
           />
+        </motion.div>
+
+        {/* Mobile Minimalist Portrait Display */}
+        <motion.div
+          className="flex lg:hidden col-span-1 items-center justify-center mt-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <div className="relative flex flex-col items-center p-5 rounded-2xl bg-[#0c1223]/60 border border-ice-300/15 backdrop-blur-md max-w-[260px] sm:max-w-[280px] w-full text-center shadow-lg">
+            <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_center,rgba(125,211,252,0.1)_0%,transparent_70%)] pointer-events-none" />
+            
+            <div className="relative w-24 h-24 sm:w-32 sm:h-32 mb-3 rounded-full overflow-hidden border-2 border-ice-300/40 p-1 bg-[#050810]/80 shadow-[0_0_20px_rgba(125,211,252,0.2)]">
+              <img
+                src={heroPortraitImg}
+                alt="Averill Kevin"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
+
+            <h3 className="text-base sm:text-lg font-bold font-syne text-ice-100 tracking-wide">
+              Averill Kevin
+            </h3>
+            <p className="text-[11px] sm:text-xs font-mono text-ice-300 mt-0.5 mb-2.5">
+              Creative Developer
+            </p>
+
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ice-300/10 border border-ice-300/20 text-[9px] font-mono text-ice-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              Available for hire
+            </div>
+          </div>
         </motion.div>
 
       </div>

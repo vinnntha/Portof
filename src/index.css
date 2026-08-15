@@ -105,3 +105,14 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Mobile Optimizations */
+@media (max-width: 767px) {
+  html, body {
+    touch-action: pan-y;
+  }
+  .glass-card, .glass-surface {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}

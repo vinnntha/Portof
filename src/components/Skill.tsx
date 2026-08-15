@@ -104,7 +104,7 @@ export function Skill() {
   return (
     <section
       id="about"
-      className="relative py-28 bg-[#050810] overflow-hidden"
+      className="relative py-12 md:py-28 bg-[#050810] overflow-hidden"
     >
       {/* Massive Watermark Stroke Text */}
       <div className="absolute top-[10%] right-[5%] bg-word opacity-[0.06] pointer-events-none select-none">
@@ -112,13 +112,13 @@ export function Skill() {
       </div>
 
       {/* Main grid — constrained to max-w-7xl */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 
           {/* Left Column (55% width) - Text */}
-          <div className="lg:col-span-7 space-y-10">
+          <div className="lg:col-span-7 space-y-6 md:space-y-10">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-3 md:mb-4">
                 <span className="h-1 w-6 bg-ice-300 rounded-full" />
                 <span className="text-[10px] font-mono tracking-[0.25em] text-ice-400 uppercase">
                   Introduction
@@ -129,11 +129,11 @@ export function Skill() {
                 delay={50}
                 animateBy="words"
                 direction="top"
-                className="text-4xl md:text-5xl font-extrabold font-syne text-ice-100 tracking-tight leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-syne text-ice-100 tracking-tight leading-tight"
               />
             </div>
 
-            <p className="text-ice-300 font-sans text-base md:text-lg leading-relaxed max-w-xl">
+            <p className="text-ice-300 font-sans text-sm md:text-lg leading-relaxed max-w-xl">
               I&#39;m a multi-disciplinary creator at the intersection of technology
               and visual art. Whether I&#39;m writing clean code, crafting UI systems,
               shooting cinematic video, or capturing aerial perspectives — every
@@ -142,69 +142,38 @@ export function Skill() {
           </div>
 
           {/* Right Column (45% width) - Bento Stats & Animated Blob */}
-          <div className="lg:col-span-5 relative flex flex-col items-center">
+          <div className="lg:col-span-5 relative flex flex-col items-center mt-4 lg:mt-0">
 
             {/* Morphing Blob background layer */}
-            <div className="absolute -z-10 w-72 h-72 md:w-80 md:h-80 morphing-blob pointer-events-none opacity-80" />
+            <div className="absolute -z-10 w-60 h-60 md:w-80 md:h-80 morphing-blob pointer-events-none opacity-80" />
 
             {/* Bento Grid Stats */}
-            <div className="w-full grid grid-cols-2 gap-4">
+            <div className="w-full grid grid-cols-2 gap-3 sm:gap-4">
               {/* Stat 1 */}
-              <div className="glass-card p-6 rounded-2xl flex flex-col justify-between h-36">
+              <div className="glass-card p-4 sm:p-6 rounded-2xl flex flex-col justify-between h-28 sm:h-36">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-ice-500">
                   Experience
                 </span>
                 <div>
-                  <span className="text-4xl md:text-5xl font-extrabold font-syne text-ice-200">
+                  <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-syne text-ice-200">
                     <CountUp end={2} />
                   </span>
-                  <span className="text-xl font-bold text-ice-300">+ yrs</span>
+                  <span className="text-lg sm:text-xl font-bold text-ice-300">+ yrs</span>
                 </div>
               </div>
 
               {/* Stat 2 */}
-              <div className="glass-card p-6 rounded-2xl flex flex-col justify-between h-36">
+              <div className="glass-card p-4 sm:p-6 rounded-2xl flex flex-col justify-between h-28 sm:h-36">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-ice-500">
                   Projects
                 </span>
                 <div>
-                  <span className="text-4xl md:text-5xl font-extrabold font-syne text-ice-200">
+                  <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-syne text-ice-200">
                     <CountUp end={10} />
                   </span>
-                  <span className="text-xl font-bold text-ice-300">+</span>
+                  <span className="text-lg sm:text-xl font-bold text-ice-300">+</span>
                 </div>
               </div>
-
-              {/* Stat 3 
-              <div className="glass-card p-6 rounded-2xl flex flex-col justify-between h-36">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-ice-500">
-                  Clients
-                </span>
-                <div>
-                  <span className="text-4xl md:text-5xl font-extrabold font-syne text-ice-200">
-                    <CountUp end={15} />
-                  </span>
-                  <span className="text-xl font-bold text-ice-300">+</span>
-                </div>
-              </div> */}
-
-              {/* Stat 4 
-              <div className="glass-card p-6 rounded-2xl flex flex-col justify-between h-36">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-ice-500">
-                  Status
-                </span>
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-[11px] font-mono text-ice-200 font-bold leading-tight">
-                    Freelance Ready
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="text-[9px] text-ice-400 font-mono tracking-widest uppercase">
-                      Available
-                    </span>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
 
@@ -212,7 +181,7 @@ export function Skill() {
       </div>
 
       {/* Full-bleed LogoLoop marquee rows — span full section width */}
-      <div className="relative w-full mt-12 space-y-3">
+      <div className="relative w-full mt-8 md:mt-12 space-y-3">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-ice-300/10 to-transparent mb-6" />
 
         {/* Row 1 — scrolls left */}
