@@ -229,7 +229,7 @@ export function MyProjects() {
 
             {/* Horizontal thumbnail strip (Draggable/swipeable) */}
             <div className="relative">
-              <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory">
+              <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory touch-pan-y">
                 {[
                   { title: "Neo System", tags: "Figma Kit", bg: "from-blue-950/40" },
                   { title: "Vibe App", tags: "iOS Design", bg: "from-sky-950/40" },
@@ -237,7 +237,7 @@ export function MyProjects() {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className={`h-scroll-card snap-start flex-shrink-0 w-36 sm:w-44 glass-card p-3 sm:p-4 rounded-xl border border-ice-300/10 flex flex-col justify-between aspect-[4/3] bg-gradient-to-br ${item.bg} to-transparent`}
+                    className={`h-scroll-card snap-start flex-shrink-0 w-36 sm:w-44 glass-card p-3 sm:p-4 rounded-xl border border-ice-300/10 flex flex-col justify-between aspect-[4/3] bg-gradient-to-br ${item.bg} to-transparent touch-pan-y`}
                   >
                     <span className="text-[9px] font-mono uppercase tracking-widest text-ice-500">{item.tags}</span>
                     <h4 className="text-xs sm:text-sm font-bold font-syne text-ice-200">{item.title}</h4>
@@ -317,7 +317,7 @@ export function MyProjects() {
 
           {/* Horizontal video reels strip */}
           <div className="w-full">
-            <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory">
+            <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory touch-pan-y">
               {[
                 { title: "Alpine Flight", label: "0:45 Reel", asset: videoProjectImg },
                 { title: "Coastal Drift", label: "1:20 Drone", asset: droneProjectImg },
@@ -326,7 +326,7 @@ export function MyProjects() {
               ].map((reel, idx) => (
                 <div
                   key={idx}
-                  className="h-scroll-card snap-start flex-shrink-0 w-48 sm:w-64 glass-card rounded-xl border border-ice-300/10 overflow-hidden aspect-[16/9] group/reel cursor-none clickable relative"
+                  className="h-scroll-card snap-start flex-shrink-0 w-48 sm:w-64 glass-card rounded-xl border border-ice-300/10 overflow-hidden aspect-[16/9] group/reel cursor-none clickable relative touch-pan-y"
                 >
                   <img
                     src={reel.asset}

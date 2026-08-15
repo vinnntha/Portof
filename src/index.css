@@ -108,11 +108,15 @@
 
 /* Mobile Optimizations */
 @media (max-width: 767px) {
-  html, body {
+  html, body, #root, main {
     touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
   }
   .glass-card, .glass-surface {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .overflow-x-auto {
+    touch-action: pan-x pan-y;
   }
 }
