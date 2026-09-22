@@ -22,6 +22,8 @@ import certificate5Img from "../assets/certificate5.png";
 import certificate6Img from "../assets/certificate6.png";
 import certificate7Img from "../assets/certificate7.png";
 import certificate8Img from "../assets/certifikate8.png";
+import coding2Img from "../assets/coding2.png";
+import coding3Img from "../assets/coding3.png";
 
 interface ProjectItem {
   id: number;
@@ -214,6 +216,27 @@ const projectsData: ProjectItem[] = [
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["JavaScript", "HackerRank"],
     description: "Sertifikat yang didapat dari ujian Software Engineer menggunakan JavaScript yang diselenggarakan oleh Hackerrank",
+  },
+
+  {
+    id: 19,
+    title: "Trashly Website",
+    category: "coding",
+    categoryLabel: "Coding",
+    image: coding2Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["Node.js", "PostgreSQL", "Nest.js", "Tailwind CSS", "PostMan", "VSCode", "Figma"],
+    description: "Website pengolahan sampah yang bisa ditukar menjadi hadiah, dengan 2 user dan CRUD kompleks sebagai tugas akhir saya pada kelas 12",
+  },
+  {
+    id: 20,
+    title: "SkillLoom",
+    category: "coding",
+    categoryLabel: "Coding",
+    image: coding3Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["Nest.js", "Tailwind CSS", "PostMan", "VSCode", "Figma"],
+    description: "Website mencari real projek sebagai penghubung UMKM yang ingin membuat proyek dan anak SMK yang ingin menambah portofolio, dalam projek ini saya berperan sebagai FrontEnd Developer.",
   }
 ];
 
