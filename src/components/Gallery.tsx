@@ -21,7 +21,6 @@ import coding1Img from "../assets/coding1.png";
 import certificate5Img from "../assets/certificate5.png";
 import certificate6Img from "../assets/certificate6.png";
 import certificate7Img from "../assets/certificate7.png";
-import certificate8Img from "../assets/certifikate8.png";
 import coding2Img from "../assets/coding2.png";
 import coding3Img from "../assets/coding3.png";
 import certificate9Img from "../assets/certificate9.png";
