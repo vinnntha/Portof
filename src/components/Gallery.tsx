@@ -209,7 +209,7 @@ const projectsData: ProjectItem[] = [
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian JavaScript yang diselenggarakan oleh Dicoding",
   },
   {
-    id: 19,
+    id: 18,
     title: "Trashly Website",
     category: "coding",
     categoryLabel: "Coding",
@@ -219,7 +219,7 @@ const projectsData: ProjectItem[] = [
     description: "Website pengolahan sampah yang bisa ditukar menjadi hadiah, dengan 2 user dan CRUD kompleks sebagai tugas akhir saya pada kelas 12",
   },
   {
-    id: 20,
+    id: 19, 
     title: "SkillLoom",
     category: "coding",
     categoryLabel: "Coding",
@@ -229,7 +229,7 @@ const projectsData: ProjectItem[] = [
     description: "Website mencari real projek sebagai penghubung UMKM yang ingin membuat proyek dan anak SMK yang ingin menambah portofolio, dalam projek ini saya berperan sebagai FrontEnd Developer.",
   },
   {
-    id: 21,
+    id: 20,
     title: "Artificial Intelligence Associate",
     category: "certificate",
     categoryLabel: "Certificate",
