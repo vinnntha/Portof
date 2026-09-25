@@ -24,6 +24,7 @@ import certificate7Img from "../assets/certificate7.png";
 import certificate8Img from "../assets/certifikate8.png";
 import coding2Img from "../assets/coding2.png";
 import coding3Img from "../assets/coding3.png";
+import certificate9Img from "../assets/certificate9.png";
 
 interface ProjectItem {
   id: number;
@@ -208,17 +209,6 @@ const projectsData: ProjectItem[] = [
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian JavaScript yang diselenggarakan oleh Dicoding",
   },
   {
-    id: 18,
-    title: "Software Engineer",
-    category: "certificate",
-    categoryLabel: "Certificate",
-    image: certificate8Img,
-    gridClass: "md:col-span-1 md:row-span-1",
-    tags: ["JavaScript", "HackerRank"],
-    description: "Sertifikat yang didapat dari ujian Software Engineer menggunakan JavaScript yang diselenggarakan oleh Hackerrank",
-  },
-
-  {
     id: 19,
     title: "Trashly Website",
     category: "coding",
@@ -237,7 +227,17 @@ const projectsData: ProjectItem[] = [
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["Nest.js", "Tailwind CSS", "PostMan", "VSCode", "Figma"],
     description: "Website mencari real projek sebagai penghubung UMKM yang ingin membuat proyek dan anak SMK yang ingin menambah portofolio, dalam projek ini saya berperan sebagai FrontEnd Developer.",
-  }
+  },
+  {
+    id: 21,
+    title: "Artificial Intelligence Associate",
+    category: "certificate",
+    categoryLabel: "Certificate",
+    image: certificate9Img,
+    gridClass: "md:col-span-1 md:row-span-1",
+    tags: ["Certiport", "Artificial Intelegence", "Automations", "Data Management", "Microsoft"],
+    description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian Artificial Intelligence Associate yang diselenggarakan oleh Certiport",
+  },
 ];
 
 export function Gallery() {
