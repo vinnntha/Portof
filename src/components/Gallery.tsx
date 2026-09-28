@@ -339,6 +339,8 @@ export function Gallery() {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover grayscale-0 md:grayscale brightness-90 md:brightness-[0.8] contrast-110 transition-transform duration-1000 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-95"
                   />
                   {/* Subtle vignette glow */}

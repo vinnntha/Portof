@@ -150,6 +150,8 @@ export function MyProjects() {
                 <img
                   src={laptopMockupImg}
                   alt="Laptop Mockup"
+                  loading="lazy"
+                  decoding="async"
                   className="w-[95%] md:w-[100%] h-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.75)] drop-shadow-[0_0_20px_rgba(125,211,252,0.25)] transition-all duration-500"
                 />
               </div>
@@ -197,6 +199,8 @@ export function MyProjects() {
                   <img
                     src={designProjectImg}
                     alt="Phone design mockup"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-85"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ice-500/10 via-transparent to-transparent pointer-events-none" />
@@ -309,6 +313,8 @@ export function MyProjects() {
                 <img 
                   src={droneMockupImg} 
                   alt="Drone in Hand Mockup" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-[90%] md:w-[85%] h-auto object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.75)] drop-shadow-[0_0_15px_rgba(125,211,252,0.25)]"
                 />
               </div>
@@ -331,6 +337,8 @@ export function MyProjects() {
                   <img
                     src={reel.asset}
                     alt={reel.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-60 group-hover/reel:scale-105 group-hover/reel:opacity-80 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-[#050810]/40 flex flex-col justify-between p-3 sm:p-4">
