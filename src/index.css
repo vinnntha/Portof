@@ -59,20 +59,26 @@
   z-index: 0;
 }
 
+/* Optimize off-screen rendering for ultra-light scrolling */
+.scroll-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
 /* Glassmorphism surfaces */
 .glass-surface {
-  background: rgba(12, 18, 35, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(12, 18, 35, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(125, 211, 252, 0.15);
 }
 
 .glass-card {
-  background: rgba(12, 18, 35, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(12, 18, 35, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(125, 211, 252, 0.12);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .glass-card:hover {
