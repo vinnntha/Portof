@@ -25,6 +25,7 @@ import coding2Img from "../assets/coding2.png";
 import coding3Img from "../assets/coding3.png";
 import certificate9Img from "../assets/certificate9.png";
 import vidio1Img from "../assets/vidio1.png";
+import drone4Img from "../assets/drone4.png";
 
 interface ProjectItem {
   id: number;
@@ -240,13 +241,23 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: 21,
-    title: "Vidio",
+    title: "Dies Natalis SMK Telkom Malang 34",
     category: "video",
     categoryLabel: "Video",
     image: vidio1Img,
     gridClass: "md:col-span-3 md:row-span-2",
-    tags: ["DJI RS 4 Mini", "Color Grading", "Cinematic", "Sony A6400"],
-    description: "Tim Dokumentasi event diesnatalis SMK Telkom Malang 34",
+    tags: ["DJI RS 4 Mini", "Cinematic", "Sony A6400"],
+    description: "Tim Dokumentasi event diesnatalis SMK Telkom Malang 34, dengan role sebagai videographer untuk event tersebut.",
+  },
+  {
+    id: 22,
+    title: "Drone Flyover",
+    category: "video",
+    categoryLabel: "Video",
+    image: drone4Img,
+    gridClass: "md:col-span-3 md:row-span-2",
+    tags: ["DJI Mavic Mini", "Color Grading", "Cinematic"],
+    description: "Dokumentasi event diesnatalis SMK Telkom Malang 34, sebagai tim drone pilot untuk mendokumentasikan penampilan guest star, Vierratale yang menjadi guest star utama pada event tersebut.",
   },
 ];
 
