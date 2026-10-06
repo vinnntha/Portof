@@ -24,6 +24,7 @@ import certificate7Img from "../assets/certificate7.png";
 import coding2Img from "../assets/coding2.png";
 import coding3Img from "../assets/coding3.png";
 import certificate9Img from "../assets/certificate9.png";
+import vidio1Img from "../assets/vidio1.png";
 
 interface ProjectItem {
   id: number;
@@ -236,6 +237,16 @@ const projectsData: ProjectItem[] = [
     gridClass: "md:col-span-1 md:row-span-1",
     tags: ["Certiport", "Artificial Intelegence", "Automations", "Data Management", "Microsoft"],
     description: "Sertifikat yang didapat dari mengikuti pelatihan dan lulus ujian Artificial Intelligence Associate yang diselenggarakan oleh Certiport",
+  },
+  {
+    id: 21,
+    title: "Vidio",
+    category: "video",
+    categoryLabel: "Video",
+    image: vidio1Img,
+    gridClass: "md:col-span-3 md:row-span-2",
+    tags: ["DJI RS 4 Mini", "Color Grading", "Cinematic", "Sony A6400"],
+    description: "Tim Dokumentasi event diesnatalis SMK Telkom Malang 34",
   },
 ];
 
