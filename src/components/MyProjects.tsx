@@ -8,6 +8,8 @@ import droneProjectImg from "../assets/drone_project.png";
 import videoProjectImg from "../assets/drone3.png";
 import droneMockupImg from "../assets/drone_mockup.png";
 import laptopMockupImg from "../assets/laptop_mockup.png";
+import drone1Img from "../assets/drone1.png";
+import drone4Img from "../assets/drone4.png";
 
 export function MyProjects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -325,9 +327,9 @@ export function MyProjects() {
           <div className="w-full">
             <div className="flex gap-3 sm:gap-4 overflow-x-auto no-scrollbar py-2 w-full snap-x snap-mandatory touch-pan-y">
               {[
-                { title: "Alpine Flight", label: "0:45 Reel", asset: videoProjectImg },
+                { title: "Alpine Flight", label: "0:45 Reel", asset: drone1Img },
                 { title: "Coastal Drift", label: "1:20 Drone", asset: droneProjectImg },
-                { title: "Metropolis Glow", label: "0:30 Cine", asset: videoProjectImg },
+                { title: "Metropolis Glow", label: "0:30 Cine", asset: drone4Img },
                 { title: "Mountain Peak", label: "0:50 Reel", asset: droneProjectImg },
               ].map((reel, idx) => (
                 <div
