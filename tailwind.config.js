@@ -13,56 +13,43 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+        // MANDATORY RETRO-PIXEL / EDITORIAL PALETTE
+        blue: {
+          DEFAULT: "#3A86FF",
+          light: "#5E9EFF",
+          dark: "#1B60D1",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+        lavender: {
+          DEFAULT: "#BDB2FF",
+          light: "#D4CEFF",
+          dark: "#9986F8",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+        pink: {
+          DEFAULT: "#FFD6E0",
+          light: "#FFEEF2",
+          dark: "#F8B4C4",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        blush: {
+          DEFAULT: "#FFF4F4",
+          alt: "#FAECEC",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        // ICE BLUE COLORS
-        ice: {
-          50: "#f0f9ff",
-          100: "#e0f7ff",
-          200: "#bae6fd",
-          300: "#7dd3fc",
-          400: "#38bdf8",
-          500: "#0ea5e9",
-          600: "#0284c7",
-          700: "#0369a1",
-          800: "#075985",
-          900: "#0c4a6e",
-          950: "#082f49",
-        },
-        // BRAND COLORS (used in App.tsx wrapper)
-        brand: {
-          base: "#050a12",
-          "text-primary": "#e0f7ff",
-          primary: "#0ea5e9",
+        dark: {
+          DEFAULT: "#14213D",
+          soft: "#243253",
+          muted: "#4A5B7D",
         },
       },
+      fontFamily: {
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        pixel: ['"Press Start 2P"', 'monospace'],
+        mono: ['"Space Mono"', 'monospace'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+      },
       borderRadius: {
+        '4xl': '32px',
+        '5xl': '40px',
+        '6xl': '48px',
         lg: "var(--radius)",
         md: "var(--radius)",
         sm: "calc(var(--radius) - 4px)",
