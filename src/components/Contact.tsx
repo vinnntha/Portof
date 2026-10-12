@@ -66,7 +66,7 @@ export const Contact: React.FC = () => {
                   Respon lebih cepat untuk diskusi brief dan penawaran kerja sama.
                 </p>
                 <a
-                  href="https://wa.me/6281234567890?text=Halo%20Averill,%20saya%20tertarik%20bekerja%20sama%20untuk%20proyek..."
+                  href="https://wa.me/085336337789?text=Halo%20Kak%20Averill,%20saya%20tertarik%20bekerja%20sama%20untuk%20proyek..."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="retro-btn bg-[#3A86FF] text-white w-full text-center text-xs sm:text-sm font-bold"
