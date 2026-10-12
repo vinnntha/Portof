@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import heroImg from "../assets/hero_portrait.png";
 
 export const Hero: React.FC = () => {
-  // Roles for typewriter
+  // Roles for typewriter with coding prioritized
   const roles = [
-    "UX/UI Designer",
     "Creative Developer",
-    "Videographer",
-    "Drone Pilot",
+    "Frontend Specialist",
+    "Fullstack Engineer",
+    "UI/UX Designer",
+    "Drone Pilot & Videographer",
   ];
   const [roleIndex, setRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -17,13 +18,13 @@ export const Hero: React.FC = () => {
   // Typewriter effect
   useEffect(() => {
     const fullText = roles[roleIndex];
-    const typingSpeed = isDeleting ? 45 : 90;
+    const typingSpeed = isDeleting ? 45 : 85;
 
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         setCurrentText(fullText.substring(0, currentText.length + 1));
         if (currentText === fullText) {
-          setTimeout(() => setIsDeleting(true), 1600);
+          setTimeout(() => setIsDeleting(true), 1700);
         }
       } else {
         setCurrentText(fullText.substring(0, currentText.length - 1));
@@ -41,9 +42,9 @@ export const Hero: React.FC = () => {
   const handleGhostClick = () => {
     const easterEggs = [
       "Booo! Kamu nemu ghost rahasia! 👻✨",
-      "Drone siap lepas landas! 🛸💨",
-      "Kopi + Figma = Solusi desain terbaik! ☕🎨",
-      "Press Start: Level Averill terbuka! 🕹️🔥",
+      "Drone siap terbang, kode siap di-deploy! 🛸💻",
+      "Kopi + React + TypeScript = Web anti-lag! ☕⚡",
+      "Level Averill: Fullstack Power Unlocked! 🕹️🔥",
     ];
     const randomMsg = easterEggs[Math.floor(Math.random() * easterEggs.length)];
     setGhostMessage(randomMsg);
@@ -73,7 +74,7 @@ export const Hero: React.FC = () => {
 
         {/* Easter Egg Speech Bubble */}
         {ghostMessage && (
-          <div className="absolute left-14 top-0 w-52 sm:w-60 p-3 bg-[#FFD6E0] border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] z-30 animate-in fade-in zoom-in duration-200">
+          <div className="absolute left-14 top-0 w-56 sm:w-64 p-3 bg-[#FFD6E0] border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] z-30 animate-in fade-in zoom-in duration-200">
             <p className="font-sans text-xs font-bold text-[#14213D] leading-tight">
               {ghostMessage}
             </p>
@@ -104,7 +105,7 @@ export const Hero: React.FC = () => {
           <div className="pill-badge bg-[#BDB2FF]/25 border-2 border-[#14213D] mb-5">
             <span className="w-2 h-2 rounded-full bg-[#3A86FF]"></span>
             <span className="font-mono text-xs font-bold text-[#14213D]">
-              Averill Kevinatha | Creative Maker
+              Averill Kevinatha | Creative Developer & Visual Maker
             </span>
           </div>
 
@@ -117,9 +118,9 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Dynamic Typewriter Subheading with Blinking Cursor */}
-          <div className="flex items-center gap-2 mb-6 h-10">
+          <div className="flex flex-wrap items-center gap-2 mb-6 min-h-[40px]">
             <span className="font-mono text-sm sm:text-base font-bold text-[#14213D]/70">
-              Spesialisasi:
+              Spesialis Utama:
             </span>
             <div className="px-3 py-1 bg-white border-2 border-[#14213D] rounded-xl shadow-[2px_2px_0px_#14213D] flex items-center">
               <span className="font-mono text-sm sm:text-base font-black text-[#3A86FF]">
@@ -131,17 +132,17 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Hero Description */}
+          {/* Hero Description with Coding Highlights */}
           <p className="font-sans text-base sm:text-lg text-[#14213D]/80 max-w-xl mb-8 leading-relaxed">
-            Menghubungkan estetika visual interaktif, kode frontend bertenaga tinggi, 
-            serta sinematografi udara drone untuk menciptakan pengalaman digital yang berdampak nyata.
+            Fokus membangun <strong>arsitektur web modern, performa tinggi, dan interaktif</strong> dengan 
+            React, Next.js, TypeScript, dan Nest.js — diperkaya dengan sentuhan desain UI/UX presisi, serta rekaman sinematografi drone dan video editing profesional.
           </p>
 
-          {/* Retro Pixel Progress / Battery Decor */}
-          <div className="w-full max-w-md p-3 bg-white border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] mb-8">
+          {/* Retro Pixel Progress / Coding Engine Decor */}
+          <div className="w-full max-w-md p-3.5 bg-white border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] mb-8">
             <div className="flex justify-between items-center mb-1.5 font-pixel text-[10px] text-[#14213D]">
-              <span>CREATIVE CAPACITY</span>
-              <span className="text-[#3A86FF]">100% ONLINE</span>
+              <span>CORE STACK: REACT + NEST.JS</span>
+              <span className="text-[#3A86FF]">FULL POWER 100%</span>
             </div>
             <div className="pixel-bar-track">
               <div className="pixel-bar-fill w-full"></div>
@@ -154,7 +155,7 @@ export const Hero: React.FC = () => {
               href="#portfolio"
               className="retro-btn bg-[#3A86FF] hover:bg-[#1B60D1] text-white text-sm sm:text-base px-6 py-3"
             >
-              <span>Lihat Karya</span>
+              <span>Eksplor Proyek Coding & Karya</span>
               <span className="font-pixel text-xs">↗</span>
             </a>
 
@@ -170,14 +171,13 @@ export const Hero: React.FC = () => {
               href="#experience"
               className="pill-badge hover:bg-[#FFD6E0] cursor-pointer transition-colors py-2 px-4"
             >
-              <span className="font-mono text-xs">Spill Pengalaman ↓</span>
+              <span className="font-mono text-xs">9 Sertifikat & Timeline ↓</span>
             </a>
           </div>
         </div>
 
         {/* Right Column: Photo Cutout with Blue-Lavender Circle Backdrop */}
         <div className="lg:col-span-5 flex justify-center items-center relative mt-8 lg:mt-0">
-          {/* Outer Rotating / Decorative Elements */}
           <div className="relative w-72 sm:w-88 md:w-96 aspect-square flex items-center justify-center">
             {/* Big Colored Shape Circle */}
             <div className="absolute inset-2 rounded-full bg-gradient-to-tr from-[#3A86FF] via-[#BDB2FF] to-[#FFD6E0] border-[3px] border-[#14213D] shadow-[8px_8px_0px_#14213D]" />
@@ -200,16 +200,16 @@ export const Hero: React.FC = () => {
               loading="eager"
             />
 
-            {/* Corner Badge 1: Location */}
-            <div className="absolute -bottom-3 -left-4 z-20 px-3 py-1.5 bg-white border-2 border-[#14213D] rounded-full shadow-[3px_3px_0px_#14213D] flex items-center gap-1.5 font-mono text-[11px] font-bold">
-              <span>📍</span>
-              <span>Indonesia</span>
+            {/* Corner Badge 1: Coding Specialization */}
+            <div className="absolute -bottom-3 -left-4 z-20 px-3.5 py-1.5 bg-white border-2 border-[#14213D] rounded-full shadow-[3px_3px_0px_#14213D] flex items-center gap-1.5 font-mono text-[11px] font-bold">
+              <span>💻</span>
+              <span className="text-[#3A86FF]">Frontend & Fullstack</span>
             </div>
 
-            {/* Corner Badge 2: Drone certified */}
-            <div className="absolute -top-3 -right-2 z-20 px-3 py-1.5 bg-[#FFD6E0] border-2 border-[#14213D] rounded-full shadow-[3px_3px_0px_#14213D] flex items-center gap-1.5 font-mono text-[11px] font-bold">
+            {/* Corner Badge 2: Drone & Media */}
+            <div className="absolute -top-3 -right-2 z-20 px-3.5 py-1.5 bg-[#FFD6E0] border-2 border-[#14213D] rounded-full shadow-[3px_3px_0px_#14213D] flex items-center gap-1.5 font-mono text-[11px] font-bold">
               <span>🛸</span>
-              <span>Drone Ready</span>
+              <span>Drone Pilot & Video</span>
             </div>
           </div>
         </div>
@@ -218,10 +218,10 @@ export const Hero: React.FC = () => {
       {/* Bottom Counter Bar: Numbers Stats Count-up */}
       <div className="mt-14 pt-8 border-t-2 border-[#14213D]/20 grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { number: "15+", label: "Proyek Selesai", color: "text-[#3A86FF]" },
+          { number: "9+", label: "Sertifikasi Resmi", color: "text-[#3A86FF]" },
+          { number: "100%", label: "Fokus Clean Code", color: "text-[#14213D]" },
           { number: "40+", label: "Jam Terbang Drone", color: "text-[#BDB2FF]" },
-          { number: "4+", label: "Peran Kreatif", color: "text-[#3A86FF]" },
-          { number: "100%", label: "Dedikasi Kualitas", color: "text-[#14213D]" },
+          { number: "5+", label: "Web App Production", color: "text-[#3A86FF]" },
         ].map((stat, i) => (
           <div
             key={i}
