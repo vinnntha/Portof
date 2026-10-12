@@ -1,128 +1,258 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
+:root {
+  --blue: #3A86FF;
+  --lavender: #BDB2FF;
+  --pink: #FFD6E0;
+  --blush: #FFF4F4;
+  --dark: #14213D;
+  --dark-soft: #243253;
+  --card-bg: #FFFFFF;
+}
+
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+
   html {
     scroll-behavior: smooth;
-    background-color: #050810;
-    color: #F0F4FF;
-    font-family: 'DM Sans', sans-serif;
+    background-color: #FFF4F4;
+    color: #14213D;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   body {
-    background-color: #050810;
+    background-color: #FFF4F4;
+    color: #14213D;
     overflow-x: hidden;
+    min-height: 100vh;
+    /* Subtle editorial blueprint grid */
+    background-image: 
+      linear-gradient(to right, rgba(58, 134, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(58, 134, 255, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 
-  /* Custom cursor class */
-  html.custom-cursor-active,
-  html.custom-cursor-active * {
-    cursor: none !important;
+  /* Custom selection */
+  ::selection {
+    background-color: #3A86FF;
+    color: #FFFFFF;
   }
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: -0.5px;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #050810;
+  background: #FFF4F4;
+  border-left: 2px solid #14213D;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(125, 211, 252, 0.15);
-  border-radius: 4px;
+  background: #3A86FF;
+  border: 2px solid #14213D;
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(125, 211, 252, 0.3);
+  background: #BDB2FF;
 }
 
-/* Custom Typography & Stroke Watermark */
-.font-syne {
-  font-family: 'Syne', sans-serif;
-}
-.font-mono {
-  font-family: 'Space Mono', monospace;
-}
-.font-sans {
-  font-family: 'DM Sans', sans-serif;
+/* Retro UI Module Panel */
+.retro-panel {
+  background-color: #FFFFFF;
+  border: 2.5px solid #14213D;
+  border-radius: 40px;
+  box-shadow: 5px 5px 0px #14213D;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.bg-word {
-  -webkit-text-stroke: 1px rgba(125, 211, 252, 0.08);
-  color: transparent;
-  font-size: clamp(6rem, 15vw, 14rem);
-  font-weight: 900;
+.retro-panel:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px #14213D;
+}
+
+.retro-panel-pink {
+  background-color: #FFD6E0;
+  border: 2.5px solid #14213D;
+  border-radius: 40px;
+  box-shadow: 5px 5px 0px #14213D;
+}
+
+.retro-panel-lavender {
+  background-color: #BDB2FF;
+  border: 2.5px solid #14213D;
+  border-radius: 40px;
+  box-shadow: 5px 5px 0px #14213D;
+}
+
+.retro-panel-blue {
+  background-color: #3A86FF;
+  color: #FFFFFF;
+  border: 2.5px solid #14213D;
+  border-radius: 40px;
+  box-shadow: 5px 5px 0px #14213D;
+}
+
+/* Retro Interactive Buttons */
+.retro-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  border: 2px solid #14213D;
+  background-color: #3A86FF;
+  color: #FFFFFF;
+  box-shadow: 3px 3px 0px #14213D;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
   user-select: none;
-  pointer-events: none;
-  position: absolute;
-  font-family: 'Syne', sans-serif;
-  z-index: 0;
 }
 
-/* Optimize off-screen rendering for ultra-light scrolling */
-.scroll-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 800px;
+.retro-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #14213D;
 }
 
-/* Glassmorphism surfaces */
-.glass-surface {
-  background: rgba(12, 18, 35, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(125, 211, 252, 0.15);
+.retro-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #14213D;
 }
 
-.glass-card {
-  background: rgba(12, 18, 35, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(125, 211, 252, 0.12);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+.retro-btn-secondary {
+  background-color: #FFFFFF;
+  color: #14213D;
 }
 
-.glass-card:hover {
-  border-color: rgba(125, 211, 252, 0.4);
-  box-shadow: 0 0 30px rgba(125, 211, 252, 0.12),
-              inset 0 0 15px rgba(125, 211, 252, 0.04);
+.retro-btn-lavender {
+  background-color: #BDB2FF;
+  color: #14213D;
 }
 
-/* Pulse animation for Open to Work Badge */
-@keyframes pulse-glow {
+.retro-btn-pink {
+  background-color: #FFD6E0;
+  color: #14213D;
+}
+
+/* Pill Label Badge */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 9999px;
+  border: 1.5px solid #14213D;
+  background-color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 2px 2px 0px #14213D;
+  text-transform: uppercase;
+}
+
+/* Floating animation */
+@keyframes float-gentle {
   0%, 100% {
-    box-shadow: 0 0 8px rgba(125, 211, 252, 0.2);
-    border-color: rgba(125, 211, 252, 0.3);
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    box-shadow: 0 0 16px rgba(125, 211, 252, 0.5);
-    border-color: rgba(125, 211, 252, 0.7);
+    transform: translateY(-8px) rotate(2deg);
   }
 }
 
-.pulse-badge {
-  animation: pulse-glow 2s infinite ease-in-out;
+.animate-float {
+  animation: float-gentle 4s ease-in-out infinite;
 }
 
-/* Hide horizontal scrollbar for clean horizontal strips */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+.animate-float-delayed {
+  animation: float-gentle 4.5s ease-in-out 1.5s infinite;
 }
 
-/* Mobile Optimizations */
-@media (max-width: 767px) {
-  html, body, #root, main {
-    touch-action: pan-y;
-    -webkit-overflow-scrolling: touch;
-  }
-  .glass-card, .glass-surface {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
-  .overflow-x-auto {
-    touch-action: pan-x pan-y;
+/* Pixel Progress Bar */
+.pixel-bar-track {
+  height: 14px;
+  border: 2px solid #14213D;
+  background-color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 2px;
+  box-shadow: inset 1px 1px 0px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.pixel-bar-fill {
+  height: 100%;
+  background-color: #3A86FF;
+  border-radius: 9999px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 6px,
+    rgba(255, 255, 255, 0.35) 6px,
+    rgba(255, 255, 255, 0.35) 12px
+  );
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Marquee Animations */
+@keyframes marquee-ltr {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marquee-ltr 28s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+/* Diagonal Paper Slice Divider */
+.section-diagonal {
+  position: relative;
+}
+.section-diagonal::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background: inherit;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Responsive & Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

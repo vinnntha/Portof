@@ -1,58 +1,58 @@
-import { Navbar } from "./components/Navbar"
-import ParticleBackground from "./components/ParticleBackground"
-import CustomCursor from "./components/CustomCursor"
-import ScrollSection from "./components/ScrollSection"
-import { Hero } from "./components/Hero"
-import { Skill } from "./components/Skill"
-import { Gallery } from "./components/Gallery"
-import { MyProjects } from "./components/MyProjects"
-import { Roadmap } from "./components/Roadmap"
-import { Contact } from "./components/Contacts"
+import React, { useState } from "react";
+import { Preloader } from "./components/Preloader";
+import { RetroCursor } from "./components/RetroCursor";
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { About } from "./components/About";
+import { Experience } from "./components/Experience";
+import { Skills } from "./components/Skills";
+import { Portfolio } from "./components/Portfolio";
+import { Stories } from "./components/Stories";
+import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
 
 export default function App() {
-  return (
-    <div className="relative min-h-screen bg-[#050810]/50 text-white overflow-x-hidden">
-      {/* Floating Canvas Particles + Radial Background */}
-      <ParticleBackground />
+  const [preloaderDone, setPreloaderDone] = useState(false);
 
-      {/* Navigation Header */}
+  return (
+    <div className="relative min-h-screen bg-[#FFF4F4] text-[#14213D] selection:bg-[#3A86FF] selection:text-white overflow-x-hidden font-sans">
+      {/* 1. Preloader Screen */}
+      {!preloaderDone && (
+        <Preloader onComplete={() => setPreloaderDone(true)} />
+      )}
+
+      {/* 2. Custom Retro Pixel Cursor */}
+      <RetroCursor />
+
+      {/* 3. Floating Navbar & Scroll Progress */}
       <Navbar />
 
-      {/* Main Pages Content */}
+      {/* Main Single Page Sections */}
       <main className="relative w-full">
-        {/* Hero Section */}
-        <ScrollSection id="hero">
-          <Hero />
-        </ScrollSection>
+        {/* 4. Hero Section */}
+        <Hero />
 
-        {/* Selected Work Bento Gallery */}
-        <ScrollSection id="work">
-          <Gallery />
-        </ScrollSection>
+        {/* 5. About Me Section */}
+        <About />
 
-        {/* About & Skills Section */}
-        <ScrollSection id="about">
-          <Skill />
-        </ScrollSection>
+        {/* 6. Spill Pengalaman (Timeline & Sertifikasi) */}
+        <Experience />
 
-        {/* Detailed Projects Panels (Hand Mockups) */}
-        <ScrollSection id="projects">
-          <MyProjects />
-        </ScrollSection>
+        {/* 7. Skills & Tools (Kartu Putih Membulat + Pixel Bar) */}
+        <Skills />
 
-        {/* Roadmap Timeline Showcase */}
-        <ScrollSection id="roadmap">
-          <Roadmap />
-        </ScrollSection>
+        {/* 8. Portfolio (Carousel Miring + Mosaic Grid + Lightbox) */}
+        <Portfolio />
 
-        {/* Contact Section */}
-        <ScrollSection id="contact">
-          <Contact />
-        </ScrollSection>
+        {/* 9. Stories / Showreel (Camera HUD Drone Viewfinder) */}
+        <Stories />
+
+        {/* 10. Contact Section (Direct WA + Form) */}
+        <Contact />
       </main>
 
-      {/* Desktop Custom Cursor */}
-      <CustomCursor />
+      {/* 11. Footer Section (Marquee Ticker + Back-to-Top) */}
+      <Footer />
     </div>
   );
 }

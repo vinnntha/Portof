@@ -1,192 +1,241 @@
-"use client";
+import React, { useState, useEffect } from "react";
+import heroImg from "../assets/hero_portrait.png";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import SplitText from "./SplitText";
-import ProfileCard from "./ProfileCard";
-import heroPortraitImg from "../assets/hero_portrait.png";
+export const Hero: React.FC = () => {
+  // Roles for typewriter
+  const roles = [
+    "UX/UI Designer",
+    "Creative Developer",
+    "Videographer",
+    "Drone Pilot",
+  ];
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [ghostMessage, setGhostMessage] = useState<string | null>(null);
 
-export function Hero() {
-  const [typedText, setTypedText] = useState("");
-  const fullSubtitle = "Code. Design. Film. Fly.";
-
-  // Typing effect
+  // Typewriter effect
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setTypedText(fullSubtitle.substring(0, index));
-      index++;
-      if (index > fullSubtitle.length) {
-        clearInterval(interval);
+    const fullText = roles[roleIndex];
+    const typingSpeed = isDeleting ? 45 : 90;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setCurrentText(fullText.substring(0, currentText.length + 1));
+        if (currentText === fullText) {
+          setTimeout(() => setIsDeleting(true), 1600);
+        }
+      } else {
+        setCurrentText(fullText.substring(0, currentText.length - 1));
+        if (currentText === "") {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }
       }
-    }, 100);
-    return () => clearInterval(interval);
-  }, []);
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, roleIndex]);
+
+  // Ghost easter egg trigger
+  const handleGhostClick = () => {
+    const easterEggs = [
+      "Booo! Kamu nemu ghost rahasia! 👻✨",
+      "Drone siap lepas landas! 🛸💨",
+      "Kopi + Figma = Solusi desain terbaik! ☕🎨",
+      "Press Start: Level Averill terbuka! 🕹️🔥",
+    ];
+    const randomMsg = easterEggs[Math.floor(Math.random() * easterEggs.length)];
+    setGhostMessage(randomMsg);
+    setTimeout(() => setGhostMessage(null), 3800);
+  };
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center bg-[#050810] overflow-hidden px-4 sm:px-6 md:px-12 py-16 md:py-24">
+    <section
+      id="hero"
+      className="relative min-h-[92vh] pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center"
+    >
+      {/* Decorative Floating Stickers */}
+      {/* Ghost Sticker with Easter Egg */}
+      <div
+        onClick={handleGhostClick}
+        className="absolute top-24 left-6 sm:left-12 z-20 cursor-pointer animate-float select-none group"
+        title="Klik hantu pixel ini!"
+      >
+        <div className="relative p-2.5 bg-white border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] hover:scale-110 active:scale-95 transition-all">
+          <span className="font-pixel text-xl sm:text-2xl text-[#3A86FF]">
+            👻
+          </span>
+          <span className="absolute -bottom-2 -right-2 px-1.5 py-0.5 bg-[#FFD6E0] border border-[#14213D] rounded-md font-pixel text-[8px] text-[#14213D]">
+            CLICK!
+          </span>
+        </div>
 
-      {/* Massive Watermark Stroke Text */}
-      <div className="absolute top-[15%] left-[5%] bg-word opacity-[0.05] pointer-events-none select-none">
-        STUDIO
+        {/* Easter Egg Speech Bubble */}
+        {ghostMessage && (
+          <div className="absolute left-14 top-0 w-52 sm:w-60 p-3 bg-[#FFD6E0] border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] z-30 animate-in fade-in zoom-in duration-200">
+            <p className="font-sans text-xs font-bold text-[#14213D] leading-tight">
+              {ghostMessage}
+            </p>
+            <div className="absolute -left-2 top-3 w-3 h-3 bg-[#FFD6E0] border-l-2 border-b-2 border-[#14213D] -rotate-45" />
+          </div>
+        )}
       </div>
 
-      {/* Floating Ambient Orb - Top Right */}
-      <div className="absolute top-[-10%] right-[-10%] md:top-[10%] md:right-[5%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] rounded-full bg-[radial-gradient(circle,rgba(125,211,252,0.12)_0%,transparent_70%)] blur-3xl animate-[footer-breathe_7s_ease-in-out_infinite_alternate] pointer-events-none" />
+      {/* Star Sticker */}
+      <div className="absolute top-36 right-8 sm:right-20 z-10 animate-float-delayed pointer-events-none">
+        <div className="p-2.5 bg-[#BDB2FF] border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] rotate-12">
+          <span className="font-pixel text-xl text-white">✦</span>
+        </div>
+      </div>
 
-      <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-8 lg:pt-0">
+      {/* Heart Sticker */}
+      <div className="absolute bottom-20 left-10 sm:left-24 z-10 animate-float pointer-events-none hidden sm:block">
+        <div className="p-2 bg-[#FFD6E0] border-2 border-[#14213D] rounded-2xl shadow-[3px_3px_0px_#14213D] -rotate-12">
+          <span className="font-pixel text-base text-[#3A86FF]">♥</span>
+        </div>
+      </div>
 
-        {/* Left Column: Text Block (Anchored Bottom-Left on Desktop) */}
-        <div className="lg:col-span-7 flex flex-col justify-center lg:justify-end text-left h-full lg:pt-16">
-          {/* Eyebrow tag */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex items-center gap-2 mb-4"
-          >
-            <span className="h-1.5 w-1.5 bg-ice-300 rounded-full animate-pulse" />
-            <span className="text-[8px] font-mono tracking-[0.2em] text-ice-300 uppercase">
-              CREATIVE DEVELOPER × VISUAL ARTIST
+      {/* Main Grid Content */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        {/* Left Column: Heading, Typewriter, CTA & Info */}
+        <div className="lg:col-span-7 flex flex-col items-start z-10">
+          {/* Top Editorial Identity Pill */}
+          <div className="pill-badge bg-[#BDB2FF]/25 border-2 border-[#14213D] mb-5">
+            <span className="w-2 h-2 rounded-full bg-[#3A86FF]"></span>
+            <span className="font-mono text-xs font-bold text-[#14213D]">
+              Averill Kevinatha | Creative Maker
             </span>
-          </motion.div>
-
-          {/* Split Text Name */}
-          <div className="relative w-full flex flex-col mb-4 select-none cursor-default">
-            <SplitText
-              text="AVERILL"
-              className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-syne font-bold tracking-tighter text-[#F0F4FF] leading-none"
-              delay={50}
-              duration={0.8}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              textAlign="left"
-            />
-            <SplitText
-              text="KEVIN"
-              className="text-5xl sm:text-7xl md:text-8xl lg:text-[8rem] font-syne font-bold tracking-tighter text-[#7DD3FC] leading-none"
-              delay={50}
-              duration={0.8}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              textAlign="left"
-            />
           </div>
 
-          {/* Subtitle - Typwriter effect */}
-          <div className="h-8 mb-8 sm:mb-10 flex items-center">
-            <p className="text-base sm:text-lg md:text-xl font-mono text-ice-400 tracking-wider">
-              {typedText}
-              <span className="inline-block w-1.5 h-5 ml-1 bg-ice-300 animate-[blink_1s_infinite_step-start]" />
-            </p>
+          {/* Mixed Display Heading: Playfair Serif + Press Start 2P Pixel */}
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#14213D] tracking-tight leading-[1.05] mb-4">
+            Port
+            <span className="font-pixel text-3xl sm:text-4xl md:text-5xl text-[#3A86FF] tracking-normal inline-block ml-1">
+              folio.
+            </span>
+          </h1>
+
+          {/* Dynamic Typewriter Subheading with Blinking Cursor */}
+          <div className="flex items-center gap-2 mb-6 h-10">
+            <span className="font-mono text-sm sm:text-base font-bold text-[#14213D]/70">
+              Spesialisasi:
+            </span>
+            <div className="px-3 py-1 bg-white border-2 border-[#14213D] rounded-xl shadow-[2px_2px_0px_#14213D] flex items-center">
+              <span className="font-mono text-sm sm:text-base font-black text-[#3A86FF]">
+                {currentText}
+              </span>
+              <span className="font-mono text-base font-bold text-[#14213D] animate-ping ml-0.5">
+                |
+              </span>
+            </div>
           </div>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-wrap gap-4"
-          >
+          {/* Hero Description */}
+          <p className="font-sans text-base sm:text-lg text-[#14213D]/80 max-w-xl mb-8 leading-relaxed">
+            Menghubungkan estetika visual interaktif, kode frontend bertenaga tinggi, 
+            serta sinematografi udara drone untuk menciptakan pengalaman digital yang berdampak nyata.
+          </p>
+
+          {/* Retro Pixel Progress / Battery Decor */}
+          <div className="w-full max-w-md p-3 bg-white border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] mb-8">
+            <div className="flex justify-between items-center mb-1.5 font-pixel text-[10px] text-[#14213D]">
+              <span>CREATIVE CAPACITY</span>
+              <span className="text-[#3A86FF]">100% ONLINE</span>
+            </div>
+            <div className="pixel-bar-track">
+              <div className="pixel-bar-fill w-full"></div>
+            </div>
+          </div>
+
+          {/* Interactive CTA Buttons */}
+          <div className="flex flex-wrap items-center gap-4">
             <a
-              href="#work"
-              className="relative inline-flex items-center justify-center px-6 sm:px-8 py-3.5 border border-ice-300 bg-transparent text-ice-300 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:shadow-[0_0_30px_rgba(125,211,252,0.3)] hover:bg-ice-300 hover:text-[#050810] group clickable"
+              href="#portfolio"
+              className="retro-btn bg-[#3A86FF] hover:bg-[#1B60D1] text-white text-sm sm:text-base px-6 py-3"
             >
-              View Work
-              <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
+              <span>Lihat Karya</span>
+              <span className="font-pixel text-xs">↗</span>
             </a>
+
             <a
               href="#contact"
-              className="relative inline-flex items-center justify-center px-6 sm:px-8 py-3.5 border border-ice-500/20 bg-ice-950/20 text-ice-400 font-mono text-xs uppercase tracking-widest overflow-hidden rounded-md transition-all duration-500 hover:border-ice-400 hover:text-ice-200 hover:bg-ice-500/10 group clickable"
+              className="retro-btn retro-btn-secondary text-sm sm:text-base px-6 py-3"
             >
-              Get In Touch
+              <span>Hubungi Saya</span>
+              <span className="font-pixel text-xs">✉</span>
             </a>
-          </motion.div>
+
+            <a
+              href="#experience"
+              className="pill-badge hover:bg-[#FFD6E0] cursor-pointer transition-colors py-2 px-4"
+            >
+              <span className="font-mono text-xs">Spill Pengalaman ↓</span>
+            </a>
+          </div>
         </div>
 
-        {/* Right Column: Desktop ProfileCard */}
-        <motion.div
-          className="hidden lg:flex lg:col-span-5 items-center justify-center mt-4 lg:mt-0"
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4, duration: 1, ease: 'easeOut' }}
-        >
-          <ProfileCard
-            name="Averill Kevin"
-            title="Creative Developer"
-            handle="averillkevin"
-            status="Available for hire"
-            contactText="Contact Me"
-            showUserInfo={true}
-            enableTilt={true}
-            enableMobileTilt={false}
-            behindGlowEnabled
-            behindGlowColor="rgba(125, 190, 255, 0.55)"
-            avatarUrl={heroPortraitImg}
-            miniAvatarUrl={heroPortraitImg}
-            innerGradient="linear-gradient(145deg,#0d1b3e 0%,#1a2c5e 40%,#7DD3FC22 100%)"
-            onContactClick={() => {
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          />
-        </motion.div>
+        {/* Right Column: Photo Cutout with Blue-Lavender Circle Backdrop */}
+        <div className="lg:col-span-5 flex justify-center items-center relative mt-8 lg:mt-0">
+          {/* Outer Rotating / Decorative Elements */}
+          <div className="relative w-72 sm:w-88 md:w-96 aspect-square flex items-center justify-center">
+            {/* Big Colored Shape Circle */}
+            <div className="absolute inset-2 rounded-full bg-gradient-to-tr from-[#3A86FF] via-[#BDB2FF] to-[#FFD6E0] border-[3px] border-[#14213D] shadow-[8px_8px_0px_#14213D]" />
 
-        {/* Mobile Minimalist Portrait Display */}
-        <motion.div
-          className="flex lg:hidden col-span-1 items-center justify-center mt-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          <div className="relative flex flex-col items-center p-5 rounded-2xl bg-[#0c1223]/60 border border-ice-300/15 backdrop-blur-md max-w-[260px] sm:max-w-[280px] w-full text-center shadow-lg">
-            <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_center,rgba(125,211,252,0.1)_0%,transparent_70%)] pointer-events-none" />
-            
-            <div className="relative w-24 h-24 sm:w-32 sm:h-32 mb-3 rounded-full overflow-hidden border-2 border-ice-300/40 p-1 bg-[#050810]/80 shadow-[0_0_20px_rgba(125,211,252,0.2)]">
-              <img
-                src={heroPortraitImg}
-                alt="Averill Kevin"
-                className="w-full h-full object-cover rounded-full"
-              />
+            {/* Subtle Blueprint grid texture inside circle */}
+            <div
+              className="absolute inset-4 rounded-full opacity-20 pointer-events-none"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, #14213D 1px, transparent 1px), linear-gradient(to bottom, #14213D 1px, transparent 1px)",
+                backgroundSize: "16px 16px",
+              }}
+            />
+
+            {/* Cutout Portrait Image */}
+            <img
+              src={heroImg}
+              alt="Averill Kevinatha Cutout Portrait"
+              className="relative z-10 w-full h-full object-contain object-bottom drop-shadow-[0_12px_24px_rgba(20,33,61,0.25)] hover:scale-105 transition-transform duration-300"
+              loading="eager"
+            />
+
+            {/* Corner Badge 1: Location */}
+            <div className="absolute -bottom-3 -left-4 z-20 px-3 py-1.5 bg-white border-2 border-[#14213D] rounded-full shadow-[3px_3px_0px_#14213D] flex items-center gap-1.5 font-mono text-[11px] font-bold">
+              <span>📍</span>
+              <span>Indonesia</span>
             </div>
 
-            <h3 className="text-base sm:text-lg font-bold font-syne text-ice-100 tracking-wide">
-              Averill Kevin
-            </h3>
-            <p className="text-[11px] sm:text-xs font-mono text-ice-300 mt-0.5 mb-2.5">
-              Creative Developer
-            </p>
-
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ice-300/10 border border-ice-300/20 text-[9px] font-mono text-ice-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Available for hire
+            {/* Corner Badge 2: Drone certified */}
+            <div className="absolute -top-3 -right-2 z-20 px-3 py-1.5 bg-[#FFD6E0] border-2 border-[#14213D] rounded-full shadow-[3px_3px_0px_#14213D] flex items-center gap-1.5 font-mono text-[11px] font-bold">
+              <span>🛸</span>
+              <span>Drone Ready</span>
             </div>
           </div>
-        </motion.div>
-
-      </div>
-
-      {/* Scroll indicator line */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
-        <span className="text-[9px] font-mono tracking-widest text-ice-500 uppercase">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-ice-400 to-transparent relative overflow-hidden">
-          <motion.div
-            animate={{ y: ["-100%", "100%"] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full h-4 bg-ice-300"
-          />
         </div>
       </div>
 
-      {/* In-file styles for custom blink animation cursor */}
-      <style>{`
-        @keyframes blink {
-          50% { opacity: 0; }
-        }
-      `}</style>
+      {/* Bottom Counter Bar: Numbers Stats Count-up */}
+      <div className="mt-14 pt-8 border-t-2 border-[#14213D]/20 grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { number: "15+", label: "Proyek Selesai", color: "text-[#3A86FF]" },
+          { number: "40+", label: "Jam Terbang Drone", color: "text-[#BDB2FF]" },
+          { number: "4+", label: "Peran Kreatif", color: "text-[#3A86FF]" },
+          { number: "100%", label: "Dedikasi Kualitas", color: "text-[#14213D]" },
+        ].map((stat, i) => (
+          <div
+            key={i}
+            className="p-4 bg-white border-2 border-[#14213D] rounded-2xl shadow-[3px_3px_0px_#14213D] text-center"
+          >
+            <div className={`font-serif text-3xl sm:text-4xl font-black ${stat.color}`}>
+              {stat.number}
+            </div>
+            <div className="font-mono text-xs font-bold text-[#14213D]/75 mt-1">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
-}
+};
