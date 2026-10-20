@@ -41,10 +41,10 @@ export const Hero: React.FC = () => {
   // Ghost easter egg trigger
   const handleGhostClick = () => {
     const easterEggs = [
-      "Booo! You discovered the secret ghost! 👻✨",
-      "Drone ready for takeoff, code ready to deploy! 🛸💻",
-      "Coffee + React + TypeScript = Lag-free web! ☕⚡",
-      "Averill Level: Fullstack Power Unlocked! 🕹️🔥",
+      "Booo! You discovered the secret ghost!",
+      "Drone ready for takeoff, code ready to deploy!",
+      "Coffee + React + TypeScript = Lag-free web!",
+      "Averill : Fullstack",
     ];
     const randomMsg = easterEggs[Math.floor(Math.random() * easterEggs.length)];
     setGhostMessage(randomMsg);

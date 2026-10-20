@@ -11,7 +11,6 @@ export const Skills: React.FC = () => {
       type: "UI/UX & Prototyping",
       desc: "Interactive components, precise auto-layout, design tokens & dev-ready handoff.",
       color: "bg-[#3A86FF]",
-      icon: "🎨",
     },
     {
       name: "React.js & Vite",
@@ -20,7 +19,6 @@ export const Skills: React.FC = () => {
       type: "Frontend Framework",
       desc: "Modular components, state management hooks, interactive single-page architectures.",
       color: "bg-[#3A86FF]",
-      icon: "⚛️",
     },
     {
       name: "TypeScript",
@@ -29,7 +27,6 @@ export const Skills: React.FC = () => {
       type: "Type Safety",
       desc: "Runtime bug prevention, type-safe API integrations, and clean code structure.",
       color: "bg-[#3A86FF]",
-      icon: "📘",
     },
     {
       name: "Tailwind CSS",
@@ -38,7 +35,6 @@ export const Skills: React.FC = () => {
       type: "Styling & Responsive",
       desc: "Modern utilities, fluid typography, dark mode, and design token customization.",
       color: "bg-[#3A86FF]",
-      icon: "🌊",
     },
     {
       name: "DaVinci Resolve",
@@ -47,7 +43,6 @@ export const Skills: React.FC = () => {
       type: "Color Grading & Editing",
       desc: "Color space transform, node-based grading, dynamic cuts & cinematic pacing.",
       color: "bg-[#BDB2FF]",
-      icon: "🎬",
     },
     {
       name: "Adobe Premiere Pro",
@@ -56,7 +51,6 @@ export const Skills: React.FC = () => {
       type: "Timeline Video Editing",
       desc: "Multi-cam editing, audio syncing, masking, render encoding optimized for social media.",
       color: "bg-[#BDB2FF]",
-      icon: "🎞️",
     },
     {
       name: "DJI Fly & Drone Piloting",
@@ -65,7 +59,6 @@ export const Skills: React.FC = () => {
       type: "Aerial Cinematography",
       desc: "Smooth orbits, bird's-eye perspectives, cinematic tilts, flight safety compliance.",
       color: "bg-[#FFD6E0]",
-      icon: "🛸",
     },
     {
       name: "Three.js / React Three Fiber",
@@ -74,7 +67,6 @@ export const Skills: React.FC = () => {
       type: "3D Web Graphics",
       desc: "Canvas rendering, lighting, camera controls, and interactive 3D asset integrations.",
       color: "bg-[#3A86FF]",
-      icon: "🌐",
     },
     {
       name: "VS Code & Git",
@@ -83,7 +75,6 @@ export const Skills: React.FC = () => {
       type: "Development Environment",
       desc: "Version control, branching workflows, terminal automation, debugging.",
       color: "bg-[#3A86FF]",
-      icon: "💻",
     },
   ];
 
@@ -146,7 +137,6 @@ export const Skills: React.FC = () => {
               {/* Card top */}
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#FFF4F4] border-2 border-[#14213D] flex items-center justify-center text-2xl shadow-[2px_2px_0px_#14213D] group-hover:scale-110 transition-transform">
-                  {tool.icon}
                 </div>
                 <span className="font-mono text-[11px] font-bold text-[#14213D] px-2.5 py-1 bg-[#BDB2FF]/20 rounded-lg border border-[#14213D]">
                   {tool.type}

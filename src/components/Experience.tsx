@@ -170,7 +170,7 @@ export const Experience: React.FC = () => {
                 </span>
 
                 <span className="font-mono text-xs font-bold text-[#14213D]/70 bg-[#FFF4F4] px-3 py-1 rounded-lg border border-[#14213D]">
-                  📍 {item.place}
+                  {item.place}
                 </span>
               </div>
 
@@ -180,7 +180,7 @@ export const Experience: React.FC = () => {
 
               <div className="my-2">
                 <span className="font-pixel text-[9px] text-[#3A86FF] tracking-wider">
-                  ★ {item.highlight}
+                  {item.highlight}
                 </span>
               </div>
 
@@ -224,7 +224,7 @@ export const Experience: React.FC = () => {
             </p>
           </div>
           <span className="font-mono text-xs font-bold text-[#14213D] bg-white px-3.5 py-2 rounded-full border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] self-start sm:self-auto">
-            🔍 Click card to zoom & view details
+            Click card to zoom & view details
           </span>
         </div>
 
