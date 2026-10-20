@@ -120,7 +120,7 @@ export const Hero: React.FC = () => {
           {/* Dynamic Typewriter Subheading with Blinking Cursor */}
           <div className="flex flex-wrap items-center gap-2 mb-6 min-h-[40px]">
             <span className="font-mono text-sm sm:text-base font-bold text-[#14213D]/70">
-              Spesialis Utama:
+              My Skills:
             </span>
             <div className="px-3 py-1 bg-white border-2 border-[#14213D] rounded-xl shadow-[2px_2px_0px_#14213D] flex items-center">
               <span className="font-mono text-sm sm:text-base font-black text-[#3A86FF]">
@@ -156,7 +156,6 @@ export const Hero: React.FC = () => {
               className="retro-btn bg-[#3A86FF] hover:bg-[#1B60D1] text-white text-sm sm:text-base px-6 py-3"
             >
               <span>Eksplor Proyek Coding & Karya</span>
-              <span className="font-pixel text-xs">↗</span>
             </a>
 
             <a
@@ -164,14 +163,13 @@ export const Hero: React.FC = () => {
               className="retro-btn retro-btn-secondary text-sm sm:text-base px-6 py-3"
             >
               <span>Hubungi Saya</span>
-              <span className="font-pixel text-xs">✉</span>
             </a>
 
             <a
               href="#experience"
               className="pill-badge hover:bg-[#FFD6E0] cursor-pointer transition-colors py-2 px-4"
             >
-              <span className="font-mono text-xs">9 Sertifikat & Timeline ↓</span>
+              <span className="font-mono text-xs">9 Sertifikat & Timeline</span>
             </a>
           </div>
         </div>
@@ -202,13 +200,11 @@ export const Hero: React.FC = () => {
 
             {/* Corner Badge 1: Coding Specialization */}
             <div className="absolute -bottom-3 -left-4 z-20 px-3.5 py-1.5 bg-white border-2 border-[#14213D] rounded-full shadow-[3px_3px_0px_#14213D] flex items-center gap-1.5 font-mono text-[11px] font-bold">
-              <span>💻</span>
               <span className="text-[#3A86FF]">Frontend & Fullstack</span>
             </div>
 
             {/* Corner Badge 2: Drone & Media */}
             <div className="absolute -top-3 -right-2 z-20 px-3.5 py-1.5 bg-[#FFD6E0] border-2 border-[#14213D] rounded-full shadow-[3px_3px_0px_#14213D] flex items-center gap-1.5 font-mono text-[11px] font-bold">
-              <span>🛸</span>
               <span>Drone Pilot & Video</span>
             </div>
           </div>
@@ -218,10 +214,10 @@ export const Hero: React.FC = () => {
       {/* Bottom Counter Bar: Numbers Stats Count-up */}
       <div className="mt-14 pt-8 border-t-2 border-[#14213D]/20 grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { number: "9+", label: "Sertifikasi Resmi", color: "text-[#3A86FF]" },
+          { number: "10+", label: "Sertifikasi Resmi", color: "text-[#3A86FF]" },
           { number: "100%", label: "Fokus Clean Code", color: "text-[#14213D]" },
-          { number: "40+", label: "Jam Terbang Drone", color: "text-[#BDB2FF]" },
-          { number: "5+", label: "Web App Production", color: "text-[#3A86FF]" },
+          { number: "75+", label: "Jam Terbang Drone", color: "text-[#BDB2FF]" },
+          { number: "6+", label: "Web App Production", color: "text-[#3A86FF]" },
         ].map((stat, i) => (
           <div
             key={i}
