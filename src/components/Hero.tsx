@@ -41,10 +41,10 @@ export const Hero: React.FC = () => {
   // Ghost easter egg trigger
   const handleGhostClick = () => {
     const easterEggs = [
-      "Booo! Kamu nemu ghost rahasia! 👻✨",
-      "Drone siap terbang, kode siap di-deploy! 🛸💻",
-      "Kopi + React + TypeScript = Web anti-lag! ☕⚡",
-      "Level Averill: Fullstack Power Unlocked! 🕹️🔥",
+      "Booo! You discovered the secret ghost! 👻✨",
+      "Drone ready for takeoff, code ready to deploy! 🛸💻",
+      "Coffee + React + TypeScript = Lag-free web! ☕⚡",
+      "Averill Level: Fullstack Power Unlocked! 🕹️🔥",
     ];
     const randomMsg = easterEggs[Math.floor(Math.random() * easterEggs.length)];
     setGhostMessage(randomMsg);
@@ -61,7 +61,7 @@ export const Hero: React.FC = () => {
       <div
         onClick={handleGhostClick}
         className="absolute top-24 left-6 sm:left-12 z-20 cursor-pointer animate-float select-none group"
-        title="Klik hantu pixel ini!"
+        title="Click this pixel ghost!"
       >
         <div className="relative p-2.5 bg-white border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] hover:scale-110 active:scale-95 transition-all">
           <span className="font-pixel text-xl sm:text-2xl text-[#3A86FF]">
@@ -134,8 +134,8 @@ export const Hero: React.FC = () => {
 
           {/* Hero Description with Coding Highlights */}
           <p className="font-sans text-base sm:text-lg text-[#14213D]/80 max-w-xl mb-8 leading-relaxed">
-            Fokus membangun <strong>arsitektur web modern, performa tinggi, dan interaktif</strong> dengan 
-            React, Next.js, TypeScript, dan Nest.js — diperkaya dengan sentuhan desain UI/UX presisi, serta rekaman sinematografi drone dan video editing profesional.
+            Dedicated to building <strong>modern, high-performance, and interactive web architectures</strong> with 
+            React, Next.js, TypeScript, and Nest.js — enhanced with precision UI/UX design, aerial drone cinematography, and professional video editing.
           </p>
 
           {/* Retro Pixel Progress / Coding Engine Decor */}
@@ -155,21 +155,21 @@ export const Hero: React.FC = () => {
               href="#portfolio"
               className="retro-btn bg-[#3A86FF] hover:bg-[#1B60D1] text-white text-sm sm:text-base px-6 py-3"
             >
-              <span>Eksplor Proyek Coding & Karya</span>
+              <span>Explore Projects & Works</span>
             </a>
 
             <a
               href="#contact"
               className="retro-btn retro-btn-secondary text-sm sm:text-base px-6 py-3"
             >
-              <span>Hubungi Saya</span>
+              <span>Get in Touch</span>
             </a>
 
             <a
               href="#experience"
               className="pill-badge hover:bg-[#FFD6E0] cursor-pointer transition-colors py-2 px-4"
             >
-              <span className="font-mono text-xs">9 Sertifikat & Timeline</span>
+              <span className="font-mono text-xs">9 Certifications & Timeline</span>
             </a>
           </div>
         </div>
@@ -214,10 +214,10 @@ export const Hero: React.FC = () => {
       {/* Bottom Counter Bar: Numbers Stats Count-up */}
       <div className="mt-14 pt-8 border-t-2 border-[#14213D]/20 grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { number: "10+", label: "Sertifikasi Resmi", color: "text-[#3A86FF]" },
-          { number: "100%", label: "Fokus Clean Code", color: "text-[#14213D]" },
-          { number: "75+", label: "Jam Terbang Drone", color: "text-[#BDB2FF]" },
-          { number: "6+", label: "Web App Production", color: "text-[#3A86FF]" },
+          { number: "10+", label: "Official Certifications", color: "text-[#3A86FF]" },
+          { number: "100%", label: "Clean Code Focus", color: "text-[#14213D]" },
+          { number: "75+", label: "Drone Flight Hours", color: "text-[#BDB2FF]" },
+          { number: "6+", label: "Production Web Apps", color: "text-[#3A86FF]" },
         ].map((stat, i) => (
           <div
             key={i}

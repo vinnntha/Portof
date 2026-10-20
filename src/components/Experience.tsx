@@ -30,7 +30,7 @@ export const Experience: React.FC = () => {
       image: cert1,
       year: "2023",
       tags: ["Cisco", "Python", "Data Analyst", "Networking"],
-      description: "Sertifikat kelulusan pelatihan resmi Cisco CCNA untuk pemahaman arsitektur jaringan, routing dasar, dan pemrosesan data dengan Python.",
+      description: "Official Cisco CCNA course completion certificate covering network architecture, fundamental routing, and Python data processing.",
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ export const Experience: React.FC = () => {
       image: cert2,
       year: "2023",
       tags: ["Cisco", "VLAN", "Wireless", "Protocol"],
-      description: "Sertifikasi kompetensi konfigurasi perangkat switch, implementasi VLAN, dan routing protokol tingkat lanjut.",
+      description: "Competency certificate for switch configuration, VLAN implementation, and advanced routing protocols.",
     },
     {
       id: 3,
@@ -48,7 +48,7 @@ export const Experience: React.FC = () => {
       image: cert3,
       year: "2024",
       tags: ["Cisco", "Network Security", "Automation"],
-      description: "Sertifikasi keahlian otomatisasi jaringan perusahaan, mitigasi ancaman keamanan siber, dan REST API controller.",
+      description: "Specialized certification in enterprise network automation, cybersecurity threat mitigation, and REST API controllers.",
     },
     {
       id: 4,
@@ -57,7 +57,7 @@ export const Experience: React.FC = () => {
       image: cert4,
       year: "2024",
       tags: ["Cisco", "CyberOps", "Threat Analysis"],
-      description: "Sertifikasi monitoring operasi keamanan, analisis malware, dan protokol keamanan data sistem komputer.",
+      description: "Certification in security operations monitoring, malware analysis, and computer system data security protocols.",
     },
     {
       id: 5,
@@ -66,16 +66,16 @@ export const Experience: React.FC = () => {
       image: cert5,
       year: "2024",
       tags: ["Node.js", "HackerRank", "Backend", "REST API"],
-      description: "Sertifikat kelulusan pelatihan dan ujian kompetensi Node.js Backend: event loop, async handling, modularization, dan HTTP Web Server.",
+      description: "Course completion and competency assessment in Node.js Backend: event loop, async handling, modularization, and HTTP Web Servers.",
     },
     {
       id: 6,
-      title: "Dasar Pemrograman Web (Web Development Foundations)",
+      title: "Web Development Foundations",
       issuer: "Dicoding Indonesia",
       image: cert6,
       year: "2023",
       tags: ["HTML5", "CSS3", "Responsive", "Dicoding"],
-      description: "Sertifikat kompetensi fondasi web modern, semantic markup, responsive design flexbox & grid, serta accessibility standard.",
+      description: "Competency certificate in modern web foundations, semantic markup, responsive design (flexbox & grid), and accessibility standards.",
     },
     {
       id: 7,
@@ -84,16 +84,16 @@ export const Experience: React.FC = () => {
       image: cert7,
       year: "2024",
       tags: ["JavaScript ES6+", "OOP", "Async/Await", "Dicoding"],
-      description: "Sertifikasi penguasaan JavaScript modern: functional programming, OOP, asynchronous promises, dan unit testing framework.",
+      description: "Certification in modern JavaScript mastery: functional programming, OOP, asynchronous promises, and unit testing frameworks.",
     },
     {
       id: 8,
-      title: "Sertifikat Uji Kompetensi Keahlian RPL (UKK)",
+      title: "Software Engineering Vocational Competency (UKK)",
       issuer: "SMK Telkom Malang / BNSP",
       image: cert8,
       year: "2024",
       tags: ["SMK Telkom", "BNSP", "RPL", "Fullstack"],
-      description: "Sertifikat resmi kelulusan uji kompetensi kejuruan Rekayasa Perangkat Lunak untuk pembangunan aplikasi web fullstack dan database.",
+      description: "Official vocational competency assessment certificate in Software Engineering for building fullstack web applications and relational databases.",
     },
     {
       id: 9,
@@ -102,37 +102,37 @@ export const Experience: React.FC = () => {
       image: cert9,
       year: "2024",
       tags: ["Certiport", "Microsoft", "AI Associate", "Machine Learning"],
-      description: "Sertifikat internasional Certiport & Microsoft untuk pemahaman prinsip Artificial Intelligence, Computer Vision, NLP, dan automasi data cerdas.",
+      description: "International Certiport & Microsoft certification demonstrating core principles of Artificial Intelligence, Computer Vision, NLP, and intelligent data automation.",
     },
   ];
 
   const experiences = [
     {
-      year: "2024 - Sekarang",
+      year: "2024 - Present",
       role: "Creative Frontend & Fullstack Developer",
       place: "Freelance & Independent Projects",
-      highlight: "UNGGULAN: WEB INTERAKTIF, REST API & CREATIVE CODE",
+      highlight: "FEATURED: INTERACTIVE WEB, REST APIS & CREATIVE CODE",
       description:
-        "Membangun arsitektur frontend web interaktif (React, Next.js, Vite, TypeScript) dengan performa tinggi, integrasi backend Nest.js & PostgreSQL, dipadukan kemampuan aerial videography untuk materi visual klien.",
+        "Building high-performance interactive frontend web architectures (React, Next.js, Vite, TypeScript), Nest.js & PostgreSQL backend integrations, combined with aerial videography skills for client visual assets.",
       deliverables: ["Fullstack & Frontend Web Apps", "Responsive UI System", "Aerial 4K Cinematography"],
     },
     {
       year: "2023 - 2024",
       role: "Frontend Specialist & UI/UX Designer",
       place: "SMK Telkom Malang & SiMagangku Platform",
-      highlight: "PLATFORM DIGITAL & TUGAS AKHIR KELAS 12",
+      highlight: "DIGITAL PLATFORMS & 12TH GRADE CAPSTONE PROJECT",
       description:
-        "Mengembangkan platform SiMagangku dan sistem akhir Trashly Website, merancang arsitektur komponen frontend berstandar industri, validasi multi-step form, dan integrasi database relational.",
-      deliverables: ["Platform SiMagangku", "Trashly Final Project", "Design System Figma"],
+        "Developed the SiMagangku platform and the Trashly Website capstone system, engineering industry-standard frontend component architectures, multi-step form validation, and relational database integrations.",
+      deliverables: ["SiMagangku Platform", "Trashly Final Project", "Figma Design System"],
     },
     {
       year: "2022 - 2023",
-      role: "Siswa Rekayasa Perangkat Lunak (RPL)",
+      role: "Software Engineering Student",
       place: "SMK Telkom Malang",
-      highlight: "FONDASI PEMROGRAMAN, JARINGAN & CISCO CCNA",
+      highlight: "FOUNDATIONS OF PROGRAMMING, NETWORKING & CISCO CCNA",
       description:
-        "Mengikuti program intensif RPL SMK Telkom Malang, meraih 9 sertifikasi kompetensi (Cisco, Dicoding, HackerRank, Certiport Microsoft AI), serta aktif dalam tim dokumentasi drone dan videografi sekolah.",
-      deliverables: ["Sertifikasi Cisco CCNA", "Microsoft AI Associate", "Dokumentasi Dies Natalis"],
+        "Enrolled in the intensive Software Engineering program at SMK Telkom Malang, earning 9 competency certifications (Cisco, Dicoding, HackerRank, Certiport Microsoft AI), and actively participating in the school drone documentation and videography team.",
+      deliverables: ["Cisco CCNA Certifications", "Microsoft AI Associate", "School Anniversary Documentation"],
     },
   ];
 
@@ -142,14 +142,14 @@ export const Experience: React.FC = () => {
       <div className="flex flex-col items-start mb-14">
         <div className="pill-badge bg-[#FFD6E0] border-2 border-[#14213D] mb-4">
           <span className="font-pixel text-[10px] text-[#3A86FF]">02 //</span>
-          <span className="font-mono text-xs font-bold text-[#14213D]">SPILL PENGALAMAN & SERTIFIKASI</span>
+          <span className="font-mono text-xs font-bold text-[#14213D]">EXPERIENCE & CERTIFICATIONS</span>
         </div>
 
         <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
-          Rekam Jejak & 9 Lisensi Resmi.
+          Track Record & 9 Official Licenses.
         </h2>
         <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
-          PENGALAMAN NYATA DI DUNIA CODING & KREDENSIAL SERTIFIKASI LENGKAP DARI CISCO, DICODING, HINGGA MICROSOFT
+          PROVEN EXPERIENCE IN CODING & COMPREHENSIVE CERTIFICATION CREDENTIALS FROM CISCO, DICODING, AND MICROSOFT
         </p>
       </div>
 
@@ -206,25 +206,25 @@ export const Experience: React.FC = () => {
       </div>
 
       {/* ======================================================== */}
-      {/* 9 VERIFIED CERTIFICATES GALLERY (LENGKAP 1 - 9)          */}
+      {/* 9 VERIFIED CERTIFICATES GALLERY                          */}
       {/* ======================================================== */}
       <div className="mt-16 retro-panel-pink p-6 sm:p-10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
             <div className="flex items-center gap-2">
               <span className="font-pixel text-[10px] text-[#3A86FF] px-2.5 py-1 bg-white rounded-md border border-[#14213D]">
-                VERIFIED CREDENTIALS // 9 SERTIFIKAT RESMI
+                VERIFIED CREDENTIALS // 9 OFFICIAL CERTIFICATES
               </span>
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-black text-[#14213D] mt-2">
-              Galeri Sertifikasi Portofolio (1 - 9).
+              Portfolio Certification Gallery (1 - 9).
             </h3>
             <p className="font-sans text-xs sm:text-sm text-[#14213D]/80 mt-1">
-              Semua sertifikat terverifikasi di bidang pemrograman web, JavaScript, backend Node.js, jaringan Cisco, dan AI.
+              All certificates verified across web programming, JavaScript, Node.js backend, Cisco networking, and AI.
             </p>
           </div>
           <span className="font-mono text-xs font-bold text-[#14213D] bg-white px-3.5 py-2 rounded-full border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] self-start sm:self-auto">
-            🔍 Klik kartu untuk zoom & detail
+            🔍 Click card to zoom & view details
           </span>
         </div>
 
@@ -312,10 +312,10 @@ export const Experience: React.FC = () => {
                 {selectedCert.issuer}
               </span>
               <span className="px-3 py-1 bg-[#FFD6E0] border border-[#14213D] rounded-full font-mono text-xs font-bold text-[#14213D]">
-                Tahun Terbit: {selectedCert.year}
+                Issued: {selectedCert.year}
               </span>
               <span className="px-3 py-1 bg-[#BDB2FF]/30 border border-[#14213D] rounded-full font-pixel text-[9px] text-[#14213D]">
-                SERTIFIKAT #{selectedCert.id}
+                CERTIFICATE #{selectedCert.id}
               </span>
             </div>
 
@@ -328,7 +328,7 @@ export const Experience: React.FC = () => {
 
             <div className="pt-3 border-t-2 border-[#14213D]/10">
               <div className="font-mono text-xs font-bold text-[#14213D] mb-2 uppercase">
-                Bidang Kompetensi:
+                Competency Areas:
               </div>
               <div className="flex flex-wrap gap-1.5 mb-6">
                 {selectedCert.tags.map((tg, i) => (
@@ -346,7 +346,7 @@ export const Experience: React.FC = () => {
               onClick={() => setSelectedCert(null)}
               className="retro-btn bg-[#3A86FF] text-white text-xs w-full"
             >
-              Tutup Preview
+              Close Preview
             </button>
           </div>
         </div>

@@ -9,7 +9,7 @@ export const Skills: React.FC = () => {
       category: "design",
       level: 95,
       type: "UI/UX & Prototyping",
-      desc: "Komponen interaktif, auto-layout presisi, token desain & handover siap dev.",
+      desc: "Interactive components, precise auto-layout, design tokens & dev-ready handoff.",
       color: "bg-[#3A86FF]",
       icon: "🎨",
     },
@@ -18,7 +18,7 @@ export const Skills: React.FC = () => {
       category: "code",
       level: 90,
       type: "Frontend Framework",
-      desc: "Komponen modular, hooks state management, arsitektur single-page interaktif.",
+      desc: "Modular components, state management hooks, interactive single-page architectures.",
       color: "bg-[#3A86FF]",
       icon: "⚛️",
     },
@@ -27,7 +27,7 @@ export const Skills: React.FC = () => {
       category: "code",
       level: 85,
       type: "Type Safety",
-      desc: "Menghindari runtime bug, type safe API integration, dan clean code structure.",
+      desc: "Runtime bug prevention, type-safe API integrations, and clean code structure.",
       color: "bg-[#3A86FF]",
       icon: "📘",
     },
@@ -36,7 +36,7 @@ export const Skills: React.FC = () => {
       category: "code",
       level: 95,
       type: "Styling & Responsive",
-      desc: "Modern utilities, fluid typography, dark mode, dan kustomisasi token desain.",
+      desc: "Modern utilities, fluid typography, dark mode, and design token customization.",
       color: "bg-[#3A86FF]",
       icon: "🌊",
     },
@@ -45,7 +45,7 @@ export const Skills: React.FC = () => {
       category: "media",
       level: 88,
       type: "Color Grading & Editing",
-      desc: "Color space transform, node based grading, dynamic cut & cinematic pacing.",
+      desc: "Color space transform, node-based grading, dynamic cuts & cinematic pacing.",
       color: "bg-[#BDB2FF]",
       icon: "🎬",
     },
@@ -54,7 +54,7 @@ export const Skills: React.FC = () => {
       category: "media",
       level: 92,
       type: "Timeline Video Editing",
-      desc: "Multi-cam editing, audio syncing, masking, render encoding optimal untuk sosmed.",
+      desc: "Multi-cam editing, audio syncing, masking, render encoding optimized for social media.",
       color: "bg-[#BDB2FF]",
       icon: "🎞️",
     },
@@ -63,7 +63,7 @@ export const Skills: React.FC = () => {
       category: "media",
       level: 90,
       type: "Aerial Cinematography",
-      desc: "Smooth orbit, bird-eye perspective, cinematic tilt, regulasi keselamatan penerbangan.",
+      desc: "Smooth orbits, bird's-eye perspectives, cinematic tilts, flight safety compliance.",
       color: "bg-[#FFD6E0]",
       icon: "🛸",
     },
@@ -72,7 +72,7 @@ export const Skills: React.FC = () => {
       category: "code",
       level: 78,
       type: "3D Web Graphics",
-      desc: "Canvas rendering, lighting, camera controls, dan integrasi aset 3D interaktif.",
+      desc: "Canvas rendering, lighting, camera controls, and interactive 3D asset integrations.",
       color: "bg-[#3A86FF]",
       icon: "🌐",
     },
@@ -81,7 +81,7 @@ export const Skills: React.FC = () => {
       category: "code",
       level: 92,
       type: "Development Environment",
-      desc: "Version control, branching workflow, terminal automation, debugging.",
+      desc: "Version control, branching workflows, terminal automation, debugging.",
       color: "bg-[#3A86FF]",
       icon: "💻",
     },
@@ -104,19 +104,19 @@ export const Skills: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-6">
           <div>
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
-              Senjata & Tools Andalan.
+              Core Tech Stack & Tools.
             </h2>
             <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
-              SOFTWARE DAN TEKNOLOGI YANG DIGUNAKAN SETIAP HARI
+              SOFTWARE AND TECHNOLOGIES POWERING DAILY WORKFLOWS
             </p>
           </div>
 
           {/* Filter Pills */}
           <div className="flex flex-wrap gap-2">
             {[
-              { id: "all", label: "Semua Tools" },
-              { id: "design", label: "UI/UX & Desain" },
-              { id: "code", label: "Kode & Dev" },
+              { id: "all", label: "All Tools" },
+              { id: "design", label: "UI/UX & Design" },
+              { id: "code", label: "Code & Dev" },
               { id: "media", label: "Video & Drone" },
             ].map((f) => (
               <button

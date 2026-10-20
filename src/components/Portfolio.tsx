@@ -34,56 +34,56 @@ export const Portfolio: React.FC = () => {
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
 
   const projects: ProjectItem[] = [
-    // --- 1. CODING SPOTLIGHTS (DIUNGGULKAN PALING DEPAN) ---
+    // --- 1. CODING SPOTLIGHTS (FEATURED) ---
     {
       id: "simagangku",
-      title: "SiMagangku - Platform Magang Siswa",
+      title: "SiMagangku - Student Internship Platform",
       category: "coding",
       categoryLabel: "Fullstack / Frontend Web",
       image: siMagangku,
       year: "2024",
-      client: "Hubin SMK Telkom Malang",
+      client: "SMK Telkom Malang Industrial Relations",
       role: "Frontend Developer & UI/UX",
-      desc: "Website dengan CRUD dan formulir bertahap untuk sistem pendaftaran serta pencarian tempat magang siswa SMK yang dikelola oleh divisi Hubungan Industri (Hubin). Dibangun dengan Next.js dan Tailwind CSS.",
+      desc: "Full CRUD web platform featuring stepped forms for vocational student internship applications and placement search managed by the school's Industrial Relations division. Built with Next.js and Tailwind CSS.",
       stack: ["Next.js", "Tailwind CSS", "Framer Motion", "GSAP", "Figma"],
       isFeaturedCoding: true,
     },
     {
       id: "trashly",
-      title: "Trashly - Web Daur Ulang & Reward",
+      title: "Trashly - Waste Recycling & Reward Platform",
       category: "coding",
       categoryLabel: "Fullstack Web Application",
       image: coding2,
       year: "2024",
-      client: "Tugas Akhir SMK Kelas 12",
+      client: "12th Grade Capstone Project",
       role: "Fullstack Developer",
-      desc: "Platform pengelolaan sampah terpadu yang dapat ditukarkan menjadi reward/hadiah. Mengimplementasikan autentikasi 2 role user, sistem transaksi poin, dan operasi CRUD kompleks dengan Nest.js dan PostgreSQL.",
+      desc: "Integrated waste management platform where recycled materials can be redeemed for reward points. Implemented 2-role user authentication, points transaction systems, and complex CRUD workflows using Nest.js and PostgreSQL.",
       stack: ["Node.js", "Nest.js", "PostgreSQL", "Tailwind CSS", "Postman", "Figma"],
       isFeaturedCoding: true,
     },
     {
       id: "pdam",
-      title: "Sistem Pembayaran Air PDAM",
+      title: "PDAM Water Utility Billing System",
       category: "coding",
       categoryLabel: "Frontend CRUD Application",
       image: codingProject,
       year: "2023",
-      client: "Proyek Rekayasa Perangkat Lunak",
+      client: "Software Engineering Project",
       role: "Frontend Developer",
-      desc: "Aplikasi web dengan sistem CRUD data pelanggan dan kalkulasi pembayaran tagihan air PDAM secara interaktif. Dibangun menggunakan React dan Tailwind CSS dengan visualisasi grafik data.",
+      desc: "Interactive web application for customer record management (CRUD) and real-time municipal water bill calculations. Developed using React and Tailwind CSS with integrated data visualizations.",
       stack: ["React", "D3.js", "Tailwind CSS", "Vite", "JavaScript"],
       isFeaturedCoding: true,
     },
     {
       id: "skillloom",
-      title: "SkillLoom - Matchmaking UMKM & Siswa SMK",
+      title: "SkillLoom - SME & Student Matchmaking Platform",
       category: "coding",
       categoryLabel: "Frontend Web Platform",
       image: coding3,
       year: "2024",
-      client: "Proyek Kolaborasi Portofolio",
+      client: "Collaborative Portfolio Project",
       role: "Frontend Developer",
-      desc: "Platform pencarian proyek riil yang menghubungkan pelaku UMKM yang memerlukan solusi digital dengan siswa SMK yang ingin mengasah portofolio kejuruan nyata.",
+      desc: "Real-world project matchmaking platform connecting local SMEs in need of digital solutions with vocational students looking to build their industry portfolio.",
       stack: ["Nest.js", "Tailwind CSS", "Postman", "VS Code", "Figma"],
       isFeaturedCoding: true,
     },
@@ -94,9 +94,9 @@ export const Portfolio: React.FC = () => {
       categoryLabel: "Backend REST API",
       image: coding1,
       year: "2024",
-      client: "Uji Kompetensi Keahlian",
+      client: "Vocational Competency Assessment",
       role: "Backend Engineer",
-      desc: "Implementasi sistem backend arsitektur modular untuk platform perkuliahan dengan manajemen relasi database PostgreSQL, endpoint REST API teruji di Postman, dan otentikasi aman.",
+      desc: "Modular backend architecture implementation for an academic university platform featuring PostgreSQL relational database management, robust authentication, and Postman-tested REST APIs.",
       stack: ["Nest.js", "PostgreSQL", "Postman", "Node.js", "TypeScript"],
       isFeaturedCoding: true,
     },
@@ -111,7 +111,7 @@ export const Portfolio: React.FC = () => {
       year: "2023",
       client: "Product Prototype",
       role: "Product Designer",
-      desc: "Perancangan UI/UX lengkap untuk aplikasi KosMate: mempermudah anak kos mengelola layanan laundry, katering harian, tagihan sewa bulanan, dan pencatatan keuangan pribadi.",
+      desc: "Comprehensive UI/UX design for KosMate: helping boarding house residents manage laundry services, daily catering, monthly rental bills, and personal expense tracking.",
       stack: ["Figma", "Design System", "User Flow", "Illustrator"],
     },
     {
@@ -123,7 +123,7 @@ export const Portfolio: React.FC = () => {
       year: "2024",
       client: "SMK Telkom Malang",
       role: "Videographer & Video Editor",
-      desc: "Dokumentasi visual sinematik perayaan akbar Dies Natalis SMK Telkom Malang ke-34 dengan guest star Vierratale. Pengambilan angle panggung dinamis dengan Sony A6400 dan gimbal stabilizer.",
+      desc: "Cinematic visual documentation for SMK Telkom Malang's 34th Anniversary concert featuring guest star Vierratale. Dynamic stage camera angles captured using Sony A6400 and gimbal stabilizer.",
       stack: ["Sony A6400", "DJI RS 4 Mini", "DaVinci Resolve", "Premiere Pro"],
     },
     {
@@ -135,43 +135,43 @@ export const Portfolio: React.FC = () => {
       year: "2024",
       client: "SMK Telkom Malang",
       role: "Drone Pilot",
-      desc: "Penerbangan drone di atas kerumunan penonton untuk merekam sudut udara spektakuler penampilan guest star Vierratale dengan keselamatan penerbangan penuh.",
+      desc: "Drone flight above the concert audience to capture spectacular aerial viewpoints of guest star Vierratale's performance under strict flight safety regulations.",
       stack: ["DJI Mini", "4K 60FPS", "D-Cinelike", "Crowd Safety"],
     },
     {
       id: "dot-indonesia-drone",
-      title: "Geografi D.O.T Indonesia Malang",
+      title: "Geographical Landscape - D.O.T Indonesia Malang",
       category: "drone",
       categoryLabel: "Aerial Landscape & Site Survey",
       image: drone1,
       year: "2023",
       client: "Moklet Investigation",
       role: "Drone Pilot & Cinematographer",
-      desc: "Pengambilan gambar udara di sekitar kantor D.O.T Indonesia Malang untuk tugas investigasi geografi kawasan industri kreatif.",
+      desc: "Aerial footage surrounding the D.O.T Indonesia Malang office for an industrial creative tech hub geographic survey.",
       stack: ["DJI Mavic", "Color Grading", "Aerial Mapping"],
     },
     {
       id: "gear-dokumentasi",
-      title: "Dokumentasi Gear & Set Produksi",
+      title: "Production Gear & Rigging Documentation",
       category: "video",
       categoryLabel: "Production & Rigging",
       image: drone2,
       year: "2023",
       client: "D.O.T Indonesia & Event",
       role: "Technical Crew",
-      desc: "Persiapan teknis kamera, gimbal, drone, dan audio monitor untuk produksi video dokumenter lapangan.",
+      desc: "Technical staging and calibration of cameras, gimbals, drones, and wireless audio monitors for on-site documentary production.",
       stack: ["Camera Rig", "Gimbal Calibration", "Audio Monitor"],
     },
     {
       id: "poster-bulan-bahasa",
-      title: "Design Poster Lomba Teater Bulan Bahasa",
+      title: "Language Month Theater Competition Poster",
       category: "design",
       categoryLabel: "Graphic Design & Branding",
       image: design1,
       year: "2025",
       client: "SMK Telkom Malang",
       role: "Graphic Designer",
-      desc: "Desain poster editorial lomba drama event Bulan Bahasa dengan perpaduan tipografi teatrikal dan estetika warna kontras.",
+      desc: "Editorial drama competition poster designed for the Language Month festival, blending theatrical typography with high-contrast color harmony.",
       stack: ["Figma", "Typography", "Color Harmony"],
     },
     {
@@ -181,9 +181,9 @@ export const Portfolio: React.FC = () => {
       categoryLabel: "Aerial Cinematography",
       image: droneMockup,
       year: "2024",
-      client: "Showcase Eksplorasi",
+      client: "Creative Showcase",
       role: "Drone Pilot & Editor",
-      desc: "Eksplorasi penerbangan elevasi tinggi menangkap transisi gradasi langit dan tekstur kontur alam dari sudut pandang udara.",
+      desc: "High-elevation drone flight exploration capturing dynamic sky gradients and aerial nature contour textures.",
       stack: ["DJI Fly", "DaVinci Resolve", "Color Grading"],
     },
   ];
@@ -215,18 +215,18 @@ export const Portfolio: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-6">
           <div>
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
-              Portofolio Karya & Proyek.
+              Featured Works & Projects.
             </h2>
             <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
-              DIUNGGULKAN: SISTEM CODING WEB FULLSTACK & INTERAKTIF, DIPERKAYA DRONE, VIDEO & UI/UX
+              HIGHLIGHTED: FULLSTACK & INTERACTIVE WEB CODING, ENRICHED WITH DRONE, VIDEO & UI/UX
             </p>
           </div>
 
           {/* Filter Pills */}
           <div className="flex flex-wrap gap-2">
             {[
-              { id: "all", label: "Semua Karya" },
-              { id: "coding", label: "💻 Coding & Dev (Utama)" },
+              { id: "all", label: "All Works" },
+              { id: "coding", label: "💻 Coding & Dev (Featured)" },
               { id: "design", label: "🎨 UI/UX Design" },
               { id: "drone", label: "🛸 Drone Aerial" },
               { id: "video", label: "🎬 Videography" },
@@ -255,7 +255,7 @@ export const Portfolio: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#3A86FF]"></span>
             <span className="font-mono text-xs font-bold text-[#14213D] uppercase tracking-wider">
-              3D Showcase Carousel // Klik untuk Detail Lengkap
+              3D Showcase Carousel // Click for Full Details
             </span>
           </div>
 
@@ -316,7 +316,7 @@ export const Portfolio: React.FC = () => {
                       />
                       {item.isFeaturedCoding && (
                         <span className="absolute top-2 left-2 px-2.5 py-1 bg-[#3A86FF] text-white border border-[#14213D] rounded-full font-pixel text-[8px]">
-                          ★ CODING UTAMA
+                          ★ FEATURED CODING
                         </span>
                       )}
                       <span className="absolute bottom-2 right-2 px-2.5 py-1 bg-white/95 border border-[#14213D] rounded-full font-mono text-[10px] font-bold text-[#14213D]">
@@ -354,7 +354,7 @@ export const Portfolio: React.FC = () => {
         <div className="flex items-center gap-2 mb-6">
           <span className="w-3 h-3 rounded-full bg-[#BDB2FF]"></span>
           <span className="font-mono text-xs font-bold text-[#14213D] uppercase tracking-wider">
-            Semua Proyek ({filteredProjects.length} Karya)
+            All Projects ({filteredProjects.length} Works)
           </span>
         </div>
 
@@ -448,7 +448,7 @@ export const Portfolio: React.FC = () => {
                 {activeModalProject.categoryLabel}
               </span>
               <span className="px-3 py-1 bg-[#FFD6E0] border border-[#14213D] rounded-full font-mono text-xs font-bold text-[#14213D]">
-                Tahun: {activeModalProject.year}
+                Year: {activeModalProject.year}
               </span>
               <span className="px-3 py-1 bg-[#BDB2FF]/30 border border-[#14213D] rounded-full font-mono text-xs font-bold text-[#14213D]">
                 Role: {activeModalProject.role}
@@ -464,7 +464,7 @@ export const Portfolio: React.FC = () => {
 
             <div className="mb-6 pt-4 border-t-2 border-[#14213D]/10">
               <h4 className="font-mono text-xs font-bold text-[#14213D] mb-2 uppercase">
-                Teknologi & Tools:
+                Technologies & Tools:
               </h4>
               <div className="flex flex-wrap gap-2">
                 {activeModalProject.stack.map((s, idx) => (
@@ -484,13 +484,13 @@ export const Portfolio: React.FC = () => {
                 onClick={() => setActiveModalProject(null)}
                 className="retro-btn bg-[#3A86FF] text-white text-xs sm:text-sm"
               >
-                Diskusikan Proyek Seperti Ini
+                Discuss a Similar Project
               </a>
               <button
                 onClick={() => setActiveModalProject(null)}
                 className="retro-btn retro-btn-secondary text-xs sm:text-sm"
               >
-                Tutup Jendela
+                Close Window
               </button>
             </div>
           </div>

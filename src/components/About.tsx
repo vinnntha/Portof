@@ -14,7 +14,7 @@ export const About: React.FC = () => {
         </svg>
       ),
       description:
-        "Mendesain user experience intuitif, riset alur pengguna, wireframing, dan desain antarmuka modern dengan Figma & Design System yang terstandarisasi.",
+        "Crafting intuitive user experiences, user flow research, wireframing, and modern interface designs with Figma and standardized Design Systems.",
       skills: ["Figma", "Design Systems", "Wireframing", "Micro-interactions", "User Flow"],
     },
     {
@@ -30,7 +30,7 @@ export const About: React.FC = () => {
         </svg>
       ),
       description:
-        "Mewujudkan mockup menjadi web interaktif berkinerja tinggi memakai React, TypeScript, Tailwind CSS, serta sentuhan 3D Three.js.",
+        "Transforming mockups into high-performance interactive web experiences using React, TypeScript, Tailwind CSS, and 3D Three.js touches.",
       skills: ["React.js", "TypeScript", "Tailwind CSS", "Three.js / 3D", "Vite / Next.js"],
     },
     {
@@ -45,7 +45,7 @@ export const About: React.FC = () => {
         </svg>
       ),
       description:
-        "Merekam momen sinematik, mengolah storytelling visual, color grading presisi, dan sound design menggunakan DaVinci Resolve dan Premiere Pro.",
+        "Capturing cinematic moments, shaping visual storytelling, precise color grading, and dynamic sound design using DaVinci Resolve and Premiere Pro.",
       skills: ["DaVinci Resolve", "Adobe Premiere", "Color Grading", "Sound Design", "Storyboarding"],
     },
     {
@@ -59,7 +59,7 @@ export const About: React.FC = () => {
         </svg>
       ),
       description:
-        "Pilot drone terlatih untuk pengambilan gambar lanskap dramatis, inspeksi visual, aerial mapping, dan rekaman video 4K berkecepatan dinamis.",
+        "Skilled drone pilot for dramatic landscape captures, visual inspections, aerial mapping, and high-speed dynamic 4K cinematic recordings.",
       skills: ["DJI Mini / Air series", "Aerial Framing", "4K 60fps Logistics", "Smooth Tracking", "Safety Standard"],
     },
   ];
@@ -76,15 +76,15 @@ export const About: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-6">
           <div>
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
-              Kreativitas Multi-Disiplin.
+              Multi-Disciplinary Creativity.
             </h2>
             <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
-              MENGGABUNGKAN KODE, PIXEL, DAN SINEMATOGRAFI UDARA
+              COMBINING CODE, PIXELS, AND AERIAL CINEMATOGRAPHY
             </p>
           </div>
 
           <p className="font-sans text-sm sm:text-base text-[#14213D]/80 max-w-md leading-relaxed">
-            Halo! Saya <strong>Averill Kevinatha</strong>. Saya percaya produk digital yang hebat tidak hanya bekerja dengan cepat di balik layar, tetapi juga menyentuh emosi pengguna lewat visual yang memukau dan bercerita.
+            Hello! I am <strong>Averill Kevinatha</strong>. I believe exceptional digital products don't just run efficiently under the hood, but also connect emotionally with users through captivating, story-driven visuals.
           </p>
         </div>
       </div>

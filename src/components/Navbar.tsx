@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { label: "Home", href: "#hero", id: "hero" },
     { label: "About", href: "#about", id: "about" },
-    { label: "Pengalaman", href: "#experience", id: "experience" },
+    { label: "Experience", href: "#experience", id: "experience" },
     { label: "Skills", href: "#skills", id: "skills" },
     { label: "Portfolio", href: "#portfolio", id: "portfolio" },
     { label: "Stories", href: "#stories", id: "stories" },
@@ -164,7 +164,7 @@ export const Navbar: React.FC = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-full retro-btn text-center bg-[#BDB2FF] text-[#14213D]"
                 >
-                  Hubungi Averill
+                  Contact Averill
                 </a>
               </div>
             </div>

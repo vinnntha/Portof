@@ -28,10 +28,10 @@ export const Contact: React.FC = () => {
         </div>
 
         <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
-          Mari Bikin Sesuatu yang Keren.
+          Let's Build Something Awesome.
         </h2>
         <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
-          TERBUKA UNTUK PROJECT FREELANCE, KOLABORASI KREATIF, ATAU FULL-TIME
+          OPEN FOR FREELANCE PROJECTS, CREATIVE COLLABORATIONS, OR FULL-TIME OPPORTUNITIES
         </p>
       </div>
 
@@ -45,17 +45,17 @@ export const Contact: React.FC = () => {
                 TRANSMISSION // FAST RESPONSE
               </span>
               <h3 className="font-serif text-3xl sm:text-4xl font-black text-[#14213D] mt-2 mb-4">
-                Punya Ide Proyek? Spill Langsung!
+                Have a Project Idea? Let's Talk!
               </h3>
               <p className="font-sans text-sm sm:text-base text-[#14213D]/80 leading-relaxed mb-8">
-                Mau bikin website interaktif berkelas, butuh desain UI/UX berbasis riset, atau rekaman video udara sinematik untuk brand kamu? Saya siap membantu mewujudkannya dari konsep hingga hasil jadi.
+                Looking to build a world-class interactive website, need research-driven UI/UX design, or cinematic aerial drone footage for your brand? I'm ready to help bring your vision from concept to launch.
               </p>
 
               {/* Direct WhatsApp Call to Action */}
               <div className="p-5 bg-[#FFD6E0] border-2 border-[#14213D] rounded-3xl shadow-[4px_4px_0px_#14213D] mb-8">
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-pixel text-[9px] text-[#14213D]">
-                    CHAT LANGSUNG
+                    DIRECT CHAT
                   </span>
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
                 </div>
@@ -63,15 +63,15 @@ export const Contact: React.FC = () => {
                   WhatsApp Priority
                 </h4>
                 <p className="font-sans text-xs text-[#14213D]/75 mb-4">
-                  Respon lebih cepat untuk diskusi brief dan penawaran kerja sama.
+                  Fastest response for project briefs, inquiries, and proposals.
                 </p>
                 <a
-                  href="https://wa.me/085336337789?text=Halo%20Kak%20Averill,%20saya%20tertarik%20bekerja%20sama%20untuk%20proyek..."
+                  href="https://wa.me/085336337789?text=Hello%20Averill,%20I'm%20interested%20in%20working%20together%20on%20a%20project..."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="retro-btn bg-[#3A86FF] text-white w-full text-center text-xs sm:text-sm font-bold"
                 >
-                  <span>Chat di WhatsApp</span>
+                  <span>Chat on WhatsApp</span>
                   <span className="font-pixel text-xs">💬</span>
                 </a>
               </div>
@@ -80,7 +80,7 @@ export const Contact: React.FC = () => {
             {/* Social Channels Pills */}
             <div>
               <span className="font-mono text-xs font-bold text-[#14213D] block mb-3 uppercase">
-                Temukan Averill di Web:
+                Find Averill Online:
               </span>
               <div className="flex flex-wrap gap-2">
                 {[
@@ -112,10 +112,10 @@ export const Contact: React.FC = () => {
                   ✓
                 </div>
                 <h3 className="font-serif text-3xl font-black text-[#14213D] mb-2">
-                  Pesan Berhasil Terkirim!
+                  Message Sent Successfully!
                 </h3>
                 <p className="font-sans text-sm text-[#14213D]/80 max-w-md mx-auto mb-6">
-                  Terima kasih sudah menghubungi! Averill akan membaca pesanmu dan membalas sesegera mungkin.
+                  Thank you for reaching out! Averill will review your message and reply as soon as possible.
                 </p>
                 <button
                   onClick={() => {
@@ -129,24 +129,24 @@ export const Contact: React.FC = () => {
                   }}
                   className="retro-btn bg-[#3A86FF] text-white text-xs"
                 >
-                  Kirim Pesan Lain
+                  Send Another Message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div className="flex items-center justify-between pb-3 border-b-2 border-[#14213D]/10">
                   <span className="font-pixel text-[10px] text-[#3A86FF]">
-                    FORMULIR KONTAK
+                    CONTACT FORM
                   </span>
                   <span className="font-mono text-xs text-[#14213D]/60">
-                    *Wajib diisi
+                    *Required fields
                   </span>
                 </div>
 
                 {/* Name */}
                 <div>
                   <label className="block font-mono text-xs font-bold text-[#14213D] mb-1.5">
-                    Nama Kamu / Perusahaan *
+                    Your Name / Company *
                   </label>
                   <input
                     type="text"
@@ -155,7 +155,7 @@ export const Contact: React.FC = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    placeholder="Contoh: Budi Santoso"
+                    placeholder="e.g. John Doe"
                     className="w-full px-4 py-3 bg-white border-2 border-[#14213D] rounded-2xl shadow-[2px_2px_0px_#14213D] font-sans text-sm text-[#14213D] focus:outline-none focus:ring-2 focus:ring-[#3A86FF]"
                   />
                 </div>
@@ -163,7 +163,7 @@ export const Contact: React.FC = () => {
                 {/* Email */}
                 <div>
                   <label className="block font-mono text-xs font-bold text-[#14213D] mb-1.5">
-                    Alamat Email *
+                    Email Address *
                   </label>
                   <input
                     type="email"
@@ -180,7 +180,7 @@ export const Contact: React.FC = () => {
                 {/* Service Selection */}
                 <div>
                   <label className="block font-mono text-xs font-bold text-[#14213D] mb-1.5">
-                    Kebutuhan Proyek
+                    Project Scope / Service
                   </label>
                   <select
                     value={formData.service}
@@ -193,13 +193,13 @@ export const Contact: React.FC = () => {
                       Website & UI/UX Design
                     </option>
                     <option value="Drone Aerial Cinematography">
-                      Drone Pilot & Aerial Video 4K
+                      Drone Pilot & 4K Aerial Video
                     </option>
                     <option value="Videography & Commercial Reel">
                       Videography & Motion Editing
                     </option>
                     <option value="Full Creative Collaboration">
-                      Kolaborasi Kreatif Multi-Disiplin
+                      Multi-Disciplinary Creative Collaboration
                     </option>
                   </select>
                 </div>
@@ -207,7 +207,7 @@ export const Contact: React.FC = () => {
                 {/* Message */}
                 <div>
                   <label className="block font-mono text-xs font-bold text-[#14213D] mb-1.5">
-                    Ceritakan Singkat Rencana Kamu
+                    Tell Me About Your Project
                   </label>
                   <textarea
                     rows={4}
@@ -215,7 +215,7 @@ export const Contact: React.FC = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    placeholder="Ceritakan gambaran proyek, target waktu, atau ekspektasi yang kamu inginkan..."
+                    placeholder="Share an overview of your project, target timeline, or expectations..."
                     className="w-full px-4 py-3 bg-white border-2 border-[#14213D] rounded-2xl shadow-[2px_2px_0px_#14213D] font-sans text-sm text-[#14213D] focus:outline-none focus:ring-2 focus:ring-[#3A86FF]"
                   ></textarea>
                 </div>
@@ -225,7 +225,7 @@ export const Contact: React.FC = () => {
                   type="submit"
                   className="retro-btn bg-[#3A86FF] hover:bg-[#1B60D1] text-white py-3.5 text-sm sm:text-base font-bold shadow-[4px_4px_0px_#14213D]"
                 >
-                  <span>Kirim Pesan Sekarang</span>
+                  <span>Send Message Now</span>
                   <span className="font-pixel text-xs">🚀</span>
                 </button>
               </form>

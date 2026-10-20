@@ -35,13 +35,13 @@ export default function App() {
         {/* 5. About Me Section */}
         <About />
 
-        {/* 6. Spill Pengalaman (Timeline & Sertifikasi) */}
+        {/* 6. Experience & Certifications (Timeline & Credential Gallery) */}
         <Experience />
 
-        {/* 7. Skills & Tools (Kartu Putih Membulat + Pixel Bar) */}
+        {/* 7. Skills & Tools (Software Grid + Pixel Bar) */}
         <Skills />
 
-        {/* 8. Portfolio (Carousel Miring + Mosaic Grid + Lightbox) */}
+        {/* 8. Portfolio (Tilted Carousel + Mosaic Grid + Modal) */}
         <Portfolio />
 
         {/* 9. Stories / Showreel (Camera HUD Drone Viewfinder) */}

@@ -11,39 +11,39 @@ export const Stories: React.FC = () => {
   const clips = [
     {
       title: "Golden Hour Mountain Ascent",
-      location: "Pegunungan & Dataran Tinggi",
+      location: "Highlands & Mountain Ranges",
       altitude: "120m AGL",
       speed: "14 m/s",
       image: drone2,
       duration: "00:45",
-      desc: "Pengambilan sudut pandang sinematik transisi cahaya fajar dengan kecepatan tinggi menembus kabut lembah.",
+      desc: "Cinematic high-speed capture of dawn light transitions cutting through valley fog.",
     },
     {
       title: "Coastal Tide & Coral Horizon",
-      location: "Garis Pantai & Laut Terbuka",
+      location: "Coastline & Open Sea",
       altitude: "65m AGL",
       speed: "9 m/s",
       image: drone3,
       duration: "01:10",
-      desc: "Top-down 90° bird-eye view mengabadikan gelombang ombak dan tekstur alami karang pesisir.",
+      desc: "Top-down 90° bird's-eye perspective capturing rolling ocean waves and natural coral reef textures.",
     },
     {
       title: "Urban Skyline & Architecture",
-      location: "Kota & Proyek Konstruksi",
+      location: "Urban Architecture & Skyline",
       altitude: "90m AGL",
       speed: "11 m/s",
       image: drone4,
       duration: "00:30",
-      desc: "Tracking pergerakan sejajar gedung bertingkat tinggi dengan kestabilan gimbal multi-axis tanpa getaran.",
+      desc: "Smooth lateral tracking alongside high-rise architecture with vibration-free multi-axis gimbal stabilization.",
     },
     {
       title: "Creative Commercial Reel Montage",
-      location: "Studio & Produksi Lapangan",
+      location: "Studio & Field Production",
       altitude: "Eye-level Gimbal",
       speed: "Dynamic Cut",
       image: vidio1,
       duration: "01:25",
-      desc: "Highlight montage karya videografi komersial dengan grading warna D-Cinelike dan ritme audio berenergi tinggi.",
+      desc: "Highlight montage of commercial videography with D-Cinelike color grading and high-energy audio rhythm.",
     },
   ];
 
@@ -59,10 +59,10 @@ export const Stories: React.FC = () => {
         </div>
 
         <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
-          Lensa Sinematik & Udara.
+          Cinematic & Aerial Lens.
         </h2>
         <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
-          MONITOR REKAMAN REAL-TIME AERIAL DRONE DAN STORYTELLING VISUAL
+          REAL-TIME AERIAL DRONE TELEMETRY MONITOR & VISUAL STORYTELLING
         </p>
       </div>
 
