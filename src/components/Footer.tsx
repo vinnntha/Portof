@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
             <span>Averill Kevinatha.</span>
           </div>
           <p className="font-mono text-xs text-[#14213D]/70 mt-1">
-            Redesigned Portfolio 2026 // Retro-Pixel UI × Modern Editorial Poster.
+            Personal Portfolio 2026
           </p>
         </div>
 
@@ -64,16 +64,13 @@ export const Footer: React.FC = () => {
           aria-label="Back to Top"
         >
           <span>Back to Top</span>
-          <span className="font-pixel text-xs group-hover:-translate-y-1 transition-transform">
-            🚀
-          </span>
         </button>
 
         {/* Copyright & Info */}
         <div className="text-center md:text-right font-mono text-xs text-[#14213D]/80">
           <p>© {new Date().getFullYear()} Averill Kevinatha. All rights reserved.</p>
           <p className="text-[10px] text-[#3A86FF] font-bold mt-0.5">
-            Crafted with React, Tailwind CSS, & Love.
+            Crafted with React, Tailwind CSS.
           </p>
         </div>
       </div>
