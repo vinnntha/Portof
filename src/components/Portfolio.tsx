@@ -226,10 +226,10 @@ export const Portfolio: React.FC = () => {
           <div className="flex flex-wrap gap-2">
             {[
               { id: "all", label: "All Works" },
-              { id: "coding", label: "💻 Coding & Dev (Featured)" },
-              { id: "design", label: "🎨 UI/UX Design" },
-              { id: "drone", label: "🛸 Drone Aerial" },
-              { id: "video", label: "🎬 Videography" },
+              { id: "coding", label: "Coding & Dev (Featured)" },
+              { id: "design", label: "UI/UX Design" },
+              { id: "drone", label: "Drone Aerial" },
+              { id: "video", label: "Videography" },
             ].map((f) => (
               <button
                 key={f.id}
