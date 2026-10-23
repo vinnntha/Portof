@@ -83,8 +83,8 @@ export const Stories: React.FC = () => {
           <div className="flex items-center gap-3 sm:gap-4 font-mono text-[11px]">
             <span className="text-[#FFD6E0]">ISO 100</span>
             <span className="text-[#FFD6E0]">F/2.8</span>
-            <span className="text-white/80">SAT 24 🛰️</span>
-            <span className="text-emerald-400 font-bold">BAT 98% 🔋</span>
+            <span className="text-white/80">SAT 24</span>
+            <span className="text-emerald-400 font-bold">BAT 98%</span>
           </div>
         </div>
 
