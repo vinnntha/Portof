@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import codingProject from "../assets/coding_project.png";
 import siMagangku from "../assets/SiMagangku.png";
 import coding1 from "../assets/coding1.png";
@@ -419,83 +420,85 @@ export const Portfolio: React.FC = () => {
       {/* ======================================================== */}
       {/* LIGHTBOX / PROJECT DETAIL MODAL                         */}
       {/* ======================================================== */}
-      {activeModalProject && (
-        <div
-          onClick={() => setActiveModalProject(null)}
-          className="fixed inset-0 z-50 bg-[#14213D]/75 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
-        >
+      {activeModalProject &&
+        createPortal(
           <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative max-w-2xl w-full bg-white border-[3px] border-[#14213D] rounded-4xl p-6 sm:p-8 shadow-[8px_8px_0px_#14213D] max-h-[90vh] overflow-y-auto"
+            onClick={() => setActiveModalProject(null)}
+            className="fixed inset-0 z-50 bg-[#14213D]/75 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
           >
-            <button
-              onClick={() => setActiveModalProject(null)}
-              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#FFD6E0] border-2 border-[#14213D] font-pixel text-xs text-[#14213D] flex items-center justify-center shadow-[2px_2px_0px_#14213D] hover:bg-[#3A86FF] hover:text-white"
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-2xl w-full bg-white border-[3px] border-[#14213D] rounded-4xl p-6 sm:p-8 shadow-[8px_8px_0px_#14213D] max-h-[90vh] overflow-y-auto"
             >
-              ✕
-            </button>
-
-            <div className="aspect-video w-full rounded-2xl overflow-hidden border-2 border-[#14213D] mb-6 bg-[#FFF4F4]">
-              <img
-                src={activeModalProject.image}
-                alt={activeModalProject.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 mb-3">
-              <span className="px-3 py-1 bg-[#3A86FF] text-white border border-[#14213D] rounded-full font-mono text-xs font-bold">
-                {activeModalProject.categoryLabel}
-              </span>
-              <span className="px-3 py-1 bg-[#FFD6E0] border border-[#14213D] rounded-full font-mono text-xs font-bold text-[#14213D]">
-                Year: {activeModalProject.year}
-              </span>
-              <span className="px-3 py-1 bg-[#BDB2FF]/30 border border-[#14213D] rounded-full font-mono text-xs font-bold text-[#14213D]">
-                Role: {activeModalProject.role}
-              </span>
-            </div>
-
-            <h3 className="font-serif text-2xl sm:text-3xl font-black text-[#14213D] mb-3">
-              {activeModalProject.title}
-            </h3>
-            <p className="font-sans text-sm sm:text-base text-[#14213D]/80 leading-relaxed mb-6">
-              {activeModalProject.desc}
-            </p>
-
-            <div className="mb-6 pt-4 border-t-2 border-[#14213D]/10">
-              <h4 className="font-mono text-xs font-bold text-[#14213D] mb-2 uppercase">
-                Technologies & Tools:
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {activeModalProject.stack.map((s, idx) => (
-                  <span
-                    key={idx}
-                    className="font-mono text-xs px-2.5 py-1 bg-[#FFF4F4] border border-[#14213D] rounded-lg font-bold text-[#3A86FF]"
-                  >
-                    #{s}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t-2 border-[#14213D]/10">
-              <a
-                href="#contact"
-                onClick={() => setActiveModalProject(null)}
-                className="retro-btn bg-[#3A86FF] text-white text-xs sm:text-sm"
-              >
-                Discuss a Similar Project
-              </a>
               <button
                 onClick={() => setActiveModalProject(null)}
-                className="retro-btn retro-btn-secondary text-xs sm:text-sm"
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#FFD6E0] border-2 border-[#14213D] font-pixel text-xs text-[#14213D] flex items-center justify-center shadow-[2px_2px_0px_#14213D] hover:bg-[#3A86FF] hover:text-white"
               >
-                Close Window
+                ✕
               </button>
+
+              <div className="aspect-video w-full rounded-2xl overflow-hidden border-2 border-[#14213D] mb-6 bg-[#FFF4F4]">
+                <img
+                  src={activeModalProject.image}
+                  alt={activeModalProject.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className="px-3 py-1 bg-[#3A86FF] text-white border border-[#14213D] rounded-full font-mono text-xs font-bold">
+                  {activeModalProject.categoryLabel}
+                </span>
+                <span className="px-3 py-1 bg-[#FFD6E0] border border-[#14213D] rounded-full font-mono text-xs font-bold text-[#14213D]">
+                  Year: {activeModalProject.year}
+                </span>
+                <span className="px-3 py-1 bg-[#BDB2FF]/30 border border-[#14213D] rounded-full font-mono text-xs font-bold text-[#14213D]">
+                  Role: {activeModalProject.role}
+                </span>
+              </div>
+
+              <h3 className="font-serif text-2xl sm:text-3xl font-black text-[#14213D] mb-3">
+                {activeModalProject.title}
+              </h3>
+              <p className="font-sans text-sm sm:text-base text-[#14213D]/80 leading-relaxed mb-6">
+                {activeModalProject.desc}
+              </p>
+
+              <div className="mb-6 pt-4 border-t-2 border-[#14213D]/10">
+                <h4 className="font-mono text-xs font-bold text-[#14213D] mb-2 uppercase">
+                  Technologies & Tools:
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {activeModalProject.stack.map((s, idx) => (
+                    <span
+                      key={idx}
+                      className="font-mono text-xs px-2.5 py-1 bg-[#FFF4F4] border border-[#14213D] rounded-lg font-bold text-[#3A86FF]"
+                    >
+                      #{s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t-2 border-[#14213D]/10">
+                <a
+                  href="#contact"
+                  onClick={() => setActiveModalProject(null)}
+                  className="retro-btn bg-[#3A86FF] text-white text-xs sm:text-sm"
+                >
+                  Discuss a Similar Project
+                </a>
+                <button
+                  onClick={() => setActiveModalProject(null)}
+                  className="retro-btn retro-btn-secondary text-xs sm:text-sm"
+                >
+                  Close Window
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </section>
   );
 };

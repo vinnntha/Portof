@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import cert1 from "../assets/certificate1.png";
 import cert2 from "../assets/certificate2.png";
 import cert3 from "../assets/certificate3.png";
@@ -283,74 +284,76 @@ export const Experience: React.FC = () => {
       {/* ======================================================== */}
       {/* CERTIFICATE MODAL LIGHTBOX WITH FULL DETAILS            */}
       {/* ======================================================== */}
-      {selectedCert && (
-        <div
-          onClick={() => setSelectedCert(null)}
-          className="fixed inset-0 z-50 bg-[#14213D]/75 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
-        >
+      {selectedCert &&
+        createPortal(
           <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative max-w-2xl w-full bg-white border-[3px] border-[#14213D] rounded-4xl p-6 sm:p-8 shadow-[8px_8px_0px_#14213D] max-h-[90vh] overflow-y-auto"
+            onClick={() => setSelectedCert(null)}
+            className="fixed inset-0 z-50 bg-[#14213D]/75 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
           >
-            <button
-              onClick={() => setSelectedCert(null)}
-              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#FFD6E0] border-2 border-[#14213D] font-pixel text-xs text-[#14213D] flex items-center justify-center shadow-[2px_2px_0px_#14213D] hover:bg-[#3A86FF] hover:text-white"
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-2xl w-full bg-white border-[3px] border-[#14213D] rounded-4xl p-6 sm:p-8 shadow-[8px_8px_0px_#14213D] max-h-[90vh] overflow-y-auto"
             >
-              ✕
-            </button>
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#FFD6E0] border-2 border-[#14213D] font-pixel text-xs text-[#14213D] flex items-center justify-center shadow-[2px_2px_0px_#14213D] hover:bg-[#3A86FF] hover:text-white"
+              >
+                ✕
+              </button>
 
-            <div className="aspect-[16/11] w-full rounded-2xl overflow-hidden border-2 border-[#14213D] mb-5 bg-[#FFF4F4]">
-              <img
-                src={selectedCert.image}
-                alt={selectedCert.title}
-                className="w-full h-full object-contain bg-[#14213D]"
-              />
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className="px-3 py-1 bg-[#3A86FF] text-white border border-[#14213D] rounded-full font-mono text-xs font-bold">
-                {selectedCert.issuer}
-              </span>
-              <span className="px-3 py-1 bg-[#FFD6E0] border border-[#14213D] rounded-full font-mono text-xs font-bold text-[#14213D]">
-                Issued: {selectedCert.year}
-              </span>
-              <span className="px-3 py-1 bg-[#BDB2FF]/30 border border-[#14213D] rounded-full font-pixel text-[9px] text-[#14213D]">
-                CERTIFICATE #{selectedCert.id}
-              </span>
-            </div>
-
-            <h3 className="font-serif text-2xl sm:text-3xl font-black text-[#14213D] mb-3">
-              {selectedCert.title}
-            </h3>
-            <p className="font-sans text-sm text-[#14213D]/80 leading-relaxed mb-5">
-              {selectedCert.description}
-            </p>
-
-            <div className="pt-3 border-t-2 border-[#14213D]/10">
-              <div className="font-mono text-xs font-bold text-[#14213D] mb-2 uppercase">
-                Competency Areas:
+              <div className="aspect-[16/11] w-full rounded-2xl overflow-hidden border-2 border-[#14213D] mb-5 bg-[#FFF4F4]">
+                <img
+                  src={selectedCert.image}
+                  alt={selectedCert.title}
+                  className="w-full h-full object-contain bg-[#14213D]"
+                />
               </div>
-              <div className="flex flex-wrap gap-1.5 mb-6">
-                {selectedCert.tags.map((tg, i) => (
-                  <span
-                    key={i}
-                    className="font-mono text-xs px-2.5 py-1 bg-[#FFF4F4] border border-[#14213D] rounded-md font-bold text-[#3A86FF]"
-                  >
-                    #{tg}
-                  </span>
-                ))}
-              </div>
-            </div>
 
-            <button
-              onClick={() => setSelectedCert(null)}
-              className="retro-btn bg-[#3A86FF] text-white text-xs w-full"
-            >
-              Close Preview
-            </button>
-          </div>
-        </div>
-      )}
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="px-3 py-1 bg-[#3A86FF] text-white border border-[#14213D] rounded-full font-mono text-xs font-bold">
+                  {selectedCert.issuer}
+                </span>
+                <span className="px-3 py-1 bg-[#FFD6E0] border border-[#14213D] rounded-full font-mono text-xs font-bold text-[#14213D]">
+                  Issued: {selectedCert.year}
+                </span>
+                <span className="px-3 py-1 bg-[#BDB2FF]/30 border border-[#14213D] rounded-full font-pixel text-[9px] text-[#14213D]">
+                  CERTIFICATE #{selectedCert.id}
+                </span>
+              </div>
+
+              <h3 className="font-serif text-2xl sm:text-3xl font-black text-[#14213D] mb-3">
+                {selectedCert.title}
+              </h3>
+              <p className="font-sans text-sm text-[#14213D]/80 leading-relaxed mb-5">
+                {selectedCert.description}
+              </p>
+
+              <div className="pt-3 border-t-2 border-[#14213D]/10">
+                <div className="font-mono text-xs font-bold text-[#14213D] mb-2 uppercase">
+                  Competency Areas:
+                </div>
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {selectedCert.tags.map((tg, i) => (
+                    <span
+                      key={i}
+                      className="font-mono text-xs px-2.5 py-1 bg-[#FFF4F4] border border-[#14213D] rounded-md font-bold text-[#3A86FF]"
+                    >
+                      #{tg}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="retro-btn bg-[#3A86FF] text-white text-xs w-full"
+              >
+                Close Preview
+              </button>
+            </div>
+          </div>,
+          document.body
+        )}
     </section>
   );
 };
