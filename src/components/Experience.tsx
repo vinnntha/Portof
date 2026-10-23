@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 import cert1 from "../assets/certificate1.png";
 import cert2 from "../assets/certificate2.png";
 import cert3 from "../assets/certificate3.png";
@@ -138,7 +139,7 @@ export const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Pill */}
       <div className="flex flex-col items-start mb-14">
         <div className="pill-badge bg-[#FFD6E0] border-2 border-[#14213D] mb-4">
@@ -157,7 +158,14 @@ export const Experience: React.FC = () => {
       {/* Retro Timeline Container */}
       <div className="relative border-l-[3px] border-[#14213D] ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
         {experiences.map((item, idx) => (
-          <div key={idx} className="relative group">
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: idx * 0.12 }}
+            className="relative group"
+          >
             {/* Timeline Pixel Dot Indicator */}
             <div className="absolute -left-[35px] sm:-left-[51px] top-1.5 w-6 h-6 rounded-full bg-[#BDB2FF] border-[2.5px] border-[#14213D] shadow-[2px_2px_0px_#14213D] flex items-center justify-center group-hover:bg-[#3A86FF] transition-colors">
               <div className="w-2 h-2 rounded-full bg-white" />
@@ -202,7 +210,7 @@ export const Experience: React.FC = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
@@ -231,10 +239,14 @@ export const Experience: React.FC = () => {
 
         {/* 9 Certificates Grid (3 columns on lg, 2 on sm) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certificatesList.map((cert) => (
-            <div
+          {certificatesList.map((cert, idx) => (
+            <motion.div
               key={cert.id}
               onClick={() => setSelectedCert(cert)}
+              initial={{ opacity: 0, scale: 0.93, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.45, delay: (idx % 3) * 0.08 }}
               className="bg-white border-2 border-[#14213D] rounded-3xl p-4 shadow-[4px_4px_0px_#14213D] hover:-translate-y-1.5 hover:shadow-[7px_7px_0px_#14213D] transition-all cursor-pointer group flex flex-col justify-between"
             >
               <div>
@@ -276,7 +288,7 @@ export const Experience: React.FC = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -354,6 +366,6 @@ export const Experience: React.FC = () => {
           </div>,
           document.body
         )}
-    </section>
+    </div>
   );
 };

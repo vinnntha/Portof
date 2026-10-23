@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export const About: React.FC = () => {
   const roles = [
@@ -65,7 +66,7 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Top Header Label & Title */}
       <div className="flex flex-col items-start mb-14">
         <div className="pill-badge bg-white border-2 border-[#14213D] mb-4">
@@ -92,8 +93,12 @@ export const About: React.FC = () => {
       {/* 4 Modular Role Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {roles.map((role, idx) => (
-          <div
+          <motion.div
             key={idx}
+            initial={{ opacity: 0, y: 30, scale: 0.94 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
             className={`${role.bgColor} border-[2.5px] border-[#14213D] rounded-4xl p-8 shadow-[6px_6px_0px_#14213D] hover:shadow-[10px_10px_0px_#14213D] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group`}
           >
             <div>
@@ -129,9 +134,9 @@ export const About: React.FC = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };

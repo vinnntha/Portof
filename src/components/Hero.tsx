@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import heroImg from "../assets/hero_portrait.png";
 
 export const Hero: React.FC = () => {
@@ -51,14 +52,21 @@ export const Hero: React.FC = () => {
     setTimeout(() => setGhostMessage(null), 3800);
   };
 
+  // Parallax scroll transforms for stickers & portrait
+  const { scrollY } = useScroll();
+  const ghostY = useTransform(scrollY, [0, 500], [0, -45]);
+  const starY = useTransform(scrollY, [0, 500], [0, -75]);
+  const heartY = useTransform(scrollY, [0, 500], [0, -35]);
+  const portraitY = useTransform(scrollY, [0, 500], [0, -25]);
+
   return (
-    <section
-      id="hero"
+    <div
       className="relative min-h-[92vh] pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center"
     >
-      {/* Decorative Floating Stickers */}
+      {/* Decorative Floating Stickers with Scroll Parallax */}
       {/* Ghost Sticker with Easter Egg */}
-      <div
+      <motion.div
+        style={{ y: ghostY }}
         onClick={handleGhostClick}
         className="absolute top-24 left-6 sm:left-12 z-20 cursor-pointer animate-float select-none group"
         title="Click this pixel ghost!"
@@ -81,21 +89,27 @@ export const Hero: React.FC = () => {
             <div className="absolute -left-2 top-3 w-3 h-3 bg-[#FFD6E0] border-l-2 border-b-2 border-[#14213D] -rotate-45" />
           </div>
         )}
-      </div>
+      </motion.div>
 
       {/* Star Sticker */}
-      <div className="absolute top-36 right-8 sm:right-20 z-10 animate-float-delayed pointer-events-none">
+      <motion.div
+        style={{ y: starY }}
+        className="absolute top-36 right-8 sm:right-20 z-10 animate-float-delayed pointer-events-none"
+      >
         <div className="p-2.5 bg-[#BDB2FF] border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] rotate-12">
           <span className="font-pixel text-xl text-white">✦</span>
         </div>
-      </div>
+      </motion.div>
 
       {/* Heart Sticker */}
-      <div className="absolute bottom-20 left-10 sm:left-24 z-10 animate-float pointer-events-none hidden sm:block">
+      <motion.div
+        style={{ y: heartY }}
+        className="absolute bottom-20 left-10 sm:left-24 z-10 animate-float pointer-events-none hidden sm:block"
+      >
         <div className="p-2 bg-[#FFD6E0] border-2 border-[#14213D] rounded-2xl shadow-[3px_3px_0px_#14213D] -rotate-12">
           <span className="font-pixel text-base text-[#3A86FF]">♥</span>
         </div>
-      </div>
+      </motion.div>
 
       {/* Main Grid Content */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -175,7 +189,10 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right Column: Photo Cutout with Blue-Lavender Circle Backdrop */}
-        <div className="lg:col-span-5 flex justify-center items-center relative mt-8 lg:mt-0">
+        <motion.div
+          style={{ y: portraitY }}
+          className="lg:col-span-5 flex justify-center items-center relative mt-8 lg:mt-0"
+        >
           <div className="relative w-72 sm:w-88 md:w-96 aspect-square flex items-center justify-center">
             {/* Big Colored Shape Circle */}
             <div className="absolute inset-2 rounded-full bg-gradient-to-tr from-[#3A86FF] via-[#BDB2FF] to-[#FFD6E0] border-[3px] border-[#14213D] shadow-[8px_8px_0px_#14213D]" />
@@ -208,7 +225,7 @@ export const Hero: React.FC = () => {
               <span>Drone Pilot & Video</span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom Counter Bar: Numbers Stats Count-up */}
@@ -232,6 +249,6 @@ export const Hero: React.FC = () => {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };

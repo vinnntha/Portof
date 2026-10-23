@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import drone2 from "../assets/drone2.png";
 import drone3 from "../assets/drone3.png";
 import drone4 from "../assets/drone4.png";
@@ -50,7 +51,7 @@ export const Stories: React.FC = () => {
   const currentClip = clips[activeClipIndex];
 
   return (
-    <section id="stories" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Pill */}
       <div className="flex flex-col items-start mb-14">
         <div className="pill-badge bg-[#FFD6E0] border-2 border-[#14213D] mb-4">
@@ -67,7 +68,13 @@ export const Stories: React.FC = () => {
       </div>
 
       {/* Main Viewfinder Monitor Box */}
-      <div className="relative bg-[#14213D] border-[3px] border-[#14213D] rounded-4xl sm:rounded-5xl p-4 sm:p-8 shadow-[8px_8px_0px_#3A86FF] overflow-hidden text-white">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.93, y: 30 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        className="relative bg-[#14213D] border-[3px] border-[#14213D] rounded-4xl sm:rounded-5xl p-4 sm:p-8 shadow-[8px_8px_0px_#3A86FF] overflow-hidden text-white"
+      >
         {/* HUD Top Bar: Battery, GPS, Record Status */}
         <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-4 border-b border-white/20 font-mono text-xs z-20 relative">
           <div className="flex items-center gap-3">
@@ -160,7 +167,7 @@ export const Stories: React.FC = () => {
             </button>
           ))}
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 import codingProject from "../assets/coding_project.png";
 import siMagangku from "../assets/SiMagangku.png";
 import coding1 from "../assets/coding1.png";
@@ -205,7 +206,7 @@ export const Portfolio: React.FC = () => {
   };
 
   return (
-    <section id="portfolio" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Pill & Title */}
       <div className="flex flex-col items-start mb-14">
         <div className="pill-badge bg-[#BDB2FF]/20 border-2 border-[#14213D] mb-4">
@@ -361,10 +362,14 @@ export const Portfolio: React.FC = () => {
 
         {/* Grid cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((item) => (
-            <div
+          {filteredProjects.map((item, idx) => (
+            <motion.div
               key={item.id}
               onClick={() => setActiveModalProject(item)}
+              initial={{ opacity: 0, scale: 0.93, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.45, delay: (idx % 3) * 0.08 }}
               className={`border-[2.5px] border-[#14213D] rounded-4xl p-5 shadow-[5px_5px_0px_#14213D] hover:shadow-[9px_9px_0px_#14213D] hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between ${
                 item.isFeaturedCoding ? "bg-white" : "bg-[#FFF4F4]"
               }`}
@@ -412,7 +417,7 @@ export const Portfolio: React.FC = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -499,6 +504,6 @@ export const Portfolio: React.FC = () => {
           </div>,
           document.body
         )}
-    </section>
+    </div>
   );
 };

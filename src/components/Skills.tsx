@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export const Skills: React.FC = () => {
   const [filter, setFilter] = useState<"all" | "design" | "code" | "media">("all");
@@ -84,7 +85,7 @@ export const Skills: React.FC = () => {
       : skillList.filter((s) => s.category === filter);
 
   return (
-    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Pill */}
       <div className="flex flex-col items-start mb-12">
         <div className="pill-badge bg-white border-2 border-[#14213D] mb-4">
@@ -129,8 +130,12 @@ export const Skills: React.FC = () => {
       {/* Grid of Rounded White Cards with Software Icons + Pixel Bar */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredSkills.map((tool, idx) => (
-          <div
+          <motion.div
             key={idx}
+            initial={{ opacity: 0, scale: 0.93, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.45, delay: (idx % 3) * 0.08 }}
             className="bg-white border-[2.5px] border-[#14213D] rounded-4xl p-6 shadow-[5px_5px_0px_#14213D] hover:shadow-[8px_8px_0px_#14213D] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
           >
             <div>
@@ -165,9 +170,9 @@ export const Skills: React.FC = () => {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Pill */}
       <div className="flex flex-col items-start mb-14">
         <div className="pill-badge bg-white border-2 border-[#14213D] mb-4">
@@ -36,7 +37,13 @@ export const Contact: React.FC = () => {
       </div>
 
       {/* Main Giant Retro Contact Module */}
-      <div className="bg-white border-[3px] border-[#14213D] rounded-4xl sm:rounded-5xl p-6 sm:p-10 lg:p-14 shadow-[8px_8px_0px_#14213D]">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.93, y: 30 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        className="bg-white border-[3px] border-[#14213D] rounded-4xl sm:rounded-5xl p-6 sm:p-10 lg:p-14 shadow-[8px_8px_0px_#14213D]"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
           {/* Left Column: Direct Links & Socials */}
           <div className="lg:col-span-5 flex flex-col justify-between">
@@ -232,7 +239,7 @@ export const Contact: React.FC = () => {
             )}
           </div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </div>
   );
 };
