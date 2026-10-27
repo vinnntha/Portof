@@ -34,6 +34,8 @@ export const Portfolio: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+  const [mobileViewMode, setMobileViewMode] = useState<"grid" | "swipe" | "list">("grid");
+  const [showAllProjectsMobile, setShowAllProjectsMobile] = useState(false);
 
   const projects: ProjectItem[] = [
     // --- 1. CODING SPOTLIGHTS (FEATURED) ---
@@ -206,39 +208,42 @@ export const Portfolio: React.FC = () => {
   };
 
   return (
-    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Pill & Title */}
-      <div className="flex flex-col items-start mb-14">
-        <div className="pill-badge bg-[#BDB2FF]/20 border-2 border-[#14213D] mb-4">
+      <div className="flex flex-col items-start mb-8 sm:mb-14">
+        <div className="pill-badge bg-[#BDB2FF]/20 border-2 border-[#14213D] mb-3 sm:mb-4">
           <span className="font-pixel text-[10px] text-[#3A86FF]">04 //</span>
           <span className="font-mono text-xs font-bold text-[#14213D]">SELECTED WORKS</span>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-4 sm:gap-6">
           <div>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
               Featured Works & Projects.
             </h2>
-            <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
+            <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-1.5 sm:mt-2 font-bold tracking-wide">
               HIGHLIGHTED: FULLSTACK & INTERACTIVE WEB CODING, ENRICHED WITH DRONE, VIDEO & UI/UX
             </p>
           </div>
 
           {/* Filter Pills */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {[
               { id: "all", label: "All Works" },
-              { id: "coding", label: "Coding & Dev (Featured)" },
+              { id: "coding", label: "Coding & Dev" },
               { id: "design", label: "UI/UX Design" },
               { id: "drone", label: "Drone Aerial" },
               { id: "video", label: "Videography" },
             ].map((f) => (
               <button
                 key={f.id}
-                onClick={() => setSelectedFilter(f.id)}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold border-2 border-[#14213D] transition-all cursor-pointer ${
+                onClick={() => {
+                  setSelectedFilter(f.id);
+                  setShowAllProjectsMobile(false);
+                }}
+                className={`px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold border-2 border-[#14213D] transition-all cursor-pointer ${
                   selectedFilter === f.id
-                    ? "bg-[#3A86FF] text-white shadow-[3px_3px_0px_#14213D] -translate-y-0.5"
+                    ? "bg-[#3A86FF] text-white shadow-[2px_2px_0px_#14213D] sm:shadow-[3px_3px_0px_#14213D] -translate-y-0.5"
                     : "bg-white text-[#14213D] hover:bg-[#FFD6E0]"
                 }`}
               >
@@ -252,26 +257,26 @@ export const Portfolio: React.FC = () => {
       {/* ======================================================== */}
       {/* 3D-TILTED CAROUSEL SLIDER (REFERENSI A)                  */}
       {/* ======================================================== */}
-      <div className="mb-20">
-        <div className="flex items-center justify-between mb-6">
+      <div className="mb-10 sm:mb-20">
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-[#3A86FF]"></span>
-            <span className="font-mono text-xs font-bold text-[#14213D] uppercase tracking-wider">
-              3D Showcase Carousel // Click for Full Details
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#3A86FF]"></span>
+            <span className="font-mono text-[11px] sm:text-xs font-bold text-[#14213D] uppercase tracking-wider">
+              3D Showcase Carousel // Tap to Open
             </span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={prevCarousel}
-              className="w-10 h-10 rounded-full bg-white border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] flex items-center justify-center font-pixel text-xs hover:bg-[#FFD6E0] active:translate-y-0.5 transition-all"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] flex items-center justify-center font-pixel text-[10px] sm:text-xs hover:bg-[#FFD6E0] active:translate-y-0.5 transition-all"
               aria-label="Previous Project"
             >
               ←
             </button>
             <button
               onClick={nextCarousel}
-              className="w-10 h-10 rounded-full bg-white border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] flex items-center justify-center font-pixel text-xs hover:bg-[#3A86FF] hover:text-white active:translate-y-0.5 transition-all"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] flex items-center justify-center font-pixel text-[10px] sm:text-xs hover:bg-[#3A86FF] hover:text-white active:translate-y-0.5 transition-all"
               aria-label="Next Project"
             >
               →
@@ -279,9 +284,9 @@ export const Portfolio: React.FC = () => {
           </div>
         </div>
 
-        {/* 3-Card Angled Carousel View */}
-        <div className="relative overflow-hidden py-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+        {/* 3-Card Angled Carousel View: Compact on mobile */}
+        <div className="relative overflow-hidden py-2 sm:py-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 items-center">
             {[-1, 0, 1].map((offset) => {
               const itemIdx =
                 (carouselIndex + offset + projects.length) % projects.length;
@@ -299,17 +304,17 @@ export const Portfolio: React.FC = () => {
                   }`}
                   style={{
                     transform: isCenter
-                      ? "scale(1.04) rotate(0deg)"
+                      ? "scale(1.02) rotate(0deg)"
                       : offset === -1
                       ? "rotate(-3deg) scale(0.95)"
                       : "rotate(3deg) scale(0.95)",
                   }}
                 >
                   <div
-                    className={`bg-white border-[3px] border-[#14213D] rounded-4xl p-5 shadow-[6px_6px_0px_#14213D] hover:shadow-[10px_10px_0px_#14213D] transition-all group`}
+                    className="bg-white border-2 sm:border-[3px] border-[#14213D] rounded-3xl sm:rounded-4xl p-3.5 sm:p-5 shadow-[4px_4px_0px_#14213D] sm:shadow-[6px_6px_0px_#14213D] hover:shadow-[8px_8px_0px_#14213D] transition-all group"
                   >
                     {/* Image Mockup Window */}
-                    <div className="aspect-[16/10] rounded-2xl overflow-hidden border-2 border-[#14213D] bg-[#FFF4F4] relative mb-4">
+                    <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden border border-black/80 sm:border-2 sm:border-[#14213D] bg-[#FFF4F4] relative mb-2.5 sm:mb-4">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -317,28 +322,28 @@ export const Portfolio: React.FC = () => {
                         loading="lazy"
                       />
                       {item.isFeaturedCoding && (
-                        <span className="absolute top-2 left-2 px-2.5 py-1 bg-[#3A86FF] text-white border border-[#14213D] rounded-full font-pixel text-[8px]">
-                          ★ FEATURED CODING
+                        <span className="absolute top-1.5 left-1.5 sm:top-2 sm:left-2 px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#3A86FF] text-white border border-[#14213D] rounded-full font-pixel text-[7px] sm:text-[8px]">
+                          ★ FEATURED
                         </span>
                       )}
-                      <span className="absolute bottom-2 right-2 px-2.5 py-1 bg-white/95 border border-[#14213D] rounded-full font-mono text-[10px] font-bold text-[#14213D]">
+                      <span className="absolute bottom-1.5 right-1.5 sm:bottom-2 sm:right-2 px-2 sm:px-2.5 py-0.5 sm:py-1 bg-white/95 border border-[#14213D] rounded-full font-mono text-[9px] sm:text-[10px] font-bold text-[#14213D]">
                         {item.year}
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-xs font-bold text-[#3A86FF]">
+                    <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                      <span className="font-mono text-[11px] sm:text-xs font-bold text-[#3A86FF]">
                         {item.categoryLabel}
                       </span>
-                      <span className="font-pixel text-[9px] text-[#14213D] px-2 py-0.5 bg-[#BDB2FF]/20 rounded-md border border-[#14213D]">
+                      <span className="font-pixel text-[8px] sm:text-[9px] text-[#14213D] px-1.5 sm:px-2 py-0.5 bg-[#BDB2FF]/20 rounded-md border border-[#14213D]">
                         VIEW ↗
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-xl sm:text-2xl font-black text-[#14213D] line-clamp-1 mb-2">
+                    <h3 className="font-serif text-base sm:text-2xl font-black text-[#14213D] line-clamp-1 mb-1 sm:mb-2">
                       {item.title}
                     </h3>
-                    <p className="font-sans text-xs text-[#14213D]/75 line-clamp-2 leading-relaxed">
+                    <p className="font-sans text-[11px] sm:text-xs text-[#14213D]/75 line-clamp-2 leading-tight sm:leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -346,72 +351,232 @@ export const Portfolio: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Dots Pagination */}
+          <div className="flex items-center justify-center gap-1.5 mt-3 sm:mt-4">
+            {projects.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCarouselIndex(i)}
+                className={`h-1.5 rounded-full transition-all ${
+                  carouselIndex === i
+                    ? "w-5 bg-[#3A86FF]"
+                    : "w-1.5 bg-[#14213D]/25 hover:bg-[#14213D]/50"
+                }`}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
       {/* ======================================================== */}
       {/* EDITORIAL MOSAIC GRID ARCHIVE                           */}
       {/* ======================================================== */}
-      <div className="mt-12">
-        <div className="flex items-center gap-2 mb-6">
-          <span className="w-3 h-3 rounded-full bg-[#BDB2FF]"></span>
-          <span className="font-mono text-xs font-bold text-[#14213D] uppercase tracking-wider">
-            All Projects ({filteredProjects.length} Works)
-          </span>
+      <div className="mt-8 sm:mt-12">
+        <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-3 mb-4 sm:mb-6">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#BDB2FF]"></span>
+            <span className="font-mono text-xs font-bold text-[#14213D] uppercase tracking-wider">
+              All Projects ({filteredProjects.length} Works)
+            </span>
+          </div>
+
+          {/* Mobile View Mode Switcher: Grid 2x / Horizontal Swipe / Compact List */}
+          <div className="flex sm:hidden items-center bg-white border-2 border-[#14213D] rounded-full p-0.5 shadow-[2px_2px_0px_#14213D] self-start xs:self-auto">
+            <button
+              onClick={() => setMobileViewMode("grid")}
+              className={`px-2.5 py-1 rounded-full text-[10px] font-bold font-mono transition-all ${
+                mobileViewMode === "grid"
+                  ? "bg-[#3A86FF] text-white shadow-[1px_1px_0px_#14213D]"
+                  : "text-[#14213D] hover:bg-[#FFD6E0]"
+              }`}
+            >
+              ⊞ Grid 2x
+            </button>
+            <button
+              onClick={() => setMobileViewMode("swipe")}
+              className={`px-2.5 py-1 rounded-full text-[10px] font-bold font-mono transition-all ${
+                mobileViewMode === "swipe"
+                  ? "bg-[#3A86FF] text-white shadow-[1px_1px_0px_#14213D]"
+                  : "text-[#14213D] hover:bg-[#FFD6E0]"
+              }`}
+            >
+              ⇄ Geser
+            </button>
+            <button
+              onClick={() => setMobileViewMode("list")}
+              className={`px-2.5 py-1 rounded-full text-[10px] font-bold font-mono transition-all ${
+                mobileViewMode === "list"
+                  ? "bg-[#3A86FF] text-white shadow-[1px_1px_0px_#14213D]"
+                  : "text-[#14213D] hover:bg-[#FFD6E0]"
+              }`}
+            >
+              ☰ List
+            </button>
+          </div>
         </div>
 
-        {/* Grid cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 1. MOBILE SWIPE MODE (Zero vertical scroll, horizontal card deck) */}
+        {mobileViewMode === "swipe" && (
+          <div className="sm:hidden mb-4">
+            <div className="flex items-center justify-between text-[10px] font-mono font-bold text-[#3A86FF] mb-2 px-1">
+              <span>👉 Geser kartu ke samping</span>
+              <span>1 - {filteredProjects.length}</span>
+            </div>
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none px-1">
+              {filteredProjects.map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => setActiveModalProject(item)}
+                  className="w-[78vw] max-w-[320px] snap-center shrink-0 bg-white border-2 border-[#14213D] rounded-3xl p-3.5 shadow-[3px_3px_0px_#14213D] flex flex-col justify-between cursor-pointer"
+                >
+                  <div>
+                    <div className="aspect-[16/10] rounded-xl overflow-hidden border border-[#14213D] mb-3 relative bg-[#FFF4F4]">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-2 left-2 px-2 py-0.5 bg-white border border-[#14213D] rounded-full font-mono text-[9px] font-bold text-[#14213D]">
+                        {item.categoryLabel}
+                      </div>
+                      {item.isFeaturedCoding && (
+                        <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-[#3A86FF] text-white border border-[#14213D] rounded-md font-pixel text-[7px]">
+                          DEV
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between text-[10px] font-mono font-bold text-[#14213D]/60 mb-1">
+                      <span className="truncate">{item.client}</span>
+                      <span>{item.year}</span>
+                    </div>
+                    <h3 className="font-serif text-sm font-black text-[#14213D] line-clamp-1 mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="font-sans text-[11px] text-[#14213D]/75 line-clamp-2 leading-tight mb-3">
+                      {item.desc}
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-[#14213D]/10 flex items-center justify-between">
+                    <div className="flex gap-1">
+                      {item.stack.slice(0, 2).map((st, i) => (
+                        <span
+                          key={i}
+                          className="font-mono text-[9px] px-1.5 py-0.5 bg-[#FFF4F4] border border-[#14213D] rounded-md font-bold text-[#14213D]"
+                        >
+                          #{st}
+                        </span>
+                      ))}
+                    </div>
+                    <span className="font-pixel text-[8px] text-[#3A86FF]">TAP ↗</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* 2. MOBILE COMPACT LIST MODE (Ultra-slim horizontal rows) */}
+        {mobileViewMode === "list" && (
+          <div className="sm:hidden flex flex-col gap-2 mb-4">
+            {filteredProjects.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => setActiveModalProject(item)}
+                className="flex items-center gap-2.5 p-2 bg-white border-2 border-[#14213D] rounded-2xl shadow-[2px_2px_0px_#14213D] active:translate-y-0.5 cursor-pointer"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-16 h-16 rounded-xl object-cover border border-[#14213D] shrink-0"
+                  loading="lazy"
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="font-mono text-[9px] font-bold text-[#3A86FF] truncate">
+                      {item.categoryLabel}
+                    </span>
+                    <span className="font-mono text-[9px] text-[#14213D]/50">
+                      • {item.year}
+                    </span>
+                  </div>
+                  <h4 className="font-serif text-xs font-black text-[#14213D] truncate">
+                    {item.title}
+                  </h4>
+                  <p className="font-sans text-[10px] text-[#14213D]/65 truncate mt-0.5">
+                    {item.client}
+                  </p>
+                </div>
+                <span className="font-pixel text-[8px] px-2 py-1 bg-[#BDB2FF]/20 rounded-md border border-[#14213D] shrink-0">
+                  ↗
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* 3. GRID MODE: 2 columns on mobile (cutting scroll height in half), 2 on md, 3 on lg */}
+        <div
+          className={`${
+            mobileViewMode !== "grid" ? "hidden sm:grid" : "grid"
+          } grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6`}
+        >
           {filteredProjects.map((item, idx) => (
             <motion.div
               key={item.id}
               onClick={() => setActiveModalProject(item)}
-              initial={{ opacity: 0, scale: 0.93, y: 20 }}
+              initial={{ opacity: 0, scale: 0.94, y: 15 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.45, delay: (idx % 3) * 0.08 }}
-              className={`border-[2.5px] border-[#14213D] rounded-4xl p-5 shadow-[5px_5px_0px_#14213D] hover:shadow-[9px_9px_0px_#14213D] hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between ${
+              viewport={{ once: true, amount: 0.08 }}
+              transition={{ duration: 0.35, delay: (idx % 3) * 0.06 }}
+              className={`border-2 sm:border-[2.5px] border-[#14213D] rounded-2xl sm:rounded-4xl p-2.5 sm:p-5 shadow-[3px_3px_0px_#14213D] sm:shadow-[5px_5px_0px_#14213D] hover:shadow-[7px_7px_0px_#14213D] hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between ${
                 item.isFeaturedCoding ? "bg-white" : "bg-[#FFF4F4]"
+              } ${
+                idx >= 4 && !showAllProjectsMobile && selectedFilter === "all"
+                  ? "hidden sm:flex"
+                  : "flex"
               }`}
             >
               <div>
                 {/* Image */}
-                <div className="aspect-[16/10] rounded-2xl overflow-hidden border-2 border-[#14213D] mb-4 relative bg-[#FFF4F4]">
+                <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden border border-black/80 sm:border-2 sm:border-[#14213D] mb-2 sm:mb-4 relative bg-[#FFF4F4]">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 bg-white border border-[#14213D] rounded-full font-mono text-[10px] font-bold text-[#14213D]">
+                  <div className="absolute top-1.5 left-1.5 sm:top-2.5 sm:left-2.5 px-1.5 sm:px-2.5 py-0.5 bg-white border border-[#14213D] rounded-full font-mono text-[7px] sm:text-[10px] font-bold text-[#14213D] truncate max-w-[85px] sm:max-w-none">
                     {item.categoryLabel}
                   </div>
                   {item.isFeaturedCoding && (
-                    <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-[#3A86FF] text-white border border-[#14213D] rounded-md font-pixel text-[8px]">
+                    <div className="absolute top-1.5 right-1.5 sm:top-2.5 sm:right-2.5 px-1.5 sm:px-2 py-0.5 bg-[#3A86FF] text-white border border-[#14213D] rounded-md font-pixel text-[7px] sm:text-[8px]">
                       DEV
                     </div>
                   )}
                 </div>
 
-                <div className="flex items-center justify-between mb-1 text-xs font-mono font-bold text-[#14213D]/60">
-                  <span>{item.client}</span>
+                <div className="flex items-center justify-between mb-1 text-[8px] sm:text-xs font-mono font-bold text-[#14213D]/60">
+                  <span className="truncate max-w-[70%]">{item.client}</span>
                   <span>{item.year}</span>
                 </div>
 
-                <h3 className="font-serif text-xl font-black text-[#14213D] line-clamp-1 mb-2">
+                <h3 className="font-serif text-xs sm:text-xl font-black text-[#14213D] line-clamp-1 mb-1 sm:mb-2">
                   {item.title}
                 </h3>
-                <p className="font-sans text-xs text-[#14213D]/75 line-clamp-2 leading-relaxed mb-4">
+                <p className="font-sans text-[10px] sm:text-xs text-[#14213D]/75 line-clamp-2 leading-tight sm:leading-relaxed mb-2 sm:mb-4">
                   {item.desc}
                 </p>
               </div>
 
               {/* Stack tags */}
-              <div className="pt-3 border-t border-[#14213D]/10 flex flex-wrap gap-1.5">
-                {item.stack.slice(0, 3).map((st, i) => (
+              <div className="pt-2 sm:pt-3 border-t border-[#14213D]/10 flex flex-wrap gap-1 sm:gap-1.5">
+                {item.stack.slice(0, 2).map((st, i) => (
                   <span
                     key={i}
-                    className="font-mono text-[10px] px-2 py-0.5 bg-white border border-[#14213D] rounded-md font-bold text-[#14213D]"
+                    className="font-mono text-[8px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 bg-white border border-[#14213D] rounded-md font-bold text-[#14213D]"
                   >
                     #{st}
                   </span>
@@ -420,6 +585,20 @@ export const Portfolio: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Mobile Progressive Expand Button */}
+        {selectedFilter === "all" && filteredProjects.length > 4 && (
+          <div className="mt-4 sm:hidden flex justify-center">
+            <button
+              onClick={() => setShowAllProjectsMobile(!showAllProjectsMobile)}
+              className="retro-btn retro-btn-secondary text-xs px-4 py-2 border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] font-mono font-bold"
+            >
+              {showAllProjectsMobile
+                ? "Tampilkan Lebih Ringkas ▴"
+                : `Tampilkan Semua (${filteredProjects.length} Proyek) ▾`}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* ======================================================== */}
@@ -429,20 +608,20 @@ export const Portfolio: React.FC = () => {
         createPortal(
           <div
             onClick={() => setActiveModalProject(null)}
-            className="fixed inset-0 z-50 bg-[#14213D]/75 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
+            className="fixed inset-0 z-50 bg-[#14213D]/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200"
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-2xl w-full bg-white border-[3px] border-[#14213D] rounded-4xl p-6 sm:p-8 shadow-[8px_8px_0px_#14213D] max-h-[90vh] overflow-y-auto"
+              className="relative max-w-2xl w-full bg-white border-2 sm:border-[3px] border-[#14213D] rounded-3xl sm:rounded-4xl p-4 sm:p-8 shadow-[6px_6px_0px_#14213D] sm:shadow-[8px_8px_0px_#14213D] max-h-[90vh] overflow-y-auto"
             >
               <button
                 onClick={() => setActiveModalProject(null)}
-                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#FFD6E0] border-2 border-[#14213D] font-pixel text-xs text-[#14213D] flex items-center justify-center shadow-[2px_2px_0px_#14213D] hover:bg-[#3A86FF] hover:text-white"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FFD6E0] border-2 border-[#14213D] font-pixel text-xs text-[#14213D] flex items-center justify-center shadow-[2px_2px_0px_#14213D] hover:bg-[#3A86FF] hover:text-white"
               >
                 ✕
               </button>
 
-              <div className="aspect-video w-full rounded-2xl overflow-hidden border-2 border-[#14213D] mb-6 bg-[#FFF4F4]">
+              <div className="aspect-video w-full rounded-xl sm:rounded-2xl overflow-hidden border border-[#14213D] mb-4 sm:mb-6 bg-[#FFF4F4]">
                 <img
                   src={activeModalProject.image}
                   alt={activeModalProject.title}

@@ -51,29 +51,29 @@ export const Stories: React.FC = () => {
   const currentClip = clips[activeClipIndex];
 
   return (
-    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Pill */}
-      <div className="flex flex-col items-start mb-14">
-        <div className="pill-badge bg-[#FFD6E0] border-2 border-[#14213D] mb-4">
+      <div className="flex flex-col items-start mb-8 sm:mb-14">
+        <div className="pill-badge bg-[#FFD6E0] border-2 border-[#14213D] mb-3 sm:mb-4">
           <span className="font-pixel text-[10px] text-[#3A86FF]">05 //</span>
           <span className="font-mono text-xs font-bold text-[#14213D]">STORIES & SHOWREEL</span>
         </div>
 
-        <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
+        <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
           Cinematic & Aerial Lens.
         </h2>
-        <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
+        <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-1.5 sm:mt-2 font-bold tracking-wide">
           REAL-TIME AERIAL DRONE TELEMETRY MONITOR & VISUAL STORYTELLING
         </p>
       </div>
 
-      {/* Main Viewfinder Monitor Box */}
+      {/* Main Viewfinder Monitor Box: Compact on mobile */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.93, y: 30 }}
+        initial={{ opacity: 0, scale: 0.94, y: 20 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-        className="relative bg-[#14213D] border-[3px] border-[#14213D] rounded-4xl sm:rounded-5xl p-4 sm:p-8 shadow-[8px_8px_0px_#3A86FF] overflow-hidden text-white"
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="relative bg-[#14213D] border-2 sm:border-[3px] border-[#14213D] rounded-3xl sm:rounded-5xl p-3.5 sm:p-8 shadow-[5px_5px_0px_#3A86FF] sm:shadow-[8px_8px_0px_#3A86FF] overflow-hidden text-white"
       >
         {/* HUD Top Bar: Battery, GPS, Record Status */}
         <div className="flex flex-wrap items-center justify-between gap-4 pb-4 mb-4 border-b border-white/20 font-mono text-xs z-20 relative">

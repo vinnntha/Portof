@@ -23,6 +23,7 @@ interface CertificateItem {
 
 export const Experience: React.FC = () => {
   const [selectedCert, setSelectedCert] = useState<CertificateItem | null>(null);
+  const [showAllCertsMobile, setShowAllCertsMobile] = useState(false);
 
   const certificatesList: CertificateItem[] = [
     {
@@ -139,71 +140,71 @@ export const Experience: React.FC = () => {
   ];
 
   return (
-    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Pill */}
-      <div className="flex flex-col items-start mb-14">
-        <div className="pill-badge bg-[#FFD6E0] border-2 border-[#14213D] mb-4">
+      <div className="flex flex-col items-start mb-8 sm:mb-14">
+        <div className="pill-badge bg-[#FFD6E0] border-2 border-[#14213D] mb-3 sm:mb-4">
           <span className="font-pixel text-[10px] text-[#3A86FF]">02 //</span>
           <span className="font-mono text-xs font-bold text-[#14213D]">EXPERIENCE & CERTIFICATIONS</span>
         </div>
 
-        <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
+        <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
           Track Record & 9 Official Licenses.
         </h2>
-        <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
+        <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-1.5 sm:mt-2 font-bold tracking-wide">
           PROVEN EXPERIENCE IN CODING & COMPREHENSIVE CERTIFICATION CREDENTIALS FROM CISCO, DICODING, AND MICROSOFT
         </p>
       </div>
 
       {/* Retro Timeline Container */}
-      <div className="relative border-l-[3px] border-[#14213D] ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
+      <div className="relative border-l-2 sm:border-l-[3px] border-[#14213D] ml-2 sm:ml-8 pl-4 sm:pl-10 space-y-6 sm:space-y-12">
         {experiences.map((item, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, x: -25 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: idx * 0.12 }}
+            transition={{ duration: 0.45, delay: idx * 0.1 }}
             className="relative group"
           >
             {/* Timeline Pixel Dot Indicator */}
-            <div className="absolute -left-[35px] sm:-left-[51px] top-1.5 w-6 h-6 rounded-full bg-[#BDB2FF] border-[2.5px] border-[#14213D] shadow-[2px_2px_0px_#14213D] flex items-center justify-center group-hover:bg-[#3A86FF] transition-colors">
-              <div className="w-2 h-2 rounded-full bg-white" />
+            <div className="absolute -left-[27px] sm:-left-[51px] top-1.5 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#BDB2FF] border-2 sm:border-[2.5px] border-[#14213D] shadow-[1.5px_1.5px_0px_#14213D] flex items-center justify-center group-hover:bg-[#3A86FF] transition-colors">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white" />
             </div>
 
-            {/* Experience Card */}
-            <div className="retro-panel p-6 sm:p-8">
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                <span className="px-3 py-1 bg-[#3A86FF] text-white border-2 border-[#14213D] rounded-full font-pixel text-[10px] shadow-[2px_2px_0px_#14213D]">
+            {/* Experience Card: Compact on mobile */}
+            <div className="retro-panel p-4 sm:p-8 rounded-2xl sm:rounded-4xl shadow-[3px_3px_0px_#14213D] sm:shadow-[5px_5px_0px_#14213D]">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2 sm:mb-4">
+                <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 bg-[#3A86FF] text-white border-1.5 sm:border-2 border-[#14213D] rounded-full font-pixel text-[8px] sm:text-[10px] shadow-[1.5px_1.5px_0px_#14213D]">
                   {item.year}
                 </span>
 
-                <span className="font-mono text-xs font-bold text-[#14213D]/70 bg-[#FFF4F4] px-3 py-1 rounded-lg border border-[#14213D]">
+                <span className="font-mono text-[10px] sm:text-xs font-bold text-[#14213D]/70 bg-[#FFF4F4] px-2 sm:px-3 py-0.5 sm:py-1 rounded-md sm:rounded-lg border border-[#14213D]">
                   {item.place}
                 </span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-black text-[#14213D]">
+              <h3 className="font-serif text-lg sm:text-2xl lg:text-3xl font-black text-[#14213D]">
                 {item.role}
               </h3>
 
-              <div className="my-2">
-                <span className="font-pixel text-[9px] text-[#3A86FF] tracking-wider">
+              <div className="my-1 sm:my-2">
+                <span className="font-pixel text-[8px] sm:text-[9px] text-[#3A86FF] tracking-wider">
                   {item.highlight}
                 </span>
               </div>
 
-              <p className="font-sans text-sm sm:text-base text-[#14213D]/80 leading-relaxed mb-6">
+              <p className="font-sans text-xs sm:text-sm lg:text-base text-[#14213D]/80 leading-relaxed mb-3 sm:mb-6">
                 {item.description}
               </p>
 
               {/* Deliverables tags */}
-              <div className="flex flex-wrap items-center gap-2 pt-4 border-t-2 border-[#14213D]/10">
-                <span className="font-mono text-xs font-bold text-[#14213D]">Output:</span>
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-2.5 sm:pt-4 border-t-1.5 sm:border-t-2 border-[#14213D]/10">
+                <span className="font-mono text-[10px] sm:text-xs font-bold text-[#14213D]">Output:</span>
                 {item.deliverables.map((d, dIdx) => (
                   <span
                     key={dIdx}
-                    className="font-mono text-xs px-2.5 py-1 bg-[#BDB2FF]/20 border border-[#14213D] rounded-full text-[#14213D] font-bold"
+                    className="font-mono text-[9px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#BDB2FF]/20 border border-[#14213D] rounded-full text-[#14213D] font-bold"
                   >
                     ✓ {d}
                   </span>
@@ -217,72 +218,74 @@ export const Experience: React.FC = () => {
       {/* ======================================================== */}
       {/* 9 VERIFIED CERTIFICATES GALLERY                          */}
       {/* ======================================================== */}
-      <div className="mt-16 retro-panel-pink p-6 sm:p-10">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div className="mt-10 sm:mt-16 retro-panel-pink p-3.5 sm:p-8 lg:p-10 rounded-3xl sm:rounded-4xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-5 sm:mb-8">
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-pixel text-[10px] text-[#3A86FF] px-2.5 py-1 bg-white rounded-md border border-[#14213D]">
+              <span className="font-pixel text-[8px] sm:text-[10px] text-[#3A86FF] px-2 sm:px-2.5 py-0.5 sm:py-1 bg-white rounded-md border border-[#14213D]">
                 VERIFIED CREDENTIALS // 9 OFFICIAL CERTIFICATES
               </span>
             </div>
-            <h3 className="font-serif text-2xl sm:text-3xl font-black text-[#14213D] mt-2">
+            <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-black text-[#14213D] mt-1.5 sm:mt-2">
               Portfolio Certification Gallery (1 - 9).
             </h3>
-            <p className="font-sans text-xs sm:text-sm text-[#14213D]/80 mt-1">
+            <p className="font-sans text-[11px] sm:text-sm text-[#14213D]/80 mt-1">
               All certificates verified across web programming, JavaScript, Node.js backend, Cisco networking, and AI.
             </p>
           </div>
-          <span className="font-mono text-xs font-bold text-[#14213D] bg-white px-3.5 py-2 rounded-full border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] self-start sm:self-auto">
+          <span className="hidden sm:inline-block font-mono text-xs font-bold text-[#14213D] bg-white px-3.5 py-2 rounded-full border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D]">
             Click card to zoom & view details
           </span>
         </div>
 
-        {/* 9 Certificates Grid (3 columns on lg, 2 on sm) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 9 Certificates Grid: 2 columns on mobile for compact, comfortable reading */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6">
           {certificatesList.map((cert, idx) => (
             <motion.div
               key={cert.id}
               onClick={() => setSelectedCert(cert)}
-              initial={{ opacity: 0, scale: 0.93, y: 20 }}
+              initial={{ opacity: 0, scale: 0.94, y: 15 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.45, delay: (idx % 3) * 0.08 }}
-              className="bg-white border-2 border-[#14213D] rounded-3xl p-4 shadow-[4px_4px_0px_#14213D] hover:-translate-y-1.5 hover:shadow-[7px_7px_0px_#14213D] transition-all cursor-pointer group flex flex-col justify-between"
+              transition={{ duration: 0.35, delay: (idx % 3) * 0.06 }}
+              className={`bg-white border-2 border-[#14213D] rounded-2xl sm:rounded-3xl p-2.5 sm:p-4 shadow-[3px_3px_0px_#14213D] sm:shadow-[4px_4px_0px_#14213D] hover:-translate-y-1.5 hover:shadow-[7px_7px_0px_#14213D] transition-all cursor-pointer group flex flex-col justify-between ${
+                idx >= 4 && !showAllCertsMobile ? "hidden sm:flex" : "flex"
+              }`}
             >
               <div>
                 {/* Thumbnail window */}
-                <div className="aspect-[16/11] rounded-2xl overflow-hidden border-2 border-[#14213D] mb-3 bg-[#FFF4F4] relative">
+                <div className="aspect-[16/11] rounded-xl sm:rounded-2xl overflow-hidden border border-black/80 sm:border-2 sm:border-[#14213D] mb-2 sm:mb-3 bg-[#FFF4F4] relative">
                   <img
                     src={cert.image}
                     alt={cert.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
-                  <span className="absolute top-2 left-2 px-2 py-0.5 bg-[#3A86FF] text-white border border-[#14213D] rounded-full font-pixel text-[8px]">
+                  <span className="absolute top-1.5 left-1.5 px-1.5 sm:px-2 py-0.5 bg-[#3A86FF] text-white border border-[#14213D] rounded-full font-pixel text-[7px] sm:text-[8px]">
                     NO. 0{cert.id}
                   </span>
-                  <span className="absolute bottom-2 right-2 px-2 py-0.5 bg-white/95 border border-[#14213D] rounded-md font-mono text-[9px] font-bold text-[#14213D]">
+                  <span className="absolute bottom-1.5 right-1.5 px-1.5 sm:px-2 py-0.5 bg-white/95 border border-[#14213D] rounded-md font-mono text-[8px] sm:text-[9px] font-bold text-[#14213D]">
                     {cert.year}
                   </span>
                 </div>
 
-                <div className="font-mono text-[10px] font-bold text-[#3A86FF] uppercase mb-1">
+                <div className="font-mono text-[8px] sm:text-[10px] font-bold text-[#3A86FF] uppercase mb-0.5 sm:mb-1 truncate">
                   {cert.issuer}
                 </div>
-                <h4 className="font-serif text-base sm:text-lg font-black text-[#14213D] line-clamp-1 mb-2">
+                <h4 className="font-serif text-xs sm:text-base font-black text-[#14213D] line-clamp-1 mb-1 sm:mb-2">
                   {cert.title}
                 </h4>
-                <p className="font-sans text-xs text-[#14213D]/70 line-clamp-2 leading-relaxed mb-3">
+                <p className="font-sans text-[10px] sm:text-xs text-[#14213D]/70 line-clamp-2 leading-tight sm:leading-relaxed mb-2 sm:mb-3">
                   {cert.description}
                 </p>
               </div>
 
               {/* Tags */}
-              <div className="pt-2 border-t border-[#14213D]/10 flex flex-wrap gap-1">
-                {cert.tags.slice(0, 3).map((t, idx) => (
+              <div className="pt-1.5 sm:pt-2 border-t border-[#14213D]/10 flex flex-wrap gap-1">
+                {cert.tags.slice(0, 2).map((t, tIdx) => (
                   <span
-                    key={idx}
-                    className="font-mono text-[9px] px-2 py-0.5 bg-[#FFF4F4] border border-[#14213D] rounded-md text-[#14213D] font-bold"
+                    key={tIdx}
+                    className="font-mono text-[8px] sm:text-[9px] px-1.5 sm:px-2 py-0.5 bg-[#FFF4F4] border border-[#14213D] rounded-md text-[#14213D] font-bold"
                   >
                     #{t}
                   </span>
@@ -290,6 +293,18 @@ export const Experience: React.FC = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Mobile toggle button to expand / collapse all 9 certificates */}
+        <div className="mt-4 sm:hidden flex justify-center">
+          <button
+            onClick={() => setShowAllCertsMobile(!showAllCertsMobile)}
+            className="retro-btn retro-btn-secondary text-xs px-4 py-2 border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] font-mono font-bold"
+          >
+            {showAllCertsMobile
+              ? "Tampilkan Lebih Ringkas ▴"
+              : `Tampilkan Semua (${certificatesList.length} Sertifikat) ▾`}
+          </button>
         </div>
       </div>
 

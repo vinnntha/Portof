@@ -68,7 +68,7 @@ export default function App() {
       </div>
 
       {/* Main Single Page Sections with Zoom-in Parallax Scale Motion */}
-      <main className="relative z-10 w-full space-y-12 sm:space-y-16 lg:space-y-20">
+      <main className="relative z-10 w-full space-y-6 sm:space-y-16 lg:space-y-20">
         {/* 4. Hero Section: starts 1.0, recedes subtly when scrolling down */}
         <ScrollSection id="hero" variant="hero">
           <Hero />

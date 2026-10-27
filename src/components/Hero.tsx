@@ -61,7 +61,7 @@ export const Hero: React.FC = () => {
 
   return (
     <div
-      className="relative min-h-[92vh] pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center"
+      className="relative min-h-[85vh] sm:min-h-[92vh] pt-20 sm:pt-28 pb-8 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center"
     >
       {/* Decorative Floating Stickers with Scroll Parallax */}
       {/* Ghost Sticker with Easter Egg */}
