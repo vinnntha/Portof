@@ -66,68 +66,70 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <div className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Top Header Label & Title */}
-      <div className="flex flex-col items-start mb-14">
-        <div className="pill-badge bg-white border-2 border-[#14213D] mb-4">
+      <div className="flex flex-col items-start mb-8 sm:mb-14">
+        <div className="pill-badge bg-white border-2 border-[#14213D] mb-3 sm:mb-4">
           <span className="font-pixel text-[10px] text-[#3A86FF]">01 //</span>
           <span className="font-mono text-xs font-bold text-[#14213D]">ABOUT ME</span>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-4 sm:gap-6">
           <div>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
               Multi-Disciplinary Creativity.
             </h2>
-            <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-2 font-bold tracking-wide">
+            <p className="font-mono text-xs sm:text-sm text-[#3A86FF] mt-1.5 sm:mt-2 font-bold tracking-wide">
               COMBINING CODE, PIXELS, AND AERIAL CINEMATOGRAPHY
             </p>
           </div>
 
-          <p className="font-sans text-sm sm:text-base text-[#14213D]/80 max-w-md leading-relaxed">
+          <p className="font-sans text-xs sm:text-sm lg:text-base text-[#14213D]/80 max-w-md leading-relaxed">
             Hello! I am <strong>Averill Kevinatha</strong>. I believe exceptional digital products don't just run efficiently under the hood, but also connect emotionally with users through captivating, story-driven visuals.
           </p>
         </div>
       </div>
 
-      {/* 4 Modular Role Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* 4 Modular Role Cards - Compact on mobile */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6 md:gap-8">
         {roles.map((role, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, y: 30, scale: 0.94 }}
+            initial={{ opacity: 0, y: 25, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className={`${role.bgColor} border-[2.5px] border-[#14213D] rounded-4xl p-8 shadow-[6px_6px_0px_#14213D] hover:shadow-[10px_10px_0px_#14213D] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group`}
+            transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className={`${role.bgColor} border-2 sm:border-[2.5px] border-[#14213D] rounded-3xl sm:rounded-4xl p-4 sm:p-6 md:p-8 shadow-[4px_4px_0px_#14213D] sm:shadow-[6px_6px_0px_#14213D] hover:shadow-[8px_8px_0px_#14213D] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group`}
           >
             <div>
               {/* Card Header */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="p-3 bg-white rounded-2xl border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] group-hover:rotate-6 transition-transform">
-                  {role.icon}
+              <div className="flex items-center justify-between gap-2 mb-3 sm:mb-6">
+                <div className="p-2 sm:p-3 bg-white rounded-xl sm:rounded-2xl border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] group-hover:rotate-6 transition-transform">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 flex items-center justify-center">
+                    {role.icon}
+                  </div>
                 </div>
-                <span className="font-pixel text-[9px] px-3 py-1 bg-white border-1.5 border-[#14213D] rounded-full shadow-[2px_2px_0px_#14213D] text-[#14213D]">
+                <span className="font-pixel text-[8px] sm:text-[9px] px-2.5 sm:px-3 py-1 bg-white border border-[#14213D] rounded-full shadow-[2px_2px_0px_#14213D] text-[#14213D] whitespace-nowrap">
                   {role.badge}
                 </span>
               </div>
 
               {/* Title & Desc */}
-              <h3 className="font-serif text-2xl sm:text-3xl font-black text-[#14213D] mb-3">
+              <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl font-black text-[#14213D] mb-1.5 sm:mb-3">
                 {role.title}
               </h3>
-              <p className="font-sans text-sm sm:text-base text-[#14213D]/85 leading-relaxed mb-6">
+              <p className="font-sans text-xs sm:text-sm lg:text-base text-[#14213D]/85 leading-relaxed mb-3 sm:mb-6">
                 {role.description}
               </p>
             </div>
 
             {/* Skills Pills */}
-            <div className="pt-4 border-t-2 border-[#14213D]/15">
-              <div className="flex flex-wrap gap-2">
+            <div className="pt-3 sm:pt-4 border-t-2 border-[#14213D]/15">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {role.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="font-mono text-xs px-2.5 py-1 bg-white border border-[#14213D] rounded-lg shadow-[1px_1px_0px_#14213D] text-[#14213D] font-bold"
+                    className="font-mono text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 bg-white border border-[#14213D] rounded-lg shadow-[1px_1px_0px_#14213D] text-[#14213D] font-bold"
                   >
                     #{skill}
                   </span>
