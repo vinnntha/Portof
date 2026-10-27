@@ -79,7 +79,7 @@ export const Contact: React.FC = () => {
                   className="retro-btn bg-[#3A86FF] text-white w-full text-center text-xs sm:text-sm font-bold"
                 >
                   <span>Chat on WhatsApp</span>
-                  <span className="font-pixel text-xs">💬</span>
+                  <span className="font-pixel text-xs"></span>
                 </a>
               </div>
             </div>
@@ -91,10 +91,10 @@ export const Contact: React.FC = () => {
               </span>
               <div className="flex flex-wrap gap-2">
                 {[
-                  { name: "GitHub", url: "https://github.com", icon: "🐙" },
-                  { name: "LinkedIn", url: "https://linkedin.com", icon: "💼" },
-                  { name: "Instagram", url: "https://instagram.com", icon: "📷" },
-                  { name: "Email", url: "mailto:averillkevinatha@gmail.com", icon: "✉" },
+                  { name: "GitHub", url: "https://github.com"},
+                  { name: "LinkedIn", url: "https://linkedin.com" },
+                  { name: "Instagram", url: "https://instagram.com" },
+                  { name: "Email", url: "mailto:averillkevinatha@gmail.com" },
                 ].map((s, idx) => (
                   <a
                     key={idx}
@@ -103,7 +103,6 @@ export const Contact: React.FC = () => {
                     rel="noopener noreferrer"
                     className="px-3.5 py-1.5 rounded-full bg-[#FFF4F4] hover:bg-[#BDB2FF] border border-[#14213D] font-mono text-xs font-bold text-[#14213D] shadow-[2px_2px_0px_#14213D] hover:-translate-y-0.5 transition-all flex items-center gap-1.5"
                   >
-                    <span>{s.icon}</span>
                     <span>{s.name}</span>
                   </a>
                 ))}
@@ -233,7 +232,6 @@ export const Contact: React.FC = () => {
                   className="retro-btn bg-[#3A86FF] hover:bg-[#1B60D1] text-white py-3.5 text-sm sm:text-base font-bold shadow-[4px_4px_0px_#14213D]"
                 >
                   <span>Send Message Now</span>
-                  <span className="font-pixel text-xs">🚀</span>
                 </button>
               </form>
             )}
