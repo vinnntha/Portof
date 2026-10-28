@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import codingProject from "../assets/coding_project.png";
@@ -34,8 +34,17 @@ export const Portfolio: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
-  const [mobileViewMode, setMobileViewMode] = useState<"grid" | "swipe" | "list">("grid");
-  const [showAllProjectsMobile, setShowAllProjectsMobile] = useState(false);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollMobile = (direction: "left" | "right") => {
+    if (mobileScrollRef.current) {
+      const scrollAmount = mobileScrollRef.current.clientWidth * 0.8;
+      mobileScrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const projects: ProjectItem[] = [
     // --- 1. CODING SPOTLIGHTS (FEATURED) ---
@@ -239,7 +248,9 @@ export const Portfolio: React.FC = () => {
                 key={f.id}
                 onClick={() => {
                   setSelectedFilter(f.id);
-                  setShowAllProjectsMobile(false);
+                  if (mobileScrollRef.current) {
+                    mobileScrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+                  }
                 }}
                 className={`px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold border-2 border-[#14213D] transition-all cursor-pointer ${
                   selectedFilter === f.id
@@ -374,7 +385,7 @@ export const Portfolio: React.FC = () => {
       {/* EDITORIAL MOSAIC GRID ARCHIVE                           */}
       {/* ======================================================== */}
       <div className="mt-8 sm:mt-12">
-        <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-3 mb-4 sm:mb-6">
+        <div className="flex items-center justify-between gap-3 mb-4 sm:mb-6">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#BDB2FF]"></span>
             <span className="font-mono text-xs font-bold text-[#14213D] uppercase tracking-wider">
@@ -382,147 +393,97 @@ export const Portfolio: React.FC = () => {
             </span>
           </div>
 
-          {/* Mobile View Mode Switcher: Grid 2x / Horizontal Swipe / Compact List */}
-          <div className="flex sm:hidden items-center bg-white border-2 border-[#14213D] rounded-full p-0.5 shadow-[2px_2px_0px_#14213D] self-start xs:self-auto">
+          {/* Mobile swipe helper controls (slide horizontal ke samping) */}
+          <div className="flex sm:hidden items-center gap-1.5">
+            <span className="font-mono text-[10px] font-bold text-[#3A86FF] mr-1">
+              👉 Geser
+            </span>
             <button
-              onClick={() => setMobileViewMode("grid")}
-              className={`px-2.5 py-1 rounded-full text-[10px] font-bold font-mono transition-all ${
-                mobileViewMode === "grid"
-                  ? "bg-[#3A86FF] text-white shadow-[1px_1px_0px_#14213D]"
-                  : "text-[#14213D] hover:bg-[#FFD6E0]"
-              }`}
+              type="button"
+              onClick={() => scrollMobile("left")}
+              className="w-7 h-7 rounded-full bg-white border-2 border-[#14213D] shadow-[1.5px_1.5px_0px_#14213D] flex items-center justify-center font-pixel text-[10px] text-[#14213D] active:translate-y-0.5 hover:bg-[#FFD6E0] transition-colors"
+              aria-label="Geser ke kiri"
             >
-              ⊞ Grid 2x
+              ←
             </button>
             <button
-              onClick={() => setMobileViewMode("swipe")}
-              className={`px-2.5 py-1 rounded-full text-[10px] font-bold font-mono transition-all ${
-                mobileViewMode === "swipe"
-                  ? "bg-[#3A86FF] text-white shadow-[1px_1px_0px_#14213D]"
-                  : "text-[#14213D] hover:bg-[#FFD6E0]"
-              }`}
+              type="button"
+              onClick={() => scrollMobile("right")}
+              className="w-7 h-7 rounded-full bg-white border-2 border-[#14213D] shadow-[1.5px_1.5px_0px_#14213D] flex items-center justify-center font-pixel text-[10px] text-[#14213D] active:translate-y-0.5 hover:bg-[#3A86FF] hover:text-white transition-colors"
+              aria-label="Geser ke kanan"
             >
-              ⇄ Geser
-            </button>
-            <button
-              onClick={() => setMobileViewMode("list")}
-              className={`px-2.5 py-1 rounded-full text-[10px] font-bold font-mono transition-all ${
-                mobileViewMode === "list"
-                  ? "bg-[#3A86FF] text-white shadow-[1px_1px_0px_#14213D]"
-                  : "text-[#14213D] hover:bg-[#FFD6E0]"
-              }`}
-            >
-              ☰ List
+              →
             </button>
           </div>
         </div>
 
-        {/* 1. MOBILE SWIPE MODE (Zero vertical scroll, horizontal card deck) */}
-        {mobileViewMode === "swipe" && (
-          <div className="sm:hidden mb-4">
-            <div className="flex items-center justify-between text-[10px] font-mono font-bold text-[#3A86FF] mb-2 px-1">
-              <span>👉 Geser kartu ke samping</span>
-              <span>1 - {filteredProjects.length}</span>
-            </div>
-            <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none px-1">
-              {filteredProjects.map((item) => (
-                <div
-                  key={item.id}
-                  onClick={() => setActiveModalProject(item)}
-                  className="w-[78vw] max-w-[320px] snap-center shrink-0 bg-white border-2 border-[#14213D] rounded-3xl p-3.5 shadow-[3px_3px_0px_#14213D] flex flex-col justify-between cursor-pointer"
-                >
-                  <div>
-                    <div className="aspect-[16/10] rounded-xl overflow-hidden border border-[#14213D] mb-3 relative bg-[#FFF4F4]">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                      <div className="absolute top-2 left-2 px-2 py-0.5 bg-white border border-[#14213D] rounded-full font-mono text-[9px] font-bold text-[#14213D]">
-                        {item.categoryLabel}
-                      </div>
-                      {item.isFeaturedCoding && (
-                        <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-[#3A86FF] text-white border border-[#14213D] rounded-md font-pixel text-[7px]">
-                          DEV
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex items-center justify-between text-[10px] font-mono font-bold text-[#14213D]/60 mb-1">
-                      <span className="truncate">{item.client}</span>
-                      <span>{item.year}</span>
-                    </div>
-                    <h3 className="font-serif text-sm font-black text-[#14213D] line-clamp-1 mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="font-sans text-[11px] text-[#14213D]/75 line-clamp-2 leading-tight mb-3">
-                      {item.desc}
-                    </p>
-                  </div>
-                  <div className="pt-2 border-t border-[#14213D]/10 flex items-center justify-between">
-                    <div className="flex gap-1">
-                      {item.stack.slice(0, 2).map((st, i) => (
-                        <span
-                          key={i}
-                          className="font-mono text-[9px] px-1.5 py-0.5 bg-[#FFF4F4] border border-[#14213D] rounded-md font-bold text-[#14213D]"
-                        >
-                          #{st}
-                        </span>
-                      ))}
-                    </div>
-                    <span className="font-pixel text-[8px] text-[#3A86FF]">TAP ↗</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* 2. MOBILE COMPACT LIST MODE (Ultra-slim horizontal rows) */}
-        {mobileViewMode === "list" && (
-          <div className="sm:hidden flex flex-col gap-2 mb-4">
+        {/* 1. MOBILE HORIZONTAL SLIDE / SWIPE ONLY (Tanpa pilihan grid & list) */}
+        <div className="block sm:hidden mb-6">
+          <div
+            ref={mobileScrollRef}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 scrollbar-none px-1 touch-pan-x"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
             {filteredProjects.map((item) => (
               <div
                 key={item.id}
                 onClick={() => setActiveModalProject(item)}
-                className="flex items-center gap-2.5 p-2 bg-white border-2 border-[#14213D] rounded-2xl shadow-[2px_2px_0px_#14213D] active:translate-y-0.5 cursor-pointer"
+                className="w-[80vw] max-w-[320px] snap-center shrink-0 bg-white border-2 border-[#14213D] rounded-3xl p-3.5 shadow-[3px_3px_0px_#14213D] flex flex-col justify-between cursor-pointer active:scale-[0.98] transition-transform select-none"
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-16 h-16 rounded-xl object-cover border border-[#14213D] shrink-0"
-                  loading="lazy"
-                />
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5 mb-0.5">
-                    <span className="font-mono text-[9px] font-bold text-[#3A86FF] truncate">
+                <div>
+                  <div className="aspect-[16/10] rounded-xl overflow-hidden border border-[#14213D] mb-3 relative bg-[#FFF4F4]">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 bg-white border border-[#14213D] rounded-full font-mono text-[9px] font-bold text-[#14213D]">
                       {item.categoryLabel}
-                    </span>
-                    <span className="font-mono text-[9px] text-[#14213D]/50">
-                      • {item.year}
-                    </span>
+                    </div>
+                    {item.isFeaturedCoding && (
+                      <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-[#3A86FF] text-white border border-[#14213D] rounded-md font-pixel text-[7px]">
+                        DEV
+                      </div>
+                    )}
                   </div>
-                  <h4 className="font-serif text-xs font-black text-[#14213D] truncate">
+                  <div className="flex items-center justify-between text-[10px] font-mono font-bold text-[#14213D]/60 mb-1">
+                    <span className="truncate max-w-[70%]">{item.client}</span>
+                    <span>{item.year}</span>
+                  </div>
+                  <h3 className="font-serif text-sm font-black text-[#14213D] line-clamp-1 mb-1">
                     {item.title}
-                  </h4>
-                  <p className="font-sans text-[10px] text-[#14213D]/65 truncate mt-0.5">
-                    {item.client}
+                  </h3>
+                  <p className="font-sans text-[11px] text-[#14213D]/75 line-clamp-2 leading-tight mb-3">
+                    {item.desc}
                   </p>
                 </div>
-                <span className="font-pixel text-[8px] px-2 py-1 bg-[#BDB2FF]/20 rounded-md border border-[#14213D] shrink-0">
-                  ↗
-                </span>
+                <div className="pt-2 border-t border-[#14213D]/10 flex items-center justify-between">
+                  <div className="flex gap-1 overflow-hidden">
+                    {item.stack.slice(0, 2).map((st, i) => (
+                      <span
+                        key={i}
+                        className="font-mono text-[9px] px-1.5 py-0.5 bg-[#FFF4F4] border border-[#14213D] rounded-md font-bold text-[#14213D] truncate"
+                      >
+                        #{st}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="font-pixel text-[8px] text-[#3A86FF] bg-[#3A86FF]/10 px-2 py-0.5 rounded border border-[#3A86FF]/30 shrink-0">
+                    TAP ↗
+                  </span>
+                </div>
               </div>
             ))}
           </div>
-        )}
+          <div className="flex items-center justify-between text-[10px] font-mono text-[#14213D]/50 px-1 mt-1">
+            <span>← Geser ke samping →</span>
+            <span>Total: {filteredProjects.length} Proyek</span>
+          </div>
+        </div>
 
-        {/* 3. GRID MODE: 2 columns on mobile (cutting scroll height in half), 2 on md, 3 on lg */}
-        <div
-          className={`${
-            mobileViewMode !== "grid" ? "hidden sm:grid" : "grid"
-          } grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6`}
-        >
+        {/* 2. DESKTOP GRID (Hidden on mobile) */}
+        <div className="hidden sm:grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {filteredProjects.map((item, idx) => (
             <motion.div
               key={item.id}
@@ -533,10 +494,6 @@ export const Portfolio: React.FC = () => {
               transition={{ duration: 0.35, delay: (idx % 3) * 0.06 }}
               className={`border-2 sm:border-[2.5px] border-[#14213D] rounded-2xl sm:rounded-4xl p-2.5 sm:p-5 shadow-[3px_3px_0px_#14213D] sm:shadow-[5px_5px_0px_#14213D] hover:shadow-[7px_7px_0px_#14213D] hover:-translate-y-1 transition-all cursor-pointer group flex flex-col justify-between ${
                 item.isFeaturedCoding ? "bg-white" : "bg-[#FFF4F4]"
-              } ${
-                idx >= 4 && !showAllProjectsMobile && selectedFilter === "all"
-                  ? "hidden sm:flex"
-                  : "flex"
               }`}
             >
               <div>
@@ -585,20 +542,6 @@ export const Portfolio: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Mobile Progressive Expand Button */}
-        {selectedFilter === "all" && filteredProjects.length > 4 && (
-          <div className="mt-4 sm:hidden flex justify-center">
-            <button
-              onClick={() => setShowAllProjectsMobile(!showAllProjectsMobile)}
-              className="retro-btn retro-btn-secondary text-xs px-4 py-2 border-2 border-[#14213D] shadow-[2px_2px_0px_#14213D] font-mono font-bold"
-            >
-              {showAllProjectsMobile
-                ? "Tampilkan Lebih Ringkas ▴"
-                : `Tampilkan Semua (${filteredProjects.length} Proyek) ▾`}
-            </button>
-          </div>
-        )}
       </div>
 
       {/* ======================================================== */}
