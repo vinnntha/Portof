@@ -39,19 +39,6 @@ export const Hero: React.FC = () => {
     return () => clearTimeout(timeout);
   }, [currentText, isDeleting, roleIndex]);
 
-  // Ghost easter egg trigger
-  const handleGhostClick = () => {
-    const easterEggs = [
-      "Booo! You discovered the secret ghost!",
-      "Drone ready for takeoff, code ready to deploy!",
-      "Coffee + React + TypeScript = Lag-free web!",
-      "Averill : Fullstack",
-    ];
-    const randomMsg = easterEggs[Math.floor(Math.random() * easterEggs.length)];
-    setGhostMessage(randomMsg);
-    setTimeout(() => setGhostMessage(null), 3800);
-  };
-
   // Parallax scroll transforms for stickers & portrait
   const { scrollY } = useScroll();
   const ghostY = useTransform(scrollY, [0, 500], [0, -45]);
@@ -95,37 +82,6 @@ export const Hero: React.FC = () => {
                 <span className="sm:hidden">Averill K. | Creative Dev</span>
                 <span className="hidden sm:inline">Averill Kevinatha | Creative Developer & Visual Maker</span>
               </span>
-            </div>
-
-            {/* Clickable Pixel Ghost Easter Egg Badge */}
-            <div className="relative">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleGhostClick}
-                className="px-2.5 py-1 bg-white border-2 border-[#14213D] rounded-full shadow-[2.5px_2.5px_0px_#14213D] flex items-center gap-1.5 cursor-pointer active:scale-95 transition-all select-none hover:bg-[#FFD6E0]/40"
-                title="Click this pixel ghost!"
-              >
-                <span className="font-pixel text-xs sm:text-sm text-[#3A86FF]">👻</span>
-                <span className="font-pixel text-[7px] sm:text-[8px] text-[#14213D] bg-[#FFD6E0] border border-[#14213D] px-1.5 py-0.5 rounded">
-                  CLICK!
-                </span>
-              </motion.button>
-
-              {/* Easter Egg Speech Bubble Toast */}
-              {ghostMessage && (
-                <motion.div
-                  initial={{ opacity: 0, y: -6, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -6, scale: 0.95 }}
-                  className="absolute right-0 sm:left-0 sm:right-auto top-10 sm:top-11 w-60 sm:w-72 p-3 bg-[#FFD6E0] border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] z-50"
-                >
-                  <p className="font-sans text-xs font-bold text-[#14213D] leading-tight">
-                    💬 {ghostMessage}
-                  </p>
-                  <div className="absolute right-6 sm:left-5 -top-2 w-3 h-3 bg-[#FFD6E0] border-l-2 border-t-2 border-[#14213D] rotate-45" />
-                </motion.div>
-              )}
             </div>
           </div>
 
