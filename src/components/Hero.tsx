@@ -63,38 +63,10 @@ export const Hero: React.FC = () => {
     <div
       className="relative min-h-[85vh] sm:min-h-[92vh] pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center"
     >
-      {/* Decorative Floating Stickers with Scroll Parallax (Desktop Only to prevent mobile overlap) */}
-      {/* Ghost Sticker with Easter Egg for Desktop */}
-      <motion.div
-        style={{ y: ghostY }}
-        onClick={handleGhostClick}
-        className="absolute top-28 left-8 sm:left-12 z-20 cursor-pointer animate-float select-none group hidden sm:block"
-        title="Click this pixel ghost!"
-      >
-        <div className="relative p-2.5 bg-white border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] hover:scale-110 active:scale-95 transition-all">
-          <span className="font-pixel text-xl sm:text-2xl text-[#3A86FF]">
-            👻
-          </span>
-          <span className="absolute -bottom-2 -right-2 px-1.5 py-0.5 bg-[#FFD6E0] border border-[#14213D] rounded-md font-pixel text-[8px] text-[#14213D]">
-            CLICK!
-          </span>
-        </div>
-
-        {/* Easter Egg Speech Bubble for Desktop */}
-        {ghostMessage && (
-          <div className="absolute left-14 top-0 w-56 sm:w-64 p-3 bg-[#FFD6E0] border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] z-30 animate-in fade-in zoom-in duration-200">
-            <p className="font-sans text-xs font-bold text-[#14213D] leading-tight">
-              {ghostMessage}
-            </p>
-            <div className="absolute -left-2 top-3 w-3 h-3 bg-[#FFD6E0] border-l-2 border-b-2 border-[#14213D] -rotate-45" />
-          </div>
-        )}
-      </motion.div>
-
-      {/* Star Sticker (Hidden on mobile to avoid overlapping the heading) */}
+      {/* Star Sticker (Desktop decoration) */}
       <motion.div
         style={{ y: starY }}
-        className="absolute top-36 right-8 sm:right-20 z-10 animate-float-delayed pointer-events-none hidden sm:block"
+        className="absolute top-36 right-8 sm:right-20 z-10 animate-float-delayed pointer-events-none hidden lg:block"
       >
         <div className="p-2.5 bg-[#BDB2FF] border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] rotate-12">
           <span className="font-pixel text-xl text-white">✦</span>
@@ -115,37 +87,47 @@ export const Hero: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: Heading, Typewriter, CTA & Info */}
         <div className="lg:col-span-7 flex flex-col items-start z-10 w-full">
-          {/* Top Editorial Identity Pill + Mobile Ghost Easter Egg */}
-          <div className="flex items-center justify-between w-full sm:w-auto gap-2 mb-4 sm:mb-5">
-            <div className="pill-badge bg-[#BDB2FF]/25 border-2 border-[#14213D] py-1 px-3 text-[10px] sm:text-xs">
+          {/* Top Editorial Identity Pill + Interactive Ghost Easter Egg */}
+          <div className="flex flex-wrap items-center gap-2.5 mb-4 sm:mb-5">
+            <div className="pill-badge bg-[#BDB2FF]/25 border-2 border-[#14213D] py-1 px-3 sm:py-1.5 sm:px-4 text-[10px] sm:text-xs">
               <span className="w-2 h-2 rounded-full bg-[#3A86FF] shrink-0"></span>
-              <span className="font-mono font-bold text-[#14213D] truncate">
+              <span className="font-mono font-bold text-[#14213D]">
                 <span className="sm:hidden">Averill K. | Creative Dev</span>
                 <span className="hidden sm:inline">Averill Kevinatha | Creative Developer & Visual Maker</span>
               </span>
             </div>
 
-            {/* Mobile-only Cute Ghost Easter Egg Button */}
-            <button
-              onClick={handleGhostClick}
-              className="sm:hidden shrink-0 px-2 py-1 bg-white border-2 border-[#14213D] rounded-full shadow-[2px_2px_0px_#14213D] flex items-center gap-1 active:scale-95 transition-transform"
-              title="Click this pixel ghost!"
-            >
-              <span className="font-pixel text-xs text-[#3A86FF]">👻</span>
-              <span className="font-pixel text-[7px] text-[#14213D] bg-[#FFD6E0] border border-[#14213D] px-1 py-0.5 rounded">
-                CLICK!
-              </span>
-            </button>
-          </div>
+            {/* Clickable Pixel Ghost Easter Egg Badge */}
+            <div className="relative">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleGhostClick}
+                className="px-2.5 py-1 bg-white border-2 border-[#14213D] rounded-full shadow-[2.5px_2.5px_0px_#14213D] flex items-center gap-1.5 cursor-pointer active:scale-95 transition-all select-none hover:bg-[#FFD6E0]/40"
+                title="Click this pixel ghost!"
+              >
+                <span className="font-pixel text-xs sm:text-sm text-[#3A86FF]">👻</span>
+                <span className="font-pixel text-[7px] sm:text-[8px] text-[#14213D] bg-[#FFD6E0] border border-[#14213D] px-1.5 py-0.5 rounded">
+                  CLICK!
+                </span>
+              </motion.button>
 
-          {/* Mobile Ghost Easter Egg Message Toast */}
-          {ghostMessage && (
-            <div className="w-full sm:hidden mb-4 p-2.5 bg-[#FFD6E0] border-2 border-[#14213D] rounded-xl shadow-[3px_3px_0px_#14213D] animate-in fade-in zoom-in duration-200">
-              <p className="font-sans text-xs font-bold text-[#14213D] leading-tight">
-                {ghostMessage}
-              </p>
+              {/* Easter Egg Speech Bubble Toast */}
+              {ghostMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -6, scale: 0.95 }}
+                  className="absolute right-0 sm:left-0 sm:right-auto top-10 sm:top-11 w-60 sm:w-72 p-3 bg-[#FFD6E0] border-2 border-[#14213D] rounded-2xl shadow-[4px_4px_0px_#14213D] z-50"
+                >
+                  <p className="font-sans text-xs font-bold text-[#14213D] leading-tight">
+                    💬 {ghostMessage}
+                  </p>
+                  <div className="absolute right-6 sm:left-5 -top-2 w-3 h-3 bg-[#FFD6E0] border-l-2 border-t-2 border-[#14213D] rotate-45" />
+                </motion.div>
+              )}
             </div>
-          )}
+          </div>
 
           {/* Mixed Display Heading: Playfair Serif + Press Start 2P Pixel */}
           <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#14213D] tracking-tight leading-[1.05] mb-3 sm:mb-4">
