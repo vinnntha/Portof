@@ -14,7 +14,6 @@ export const Hero: React.FC = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [ghostMessage, setGhostMessage] = useState<string | null>(null);
 
   // Typewriter effect
   useEffect(() => {
@@ -41,7 +40,6 @@ export const Hero: React.FC = () => {
 
   // Parallax scroll transforms for stickers & portrait
   const { scrollY } = useScroll();
-  const ghostY = useTransform(scrollY, [0, 500], [0, -45]);
   const starY = useTransform(scrollY, [0, 500], [0, -75]);
   const heartY = useTransform(scrollY, [0, 500], [0, -35]);
   const portraitY = useTransform(scrollY, [0, 500], [0, -25]);
