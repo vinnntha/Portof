@@ -8,11 +8,9 @@ import coding2 from "../assets/coding2.png";
 import coding3 from "../assets/coding3.png";
 import designProject from "../assets/design_project.png";
 import design1 from "../assets/design1.png";
-import droneProject from "../assets/drone_project.png";
 import droneMockup from "../assets/drone_mockup.png";
 import drone1 from "../assets/drone1.png";
 import drone2 from "../assets/drone2.png";
-import drone3 from "../assets/drone3.png";
 import drone4 from "../assets/drone4.png";
 import vidio1 from "../assets/vidio1.png";
 
@@ -54,7 +52,7 @@ export const Portfolio: React.FC = () => {
       category: "coding",
       categoryLabel: "Fullstack / Frontend Web",
       image: siMagangku,
-      year: "2024",
+      year: "2026",
       client: "SMK Telkom Malang Industrial Relations",
       role: "Frontend Developer & UI/UX",
       desc: "Full CRUD web platform featuring stepped forms for vocational student internship applications and placement search managed by the school's Industrial Relations division. Built with Next.js and Tailwind CSS.",
@@ -67,7 +65,7 @@ export const Portfolio: React.FC = () => {
       category: "coding",
       categoryLabel: "Fullstack Web Application",
       image: coding2,
-      year: "2024",
+      year: "2026",
       client: "12th Grade Capstone Project",
       role: "Fullstack Developer",
       desc: "Integrated waste management platform where recycled materials can be redeemed for reward points. Implemented 2-role user authentication, points transaction systems, and complex CRUD workflows using Nest.js and PostgreSQL.",
@@ -80,7 +78,7 @@ export const Portfolio: React.FC = () => {
       category: "coding",
       categoryLabel: "Frontend CRUD Application",
       image: codingProject,
-      year: "2023",
+      year: "2025",
       client: "Software Engineering Project",
       role: "Frontend Developer",
       desc: "Interactive web application for customer record management (CRUD) and real-time municipal water bill calculations. Developed using React and Tailwind CSS with integrated data visualizations.",
@@ -93,7 +91,7 @@ export const Portfolio: React.FC = () => {
       category: "coding",
       categoryLabel: "Frontend Web Platform",
       image: coding3,
-      year: "2024",
+      year: "2026",
       client: "Collaborative Portfolio Project",
       role: "Frontend Developer",
       desc: "Real-world project matchmaking platform connecting local SMEs in need of digital solutions with vocational students looking to build their industry portfolio.",
@@ -106,7 +104,7 @@ export const Portfolio: React.FC = () => {
       category: "coding",
       categoryLabel: "Backend REST API",
       image: coding1,
-      year: "2024",
+      year: "2025",
       client: "Vocational Competency Assessment",
       role: "Backend Engineer",
       desc: "Modular backend architecture implementation for an academic university platform featuring PostgreSQL relational database management, robust authentication, and Postman-tested REST APIs.",
@@ -121,7 +119,7 @@ export const Portfolio: React.FC = () => {
       category: "design",
       categoryLabel: "UI/UX & Product Design",
       image: designProject,
-      year: "2023",
+      year: "2025",
       client: "Product Prototype",
       role: "Product Designer",
       desc: "Comprehensive UI/UX design for KosMate: helping boarding house residents manage laundry services, daily catering, monthly rental bills, and personal expense tracking.",
@@ -133,7 +131,7 @@ export const Portfolio: React.FC = () => {
       category: "video",
       categoryLabel: "Videography & Event Cinema",
       image: vidio1,
-      year: "2024",
+      year: "2026",
       client: "SMK Telkom Malang",
       role: "Videographer & Video Editor",
       desc: "Cinematic visual documentation for SMK Telkom Malang's 34th Anniversary concert featuring guest star Vierratale. Dynamic stage camera angles captured using Sony A6400 and gimbal stabilizer.",
@@ -145,7 +143,7 @@ export const Portfolio: React.FC = () => {
       category: "drone",
       categoryLabel: "Aerial Drone Cinematography",
       image: drone4,
-      year: "2024",
+      year: "2026",
       client: "SMK Telkom Malang",
       role: "Drone Pilot",
       desc: "Drone flight above the concert audience to capture spectacular aerial viewpoints of guest star Vierratale's performance under strict flight safety regulations.",
@@ -157,7 +155,7 @@ export const Portfolio: React.FC = () => {
       category: "drone",
       categoryLabel: "Aerial Landscape & Site Survey",
       image: drone1,
-      year: "2023",
+      year: "2025",
       client: "Moklet Investigation",
       role: "Drone Pilot & Cinematographer",
       desc: "Aerial footage surrounding the D.O.T Indonesia Malang office for an industrial creative tech hub geographic survey.",
@@ -169,7 +167,7 @@ export const Portfolio: React.FC = () => {
       category: "video",
       categoryLabel: "Production & Rigging",
       image: drone2,
-      year: "2023",
+      year: "2025",
       client: "D.O.T Indonesia & Event",
       role: "Technical Crew",
       desc: "Technical staging and calibration of cameras, gimbals, drones, and wireless audio monitors for on-site documentary production.",
