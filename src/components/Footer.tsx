@@ -1,4 +1,5 @@
 import React from "react";
+import { APP_ICONS } from "./LogoLoop";
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -9,15 +10,15 @@ export const Footer: React.FC = () => {
     "★ AVERILL KEVINATHA ★ UX/UI DESIGNER ★ CREATIVE DEVELOPER ★ VIDEOGRAPHER ★ DRONE PILOT ★ OPEN FOR COMMISSIONS ★ LET'S TALK ★ ";
 
   const tools = [
-    { name: "Figma", icon: "🎨" },
-    { name: "React", icon: "⚛️" },
-    { name: "TypeScript", icon: "📘" },
-    { name: "Three.js", icon: "🌐" },
-    { name: "Tailwind CSS", icon: "🌊" },
-    { name: "DaVinci Resolve", icon: "🎬" },
-    { name: "Premiere Pro", icon: "🎞️" },
-    { name: "DJI Fly", icon: "🛸" },
-    { name: "VS Code", icon: "💻" },
+    { name: "Figma", icon: APP_ICONS.Figma },
+    { name: "React", icon: APP_ICONS.React },
+    { name: "TypeScript", icon: APP_ICONS.TypeScript },
+    { name: "Three.js", icon: APP_ICONS.ThreeJS },
+    { name: "Tailwind CSS", icon: APP_ICONS.TailwindCSS },
+    { name: "DaVinci Resolve", icon: APP_ICONS.DaVinciResolve },
+    { name: "Premiere Pro", icon: APP_ICONS.PremierePro },
+    { name: "DJI Fly", icon: APP_ICONS.DJI },
+    { name: "VS Code", icon: APP_ICONS.VSCode },
   ];
 
   return (
@@ -33,8 +34,8 @@ export const Footer: React.FC = () => {
       <div className="py-2.5 bg-[#FFD6E0] border-b-2 border-[#14213D] overflow-hidden whitespace-nowrap">
         <div className="inline-flex marquee-content font-mono text-xs font-bold text-[#14213D] gap-8">
           {[...tools, ...tools, ...tools].map((t, i) => (
-            <span key={i} className="inline-flex items-center gap-1.5">
-              <span>{t.icon}</span>
+            <span key={i} className="inline-flex items-center gap-2">
+              <span className="w-4 h-4 flex items-center justify-center shrink-0">{t.icon}</span>
               <span>{t.name}</span>
               <span className="text-[#3A86FF]">/</span>
             </span>
