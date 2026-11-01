@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import drone2 from "../assets/drone2.png";
 import drone3 from "../assets/drone3.png";
 import drone4 from "../assets/drone4.png";
 import vidio1 from "../assets/vidio1.png";
+import dronevidio1 from "../assets/dronevidio1.MP4";
+
+interface StoryClip {
+  title: string;
+  location: string;
+  altitude: string;
+  speed: string;
+  image: string;
+  video?: string;
+  duration: string;
+  desc: string;
+}
 
 export const Stories: React.FC = () => {
-  const [activeClipIndex, setActiveClipIndex] = useState(0);
+  const [activeClipIndex, setActiveClipIndex] = useState(3);
   const [isPlaying, setIsPlaying] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const clips = [
+  const clips: StoryClip[] = [
     {
       title: "Golden Hour Mountain Ascent",
       location: "Highlands & Mountain Ranges",
@@ -43,12 +56,24 @@ export const Stories: React.FC = () => {
       altitude: "Eye-level Gimbal",
       speed: "Dynamic Cut",
       image: vidio1,
+      video: dronevidio1,
       duration: "01:25",
       desc: "Highlight montage of commercial videography with D-Cinelike color grading and high-energy audio rhythm.",
     },
   ];
 
   const currentClip = clips[activeClipIndex];
+
+  // Sync video play/pause with state
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.play().catch(() => {});
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isPlaying, activeClipIndex]);
 
   return (
     <div className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -97,11 +122,26 @@ export const Stories: React.FC = () => {
 
         {/* Center Display / Viewfinder Screen */}
         <div className="relative aspect-video w-full rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-white/25 bg-black flex items-center justify-center group">
-          <img
-            src={currentClip.image}
-            alt={currentClip.title}
-            className="w-full h-full object-cover transition-all duration-700 brightness-95 contrast-105"
-          />
+          {currentClip.video ? (
+            <video
+              key={currentClip.video}
+              ref={videoRef}
+              src={currentClip.video}
+              poster={currentClip.image}
+              className="w-full h-full object-cover transition-all duration-700"
+              autoPlay
+              loop
+              muted
+              playsInline
+              onClick={() => setIsPlaying(!isPlaying)}
+            />
+          ) : (
+            <img
+              src={currentClip.image}
+              alt={currentClip.title}
+              className="w-full h-full object-cover transition-all duration-700 brightness-95 contrast-105"
+            />
+          )}
 
           {/* Viewfinder Crosshair & Grid Overlay */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
@@ -133,7 +173,7 @@ export const Stories: React.FC = () => {
             {/* Play/Pause state */}
             <button
               onClick={() => setIsPlaying(!isPlaying)}
-              className="px-4 py-1.5 bg-[#3A86FF] hover:bg-[#5E9EFF] text-white rounded-full font-mono text-xs font-bold border border-white/40 shadow-sm flex items-center gap-1.5 active:scale-95 transition-all"
+              className="px-4 py-1.5 bg-[#3A86FF] hover:bg-[#5E9EFF] text-white rounded-full font-mono text-xs font-bold border border-white/40 shadow-sm flex items-center gap-1.5 active:scale-95 transition-all cursor-pointer"
             >
               <span>{isPlaying ? "❚❚ PAUSE" : "▶ PLAY"}</span>
             </button>
@@ -155,8 +195,15 @@ export const Stories: React.FC = () => {
                   : "bg-white/10 border-white/20 hover:bg-white/20 text-white/80"
               }`}
             >
-              <div className="font-pixel text-[8px] text-[#FFD6E0] mb-1">
-                REEL #{idx + 1}
+              <div className="flex items-center justify-between mb-1">
+                <span className="font-pixel text-[8px] text-[#FFD6E0]">
+                  REEL #{idx + 1}
+                </span>
+                {clip.video && (
+                  <span className="font-pixel text-[7px] bg-red-600 px-1 py-0.5 rounded text-white font-bold">
+                    VIDEO
+                  </span>
+                )}
               </div>
               <div className="font-serif text-xs sm:text-sm font-bold text-white line-clamp-1">
                 {clip.title}
