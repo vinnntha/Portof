@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from "fram
 import BlurText from "./BlurText";
 import designProjectImg from "../assets/design_project.png";
 import droneProjectImg from "../assets/drone_project.png";
-import videoProjectImg from "../assets/drone3.png";
 import droneMockupImg from "../assets/drone_mockup.png";
 import laptopMockupImg from "../assets/laptop_mockup.png";
 import drone1Img from "../assets/drone1.png";
