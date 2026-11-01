@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Preloader } from "./components/Preloader";
 import { RetroCursor } from "./components/RetroCursor";
