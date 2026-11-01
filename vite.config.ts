@@ -4,7 +4,7 @@
       // https://vitejs.dev/config/
       export default defineConfig({
         plugins: [react()],
-        assetsInclude: ['**/*.glb'],
+        assetsInclude: ['**/*.glb', '**/*.MP4', '**/*.mp4', '**/*.webm', '**/*.MOV', '**/*.mov'],
         server: {
           port: 5173,
           strictPort: true
