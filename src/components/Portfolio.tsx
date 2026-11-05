@@ -394,7 +394,7 @@ export const Portfolio: React.FC = () => {
           {/* Mobile swipe helper controls (slide horizontal ke samping) */}
           <div className="flex sm:hidden items-center gap-1.5">
             <span className="font-mono text-[10px] font-bold text-[#3A86FF] mr-1">
-              👉 Geser
+              Geser
             </span>
             <button
               type="button"
