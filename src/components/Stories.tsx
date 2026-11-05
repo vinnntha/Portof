@@ -5,6 +5,7 @@ import drone3 from "../assets/drone3.png";
 import drone4 from "../assets/drone4.png";
 import vidio1 from "../assets/vidio1.png";
 import dronevidio1 from "../assets/dronevidio1.MP4";
+import dronevidio2 from "../assets/dronevidio2.MP4";
 
 interface StoryClip {
   title: string;
@@ -46,7 +47,8 @@ export const Stories: React.FC = () => {
       location: "Urban Architecture & Skyline",
       altitude: "90m AGL",
       speed: "11 m/s",
-      image: drone4,
+      image: vidio1,
+      video: dronevidio2,
       duration: "00:30",
       desc: "Smooth lateral tracking alongside high-rise architecture with vibration-free multi-axis gimbal stabilization.",
     },

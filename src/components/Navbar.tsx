@@ -5,37 +5,6 @@ export const Navbar: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Calculate scroll progress percentage
-      const totalScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
-      if (totalScroll > 0) {
-        const currentProgress = (window.scrollY / totalScroll) * 100;
-        setScrollProgress(currentProgress);
-      }
-
-      // Check current section
-      const sections = ["hero", "about", "experience", "skills", "portfolio", "stories", "contact"];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const navLinks = [
     { label: "Home", href: "#hero", id: "hero" },
     { label: "About", href: "#about", id: "about" },
@@ -48,14 +17,6 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Top thin blue scroll progress bar */}
-      <div className="fixed top-0 left-0 w-full h-[4px] bg-transparent z-[100]">
-        <div
-          className="h-full bg-gradient-to-r from-[#3A86FF] via-[#BDB2FF] to-[#3A86FF] transition-all duration-75"
-          style={{ width: `${scrollProgress}%` }}
-        />
-      </div>
-
       {/* Floating Pill Navbar */}
       <header className="fixed top-4 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
         <nav className="pointer-events-auto flex items-center justify-between gap-4 px-4 sm:px-6 py-2.5 bg-white/85 backdrop-blur-md border-[2.5px] border-[#14213D] rounded-full shadow-[4px_4px_0px_#14213D] max-w-5xl w-full">
