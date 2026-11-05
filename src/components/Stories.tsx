@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import drone2 from "../assets/drone2.png";
 import drone3 from "../assets/drone3.png";
-import drone4 from "../assets/drone4.png";
 import vidio1 from "../assets/vidio1.png";
 import dronevidio1 from "../assets/dronevidio1.MP4";
 import dronevidio2 from "../assets/dronevidio2.MP4";
