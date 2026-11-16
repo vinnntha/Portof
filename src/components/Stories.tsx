@@ -5,6 +5,7 @@ import drone3 from "../assets/drone3.png";
 import vidio1 from "../assets/vidio1.png";
 import dronevidio1 from "../assets/dronevidio1.MP4";
 import dronevidio2 from "../assets/dronevidio2.MP4";
+import dronevidio3 from "../assets/dronevidio3.MP4";
 
 interface StoryClip {
   title: string;
@@ -38,6 +39,7 @@ export const Stories: React.FC = () => {
       altitude: "65m AGL",
       speed: "9 m/s",
       image: drone3,
+      video: dronevidio3,
       duration: "01:10",
       desc: "Top-down 90° bird's-eye perspective capturing rolling ocean waves and natural coral reef textures.",
     },
