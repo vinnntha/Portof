@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import drone2 from "../assets/drone2.png";
+import drone5 from "../assets/drone5.png";
 import drone3 from "../assets/drone3.png";
 import vidio1 from "../assets/vidio1.png";
 import dronevidio1 from "../assets/dronevidio1.MP4";
@@ -29,7 +29,7 @@ export const Stories: React.FC = () => {
       location: "Highlands & Mountain Ranges",
       altitude: "120m AGL",
       speed: "14 m/s",
-      image: drone2,
+      image: drone5,
       duration: "00:45",
       desc: "Cinematic high-speed capture of dawn light transitions cutting through valley fog.",
     },
