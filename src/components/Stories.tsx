@@ -14,7 +14,6 @@ interface StoryClip {
   speed: string;
   image: string;
   video?: string;
-  duration: string;
   desc: string;
 }
 
@@ -25,13 +24,12 @@ export const Stories: React.FC = () => {
 
   const clips: StoryClip[] = [
     {
-      title: "Golden Hour Mountain Ascent",
-      location: "Highlands & Mountain Ranges",
+      title: "Evening on the Beach",
+      location: "Highlands & Beach",
       altitude: "120m AGL",
       speed: "14 m/s",
       image: drone5,
-      duration: "00:45",
-      desc: "Cinematic high-speed capture of dawn light transitions cutting through valley fog.",
+      desc: "Photo on the beach",
     },
     {
       title: "Coastal Tide & Coral Horizon",
@@ -40,7 +38,6 @@ export const Stories: React.FC = () => {
       speed: "9 m/s",
       image: drone3,
       video: dronevidio3,
-      duration: "01:10",
       desc: "Top-down 90° bird's-eye perspective capturing rolling ocean waves and natural coral reef textures.",
     },
     {
@@ -50,7 +47,6 @@ export const Stories: React.FC = () => {
       speed: "11 m/s",
       image: vidio1,
       video: dronevidio2,
-      duration: "00:30",
       desc: "Smooth lateral tracking alongside high-rise architecture with vibration-free multi-axis gimbal stabilization.",
     },
     {
@@ -60,7 +56,6 @@ export const Stories: React.FC = () => {
       speed: "Dynamic Cut",
       image: vidio1,
       video: dronevidio1,
-      duration: "01:25",
       desc: "Highlight montage of commercial videography with D-Cinelike color grading and high-energy audio rhythm.",
     },
   ];
@@ -146,25 +141,11 @@ export const Stories: React.FC = () => {
             />
           )}
 
-          {/* Viewfinder Crosshair & Grid Overlay */}
-          <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-            {/* Center crosshair */}
-            <div className="w-12 h-12 border-2 border-white/40 rounded-full flex items-center justify-center">
-              <div className="w-1.5 h-1.5 bg-[#3A86FF] rounded-full" />
-            </div>
-            {/* Corner brackets */}
-            <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-white/50" />
-            <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-white/50" />
-            <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-white/50" />
-            <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-white/50" />
-          </div>
+          
 
           {/* Telemetry info HUD box inside screen */}
           <div className="absolute bottom-4 left-4 right-4 flex flex-wrap justify-between items-end gap-2 bg-[#14213D]/80 backdrop-blur-md p-3 sm:p-4 rounded-xl border border-white/20">
             <div>
-              <span className="font-pixel text-[9px] text-[#BDB2FF]">
-                CLIP: {activeClipIndex + 1}/4 // {currentClip.duration}
-              </span>
               <h3 className="font-serif text-lg sm:text-xl font-bold text-white mt-0.5">
                 {currentClip.title}
               </h3>
@@ -210,9 +191,6 @@ export const Stories: React.FC = () => {
               </div>
               <div className="font-serif text-xs sm:text-sm font-bold text-white line-clamp-1">
                 {clip.title}
-              </div>
-              <div className="font-mono text-[10px] text-white/70 mt-1">
-                {clip.duration}
               </div>
             </button>
           ))}
