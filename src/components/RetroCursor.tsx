@@ -50,7 +50,7 @@ export const RetroCursor: React.FC = () => {
 
   return (
     <div
-      className="fixed pointer-events-none z-[9999] transition-transform duration-75 ease-out"
+      className="hidden md:block fixed pointer-events-none z-[9999] transition-transform duration-75 ease-out"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
