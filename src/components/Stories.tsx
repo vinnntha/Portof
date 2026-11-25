@@ -184,7 +184,7 @@ export const Stories: React.FC = () => {
               </button>
             ) : (
               <div className="px-2 py-0.5 sm:px-3 sm:py-1 bg-white/15 text-[#FFD6E0] rounded-full font-mono text-[9px] sm:text-xs font-semibold border border-white/25 flex items-center gap-1 shrink-0">
-                <span>📷 PHOTO</span>
+                <span>PHOTO</span>
               </div>
             )}
           </div>
