@@ -166,7 +166,7 @@ export const Stories: React.FC = () => {
                 {currentClip.title}
               </h3>
               <p className="font-mono text-[10px] sm:text-xs text-white/75 mt-0.5 sm:mt-1 truncate">
-                📍 {currentClip.location} <span className="hidden sm:inline">| Alt: {currentClip.altitude} | Spd: {currentClip.speed}</span>
+                {currentClip.location} <span className="hidden sm:inline"> | Alt: {currentClip.altitude} | Spd: {currentClip.speed}</span>
               </p>
             </div>
 
