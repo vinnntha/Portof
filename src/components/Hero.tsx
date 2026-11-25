@@ -61,7 +61,7 @@ export const Hero: React.FC = () => {
       {/* Heart Sticker */}
       <motion.div
         style={{ y: heartY }}
-        className="absolute bottom-20 left-10 sm:left-24 z-10 animate-float pointer-events-none hidden sm:block"
+        className="absolute bottom-29 left-10 sm:left-24 z-10 animate-float pointer-events-none hidden sm:block"
       >
         <div className="p-2 bg-[#FFD6E0] border-2 border-[#14213D] rounded-2xl shadow-[3px_3px_0px_#14213D] -rotate-12">
           <span className="font-pixel text-base text-[#3A86FF]">♥</span>
