@@ -69,9 +69,9 @@ export const Hero: React.FC = () => {
       </motion.div>
 
       {/* Main Grid Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-6 xl:gap-8 items-center">
         {/* Left Column: Clean Identity, Title, Typewriter & Compact CTAs */}
-        <div className="lg:col-span-7 flex flex-col items-start z-10 w-full">
+        <div className="lg:col-span-6 flex flex-col items-start z-10 w-full">
           {/* Identity Pill */}
           <div className="pill-badge bg-[#BDB2FF]/25 border-[1.5px] sm:border-2 border-[#14213D] py-1 px-2.5 sm:px-3 text-[10px] sm:text-xs mb-3 sm:mb-4 shadow-[1.5px_1.5px_0px_#14213D]">
             <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#3A86FF] shrink-0" />
@@ -135,12 +135,62 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
+        {/* Center Column (Desktop Only): Visual Bridge & Mini Spec Card between Title and Photo */}
+        <div className="hidden lg:flex lg:col-span-2 flex-col items-center justify-center gap-3 z-10 select-none">
+          {/* Dashed Connector Line bridging Title <-> Portrait */}
+          <div className="w-full flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3A86FF] shrink-0" />
+            <div className="flex-1 border-t-2 border-dashed border-[#14213D]/25" />
+            <span className="font-pixel text-[8px] text-[#3A86FF] px-1.5 py-0.5 bg-white border border-[#14213D] rounded-md shadow-[1.5px_1.5px_0px_#14213D]">
+              ✦
+            </span>
+            <div className="flex-1 border-t-2 border-dashed border-[#14213D]/25" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFD6E0] border border-[#14213D] shrink-0" />
+          </div>
+
+          {/* Compact Stack & Availability Card */}
+          <div className="w-full bg-white/95 border-[1.5px] border-[#14213D] rounded-2xl p-2.5 xl:p-3 shadow-[3px_3px_0px_#14213D]">
+            <div className="flex items-center justify-between pb-1.5 mb-2 border-b border-[#14213D]/15">
+              <span className="font-pixel text-[8px] text-[#3A86FF]">STACK</span>
+              <span className="flex items-center gap-1 font-mono text-[9px] font-bold text-emerald-600">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                OPEN
+              </span>
+            </div>
+
+            <ul className="space-y-1.5 font-mono text-[10px] xl:text-[11px] font-bold text-[#14213D]">
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-sm bg-[#3A86FF] shrink-0" />
+                <span className="truncate">React / Next</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-sm bg-[#BDB2FF] border border-[#14213D]/40 shrink-0" />
+                <span className="truncate">TS / Nest.js</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-sm bg-[#FFD6E0] border border-[#14213D]/40 shrink-0" />
+                <span className="truncate">Figma UI/UX</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-sm bg-[#14213D] shrink-0" />
+                <span className="truncate">4K Drone</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Subtle Location Tag */}
+          <div className="px-2.5 py-1 bg-[#FFF4F4] border border-[#14213D]/40 rounded-full font-mono text-[9px] font-bold text-[#14213D]/75 flex items-center gap-1">
+            <span>📍</span>
+            <span>Malang, ID</span>
+          </div>
+        </div>
+
         {/* Right Column: Clean Editorial Retro Portrait Card */}
         <motion.div
           style={{ y: portraitY }}
-          className="lg:col-span-5 flex justify-center lg:justify-end items-center relative mt-2 sm:mt-4 lg:mt-0"
+          className="lg:col-span-4 flex justify-center lg:justify-end items-center relative mt-2 sm:mt-4 lg:mt-0"
         >
-          <div className="relative w-64 sm:w-72 lg:w-[310px] xl:w-[340px] group">
+          <div className="relative w-64 sm:w-72 lg:w-[275px] xl:w-[325px] group">
             {/* Offset Gradient Backdrop Card */}
             <div className="absolute inset-0 translate-x-2.5 translate-y-2.5 sm:translate-x-3 sm:translate-y-3 rounded-2xl sm:rounded-3xl bg-gradient-to-tr from-[#3A86FF] via-[#BDB2FF] to-[#FFD6E0] border-2 border-[#14213D]" />
 
