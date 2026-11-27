@@ -77,141 +77,125 @@
   background: #BDB2FF;
 }
 
-/* Retro UI Module Panel */
-.retro-panel {
-  background-color: #FFFFFF;
-  border: 2.5px solid #14213D;
-  border-radius: 40px;
-  box-shadow: 5px 5px 0px #14213D;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.retro-panel:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 8px 8px 0px #14213D;
-}
-
-.retro-panel-pink {
-  background-color: #FFD6E0;
-  border: 2.5px solid #14213D;
-  border-radius: 40px;
-  box-shadow: 5px 5px 0px #14213D;
-}
-
-.retro-panel-lavender {
-  background-color: #BDB2FF;
-  border: 2.5px solid #14213D;
-  border-radius: 40px;
-  box-shadow: 5px 5px 0px #14213D;
-}
-
-.retro-panel-blue {
-  background-color: #3A86FF;
-  color: #FFFFFF;
-  border: 2.5px solid #14213D;
-  border-radius: 40px;
-  box-shadow: 5px 5px 0px #14213D;
-}
-
-/* Retro Interactive Buttons */
-.retro-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  font-weight: 700;
-  border-radius: 9999px;
-  border: 2px solid #14213D;
-  background-color: #3A86FF;
-  color: #FFFFFF;
-  box-shadow: 3px 3px 0px #14213D;
-  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-  cursor: pointer;
-  user-select: none;
-}
-
-.retro-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px #14213D;
-}
-
-.retro-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px #14213D;
-}
-
-.retro-btn-secondary {
-  background-color: #FFFFFF;
-  color: #14213D;
-}
-
-.retro-btn-lavender {
-  background-color: #BDB2FF;
-  color: #14213D;
-}
-
-.retro-btn-pink {
-  background-color: #FFD6E0;
-  color: #14213D;
-}
-
-/* Pill Label Badge */
-.pill-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.4rem 0.95rem;
-  border-radius: 9999px;
-  border: 1.5px solid #14213D;
-  background-color: #FFFFFF;
-  font-size: 0.75rem;
-  font-weight: 700;
-  box-shadow: 2px 2px 0px #14213D;
-  text-transform: uppercase;
-}
-
-/* Floating animation */
-@keyframes float-gentle {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+@layer components {
+  /* Retro UI Module Panel */
+  .retro-panel {
+    background-color: #FFFFFF;
+    border: 2.5px solid #14213D;
+    border-radius: 40px;
+    box-shadow: 5px 5px 0px #14213D;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  50% {
-    transform: translateY(-8px) rotate(2deg);
+
+  .retro-panel:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0px #14213D;
   }
-}
 
-.animate-float {
-  animation: float-gentle 4s ease-in-out infinite;
-}
+  .retro-panel-pink {
+    background-color: #FFD6E0;
+    border: 2.5px solid #14213D;
+    border-radius: 40px;
+    box-shadow: 5px 5px 0px #14213D;
+  }
 
-.animate-float-delayed {
-  animation: float-gentle 4.5s ease-in-out 1.5s infinite;
-}
+  .retro-panel-lavender {
+    background-color: #BDB2FF;
+    border: 2.5px solid #14213D;
+    border-radius: 40px;
+    box-shadow: 5px 5px 0px #14213D;
+  }
 
-/* Pixel Progress Bar */
-.pixel-bar-track {
-  height: 14px;
-  border: 2px solid #14213D;
-  background-color: #FFFFFF;
-  border-radius: 9999px;
-  padding: 2px;
-  box-shadow: inset 1px 1px 0px rgba(0,0,0,0.1);
-  overflow: hidden;
-}
+  .retro-panel-blue {
+    background-color: #3A86FF;
+    color: #FFFFFF;
+    border: 2.5px solid #14213D;
+    border-radius: 40px;
+    box-shadow: 5px 5px 0px #14213D;
+  }
 
-.pixel-bar-fill {
-  height: 100%;
-  background-color: #3A86FF;
-  border-radius: 9999px;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 6px,
-    rgba(255, 255, 255, 0.35) 6px,
-    rgba(255, 255, 255, 0.35) 12px
-  );
-  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Retro Interactive Buttons */
+  .retro-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    border: 2px solid #14213D;
+    background-color: #3A86FF;
+    color: #FFFFFF;
+    box-shadow: 3px 3px 0px #14213D;
+    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .retro-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px #14213D;
+  }
+
+  .retro-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #14213D;
+  }
+
+  .retro-btn-secondary {
+    background-color: #FFFFFF;
+    color: #14213D;
+  }
+
+  .retro-btn-lavender {
+    background-color: #BDB2FF;
+    color: #14213D;
+  }
+
+  .retro-btn-pink {
+    background-color: #FFD6E0;
+    color: #14213D;
+  }
+
+  /* Pill Label Badge */
+  .pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.95rem;
+    border-radius: 9999px;
+    border: 1.5px solid #14213D;
+    background-color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 2px 2px 0px #14213D;
+    text-transform: uppercase;
+  }
+
+  /* Pixel Progress Bar */
+  .pixel-bar-track {
+    height: 14px;
+    border: 2px solid #14213D;
+    background-color: #FFFFFF;
+    border-radius: 9999px;
+    padding: 2px;
+    box-shadow: inset 1px 1px 0px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+
+  .pixel-bar-fill {
+    height: 100%;
+    background-color: #3A86FF;
+    border-radius: 9999px;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 6px,
+      rgba(255, 255, 255, 0.35) 6px,
+      rgba(255, 255, 255, 0.35) 12px
+    );
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
 
 /* Marquee Animations */
