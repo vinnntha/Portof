@@ -197,6 +197,13 @@ export const Skills: React.FC = () => {
     },
   ];
 
+  const categories = [
+    { id: "all", label: "All Tools", count: skillList.length },
+    { id: "design", label: "UI/UX & Design", count: skillList.filter((s) => s.category === "design").length },
+    { id: "code", label: "Code & Dev", count: skillList.filter((s) => s.category === "code").length },
+    { id: "media", label: "Video & Drone", count: skillList.filter((s) => s.category === "media").length },
+  ] as const;
+
   const filteredSkills =
     filter === "all"
       ? skillList
@@ -210,13 +217,13 @@ export const Skills: React.FC = () => {
   return (
     <div className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Pill */}
-      <div className="flex flex-col items-start mb-8 sm:mb-12">
+      <div className="flex flex-col items-start mb-6 sm:mb-12">
         <div className="pill-badge bg-white border-2 border-[#14213D] mb-3 sm:mb-4">
           <span className="font-pixel text-[10px] text-[#3A86FF]">03 //</span>
           <span className="font-mono text-xs font-bold text-[#14213D]">SOFTWARE SKILLS</span>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between w-full gap-4 sm:gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between w-full gap-4 sm:gap-6">
           <div>
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-black text-[#14213D] tracking-tight">
               Core Tech Stack & Tools.
@@ -226,29 +233,37 @@ export const Skills: React.FC = () => {
             </p>
           </div>
 
-          {/* Filter Pills */}
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
-            {[
-              { id: "all", label: "All Tools" },
-              { id: "design", label: "UI/UX & Design" },
-              { id: "code", label: "Code & Dev" },
-              { id: "media", label: "Video & Drone" },
-            ].map((f) => (
-              <button
-                key={f.id}
-                onClick={() => {
-                  setFilter(f.id as any);
-                  setShowAllMobile(false);
-                }}
-                className={`px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold border-2 border-[#14213D] transition-all cursor-pointer ${
-                  filter === f.id
-                    ? "bg-[#3A86FF] text-white shadow-[2px_2px_0px_#14213D] sm:shadow-[3px_3px_0px_#14213D] -translate-y-0.5"
-                    : "bg-white text-[#14213D] hover:bg-[#FFD6E0]"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
+          {/* Segmented Skill Filter Bar: 2x2 balanced grid on mobile, single pill bar on sm+ */}
+          <div className="w-full sm:w-auto bg-white border-2 border-[#14213D] rounded-2xl sm:rounded-full p-1 sm:p-1.5 shadow-[3px_3px_0px_#14213D] grid grid-cols-2 sm:inline-flex sm:items-center gap-1 shrink-0">
+            {categories.map((f) => {
+              const isActive = filter === f.id;
+              return (
+                <button
+                  key={f.id}
+                  type="button"
+                  onClick={() => {
+                    setFilter(f.id);
+                    setShowAllMobile(false);
+                  }}
+                  className={`px-2.5 sm:px-3.5 py-1.5 rounded-xl sm:rounded-full text-[11px] sm:text-xs font-bold border-[1.5px] transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap ${
+                    isActive
+                      ? "bg-[#3A86FF] text-white border-[#14213D] shadow-[1.5px_1.5px_0px_#14213D]"
+                      : "bg-transparent text-[#14213D]/80 border-transparent hover:bg-[#FFD6E0]/60 hover:text-[#14213D]"
+                  }`}
+                >
+                  <span>{f.label}</span>
+                  <span
+                    className={`px-1.5 py-0.5 rounded-full font-mono text-[9px] leading-none ${
+                      isActive
+                        ? "bg-white/25 text-white"
+                        : "bg-[#14213D]/10 text-[#14213D]/70"
+                    }`}
+                  >
+                    {f.count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -257,11 +272,10 @@ export const Skills: React.FC = () => {
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 md:gap-6">
         {displayedSkills.map((tool, idx) => (
           <motion.div
-            key={idx}
-            initial={{ opacity: 0, scale: 0.94, y: 15 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.35, delay: (idx % 3) * 0.06 }}
+            key={tool.name}
+            initial={{ opacity: 0, scale: 0.95, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: (idx % 3) * 0.04 }}
             className="bg-white border-2 sm:border-[2.5px] border-[#14213D] rounded-2xl sm:rounded-4xl p-3 sm:p-5 md:p-6 shadow-[3px_3px_0px_#14213D] sm:shadow-[5px_5px_0px_#14213D] hover:shadow-[7px_7px_0px_#14213D] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
           >
             <div>
