@@ -48,9 +48,6 @@ export const Footer: React.FC = () => {
         {/* Brand identity */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <div className="flex items-center gap-2 font-serif font-black text-2xl text-[#14213D]">
-            <span className="w-8 h-8 rounded-full bg-[#3A86FF] border-2 border-[#14213D] flex items-center justify-center font-pixel text-xs text-white">
-              AK
-            </span>
             <span>Averill Kevinatha.</span>
           </div>
           <p className="font-mono text-xs text-[#14213D]/70 mt-1">
