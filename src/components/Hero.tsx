@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import heroImg from "../assets/hero_portrait.png";
 
 export const Hero: React.FC = () => {
@@ -39,13 +39,44 @@ export const Hero: React.FC = () => {
   }, [currentText, isDeleting, roleIndex]);
 
   // Parallax scroll transforms for stickers & portrait
+  const heroRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const starY = useTransform(scrollY, [0, 500], [0, -75]);
   const heartY = useTransform(scrollY, [0, 500], [0, -35]);
   const portraitY = useTransform(scrollY, [0, 500], [0, -25]);
 
+  // Interactive mouse parallax for desktop abstract floating elements
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 120, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 120, damping: 20 });
+
+  const floatSlowX = useTransform(springX, [-1, 1], [-10, 10]);
+  const floatSlowY = useTransform(springY, [-1, 1], [-8, 8]);
+  const floatMidX = useTransform(springX, [-1, 1], [-18, 18]);
+  const floatMidY = useTransform(springY, [-1, 1], [-14, 14]);
+  const floatInvX = useTransform(springX, [-1, 1], [14, -14]);
+  const floatInvY = useTransform(springY, [-1, 1], [10, -10]);
+
+  const handleHeroMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+    mouseX.set(nx);
+    mouseY.set(ny);
+  };
+
+  const handleHeroMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
     <div
+      ref={heroRef}
+      onMouseMove={handleHeroMouseMove}
+      onMouseLeave={handleHeroMouseLeave}
       className="relative min-h-[82vh] sm:min-h-[88vh] pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col justify-center"
     >
       {/* Star Sticker (Desktop decoration) */}
@@ -135,54 +166,149 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Center Column (Desktop Only): Visual Bridge & Mini Spec Card between Title and Photo */}
-        <div className="hidden lg:flex lg:col-span-2 flex-col items-center justify-center gap-3 z-10 select-none">
-          {/* Dashed Connector Line bridging Title <-> Portrait */}
-          <div className="w-full flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3A86FF] shrink-0" />
-            <div className="flex-1 border-t-2 border-dashed border-[#14213D]/25" />
-            <span className="font-pixel text-[8px] text-[#3A86FF] px-1.5 py-0.5 bg-white border border-[#14213D] rounded-md shadow-[1.5px_1.5px_0px_#14213D]">
-              ✦
-            </span>
-            <div className="flex-1 border-t-2 border-dashed border-[#14213D]/25" />
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FFD6E0] border border-[#14213D] shrink-0" />
-          </div>
+        {/* Center Zone (Desktop Only): Interactive Abstract Floating Elements between Title and Photo */}
+        <div className="hidden lg:block lg:col-span-2 relative h-[320px] xl:h-[360px] z-20 select-none">
+          {/* Subtle abstract SVG trajectory curve in background */}
+          <svg
+            viewBox="0 0 180 320"
+            className="absolute inset-0 w-full h-full pointer-events-none opacity-30"
+            fill="none"
+          >
+            <path
+              d="M14 76 C 95 45, 70 175, 162 145 C 100 220, 45 245, 148 282"
+              stroke="#14213D"
+              strokeWidth="1.5"
+              strokeDasharray="4 6"
+              strokeLinecap="round"
+            />
+            <circle cx="14" cy="76" r="3" fill="#3A86FF" />
+            <circle cx="162" cy="145" r="3" fill="#BDB2FF" />
+            <circle cx="148" cy="282" r="3" fill="#FFD6E0" stroke="#14213D" strokeWidth="1" />
+          </svg>
 
-          {/* Compact Stack & Availability Card */}
-          <div className="w-full bg-white/95 border-[1.5px] border-[#14213D] rounded-2xl p-2.5 xl:p-3 shadow-[3px_3px_0px_#14213D]">
-            <div className="flex items-center justify-between pb-1.5 mb-2 border-b border-[#14213D]/15">
-              <span className="font-pixel text-[8px] text-[#3A86FF]">STACK</span>
-              <span className="flex items-center gap-1 font-mono text-[9px] font-bold text-emerald-600">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                OPEN
-              </span>
+          {/* 1. Floating Code Pill (Top Left) */}
+          <motion.div
+            style={{ x: floatMidX, y: floatMidY }}
+            className="absolute top-3 -left-3"
+          >
+            <div className="animate-float">
+              <motion.div
+                drag
+                dragSnapToOrigin
+                dragElastic={0.45}
+                whileHover={{ scale: 1.12, rotate: 0 }}
+                whileDrag={{ scale: 1.16 }}
+                title="Drag & release!"
+                className="-rotate-6 px-3 py-1 bg-white border-[1.5px] border-[#14213D] rounded-full shadow-[2.5px_2.5px_0px_#3A86FF] font-mono text-[11px] font-bold text-[#14213D] cursor-grab active:cursor-grabbing flex items-center gap-1.5"
+              >
+                <span className="text-[#3A86FF] font-black">&lt;/&gt;</span>
+                <span>React</span>
+              </motion.div>
             </div>
+          </motion.div>
 
-            <ul className="space-y-1.5 font-mono text-[10px] xl:text-[11px] font-bold text-[#14213D]">
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-sm bg-[#3A86FF] shrink-0" />
-                <span className="truncate">React / Next</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-sm bg-[#BDB2FF] border border-[#14213D]/40 shrink-0" />
-                <span className="truncate">TS / Nest.js</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-sm bg-[#FFD6E0] border border-[#14213D]/40 shrink-0" />
-                <span className="truncate">Figma UI/UX</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-sm bg-[#14213D] shrink-0" />
-                <span className="truncate">4K Drone</span>
-              </li>
-            </ul>
-          </div>
+          {/* 2. Floating Lavender Pixel Star Tile (Top Right) */}
+          <motion.div
+            style={{ x: floatInvX, y: floatInvY }}
+            className="absolute top-9 right-0"
+          >
+            <div className="animate-float-delayed">
+              <motion.div
+                drag
+                dragSnapToOrigin
+                dragElastic={0.45}
+                whileHover={{ scale: 1.15, rotate: 0 }}
+                whileDrag={{ scale: 1.2 }}
+                title="Drag & release!"
+                className="rotate-12 w-9 h-9 bg-[#BDB2FF] border-[1.5px] border-[#14213D] rounded-xl shadow-[2.5px_2.5px_0px_#14213D] flex items-center justify-center font-pixel text-xs text-white cursor-grab active:cursor-grabbing"
+              >
+                ✦
+              </motion.div>
+            </div>
+          </motion.div>
 
-          {/* Subtle Location Tag */}
-          <div className="px-2.5 py-1 bg-[#FFF4F4] border border-[#14213D]/40 rounded-full font-mono text-[9px] font-bold text-[#14213D]/75 flex items-center gap-1">
-            <span>📍</span>
-            <span>Malang, ID</span>
-          </div>
+          {/* 3. Floating Open-to-Work Status Chip (Center) */}
+          <motion.div
+            style={{ x: floatSlowX, y: floatSlowY }}
+            className="absolute top-[37%] left-[12%]"
+          >
+            <div className="animate-float-delayed">
+              <motion.div
+                drag
+                dragSnapToOrigin
+                dragElastic={0.45}
+                whileHover={{ scale: 1.1, rotate: 0 }}
+                whileDrag={{ scale: 1.15 }}
+                title="Drag & release!"
+                className="rotate-3 px-3 py-1.5 bg-[#3A86FF] text-white border-[1.5px] border-[#14213D] rounded-xl shadow-[3px_3px_0px_#14213D] font-mono text-[10px] xl:text-[11px] font-bold cursor-grab active:cursor-grabbing flex items-center gap-1.5 whitespace-nowrap"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse shrink-0" />
+                <span>OPEN WORK</span>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* 4. Floating Aerial Drone Badge (Mid Right) */}
+          <motion.div
+            style={{ x: floatMidX, y: floatInvY }}
+            className="absolute top-[55%] -right-4"
+          >
+            <div className="animate-float">
+              <motion.div
+                drag
+                dragSnapToOrigin
+                dragElastic={0.45}
+                whileHover={{ scale: 1.12, rotate: 0 }}
+                whileDrag={{ scale: 1.16 }}
+                title="Drag & release!"
+                className="-rotate-12 px-2.5 py-1 bg-[#FFD6E0] border-[1.5px] border-[#14213D] rounded-full shadow-[2px_2px_0px_#14213D] font-pixel text-[8px] text-[#14213D] cursor-grab active:cursor-grabbing whitespace-nowrap"
+              >
+                4K DRONE
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* 5. Floating UI/UX Sticker (Bottom Left) */}
+          <motion.div
+            style={{ x: floatInvX, y: floatMidY }}
+            className="absolute bottom-11 left-0"
+          >
+            <div className="animate-float">
+              <motion.div
+                drag
+                dragSnapToOrigin
+                dragElastic={0.45}
+                whileHover={{ scale: 1.12, rotate: 0 }}
+                whileDrag={{ scale: 1.16 }}
+                title="Drag & release!"
+                className="-rotate-3 px-2.5 py-1 bg-white border-[1.5px] border-[#14213D] rounded-xl shadow-[2.5px_2.5px_0px_#BDB2FF] font-mono text-[10px] font-bold text-[#14213D] cursor-grab active:cursor-grabbing flex items-center gap-1.5 whitespace-nowrap"
+              >
+                <span className="flex gap-0.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#3A86FF]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFD6E0]" />
+                </span>
+                <span>UI / UX</span>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* 6. Tiny Floating Geometric Diamond (Bottom Right) */}
+          <motion.div
+            style={{ x: floatSlowX, y: floatInvY }}
+            className="absolute bottom-4 right-5"
+          >
+            <div className="animate-float-delayed">
+              <motion.div
+                drag
+                dragSnapToOrigin
+                dragElastic={0.5}
+                whileHover={{ scale: 1.2, rotate: 90 }}
+                whileDrag={{ scale: 1.25 }}
+                title="Drag & release!"
+                className="rotate-45 w-5 h-5 bg-[#FFD6E0] border-[1.5px] border-[#14213D] rounded-md shadow-[1.5px_1.5px_0px_#14213D] cursor-grab active:cursor-grabbing"
+              />
+            </div>
+          </motion.div>
         </div>
 
         {/* Right Column: Clean Editorial Retro Portrait Card */}
