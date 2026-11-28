@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate } from "framer-motion";
 import { Preloader } from "./components/Preloader";
 import { RetroCursor } from "./components/RetroCursor";
 import { Navbar } from "./components/Navbar";
@@ -12,6 +12,7 @@ import { Stories } from "./components/Stories";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ScrollSection } from "./components/ScrollSection";
+import ParticleBackground from "./components/ParticleBackground";
 
 export default function App() {
   const [preloaderDone, setPreloaderDone] = useState(false);
@@ -23,6 +24,34 @@ export default function App() {
   const bgBlob2Y = useTransform(smoothScrollY, [0, 4000], [0, 420]);
   const bgPixelStar1Y = useTransform(smoothScrollY, [0, 4000], [0, -600]);
   const bgPixelCrossY = useTransform(smoothScrollY, [0, 4000], [0, -300]);
+
+  // Interactive cursor spotlight over base blueprint grid (desktop)
+  const pointerX = useMotionValue(-500);
+  const pointerY = useMotionValue(-500);
+  const spotlightX = useSpring(pointerX, { stiffness: 180, damping: 28 });
+  const spotlightY = useSpring(pointerY, { stiffness: 180, damping: 28 });
+  const spotlightMask = useMotionTemplate`radial-gradient(280px circle at ${spotlightX}px ${spotlightY}px, black 0%, transparent 100%)`;
+  const spotlightGlow = useMotionTemplate`radial-gradient(420px circle at ${spotlightX}px ${spotlightY}px, rgba(58, 134, 255, 0.09), rgba(189, 178, 255, 0.06) 45%, transparent 72%)`;
+
+  useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+
+    const handlePointerMove = (e: MouseEvent) => {
+      pointerX.set(e.clientX);
+      pointerY.set(e.clientY);
+    };
+    const handlePointerLeave = () => {
+      pointerX.set(-500);
+      pointerY.set(-500);
+    };
+
+    window.addEventListener("mousemove", handlePointerMove, { passive: true });
+    document.addEventListener("mouseleave", handlePointerLeave, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handlePointerMove);
+      document.removeEventListener("mouseleave", handlePointerLeave);
+    };
+  }, [pointerX, pointerY]);
 
   return (
     <div className="relative min-h-screen bg-[#FFF4F4] text-[#14213D] selection:bg-[#3A86FF] selection:text-white overflow-x-hidden font-sans">
@@ -37,8 +66,29 @@ export default function App() {
       {/* 3. Floating Navbar & Scroll Progress */}
       <Navbar />
 
-      {/* Multi-layer Ambient Parallax Floating Background Elements */}
+      {/* Interactive Base Background: Geometric Canvas + Blueprint Spotlight + Parallax Glows */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        {/* Cursor-illuminated blueprint grid highlight (desktop) */}
+        <motion.div
+          className="hidden md:block absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(58, 134, 255, 0.16) 1px, transparent 1px), linear-gradient(to bottom, rgba(58, 134, 255, 0.16) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+            WebkitMaskImage: spotlightMask,
+            maskImage: spotlightMask,
+          }}
+        />
+
+        {/* Soft pastel cursor ambient aura (desktop) */}
+        <motion.div
+          className="hidden md:block absolute inset-0"
+          style={{ background: spotlightGlow }}
+        />
+
+        {/* Interactive Floating Geometric Canvas & Click Ripples */}
+        <ParticleBackground />
+
         {/* Soft pastel ambient glow 1 (top-right drifting) */}
         <motion.div
           style={{ y: bgBlob1Y }}
